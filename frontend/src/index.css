@@ -1,0 +1,570 @@
+:root {
+  --pink: #ffd1e8;
+  --peach: #ffdab3;
+  --lavender: #cdb8ec;
+  --mint: #b8ecd6;
+  --butter: #fff3b0;
+  --ink: #4a2e4a;
+  --ink-soft: #6a4a6a;
+  --window-bg: #fffbfd;
+  --accent: #ff8fc0;
+  --shadow: 4px 4px 0 var(--ink);
+
+  /* Readability tuning: Press Start 2P stays for headers/labels/UI chrome,
+     VT323 (a readable pixel-style monospace) carries all body copy. */
+  --font-display: 'Press Start 2P', monospace;
+  --font-body: 'VT323', monospace;
+  --body-size: 19px;
+  --body-line: 1.65;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="%234a2e4a"><rect x="4" y="2" width="2" height="2"/><rect x="4" y="4" width="2" height="2"/><rect x="6" y="4" width="2" height="2"/><rect x="4" y="6" width="2" height="2"/><rect x="6" y="6" width="2" height="2"/><rect x="8" y="6" width="2" height="2"/><rect x="4" y="8" width="2" height="2"/><rect x="6" y="8" width="2" height="2"/><rect x="8" y="8" width="2" height="2"/><rect x="10" y="8" width="2" height="2"/><rect x="4" y="10" width="2" height="2"/><rect x="6" y="10" width="2" height="2"/><rect x="8" y="10" width="2" height="2"/><rect x="10" y="10" width="2" height="2"/><rect x="12" y="10" width="2" height="2"/><rect x="4" y="12" width="2" height="2"/><rect x="6" y="12" width="2" height="2"/><rect x="8" y="12" width="2" height="2"/><rect x="4" y="14" width="2" height="2"/><rect x="8" y="14" width="2" height="2"/><rect x="10" y="14" width="2" height="2"/><rect x="10" y="16" width="2" height="2"/><rect x="12" y="16" width="2" height="2"/></g><g fill="%23ff8fc0"><rect x="6" y="6" width="2" height="2"/><rect x="6" y="8" width="2" height="2"/><rect x="8" y="8" width="2" height="2"/><rect x="6" y="10" width="2" height="2"/><rect x="8" y="10" width="2" height="2"/></g></svg>')
+      4 2,
+    auto;
+}
+
+.pixel-font {
+  font-family: var(--font-display);
+}
+
+/* ============ DESKTOP ============ */
+#desktop {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--pink) 0%, var(--peach) 45%, var(--lavender) 100%);
+}
+
+#desktop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+/* ============ MENU BAR ============ */
+.menubar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: repeating-linear-gradient(180deg, #ffffff 0 2px, #fdeef7 2px 4px);
+  border-bottom: 3px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  z-index: 500;
+  box-shadow: 0 3px 0 rgba(74, 46, 74, 0.15);
+}
+.menubar-side {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.menubar-logo {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.menubar-face {
+  width: 16px;
+  height: 16px;
+}
+.menu-item {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
+  opacity: 0.75;
+}
+.menu-item--name {
+  font-family: var(--font-display);
+  font-size: 10px;
+  opacity: 1;
+}
+.menubar-clock {
+  font-size: 11px;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--ink);
+  padding: 4px 7px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* ============ CLOUDS ============ */
+.cloud-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.cloud {
+  position: absolute;
+  left: -140px;
+}
+.cloud svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+@keyframes drift {
+  from {
+    transform: translateX(-140px);
+  }
+  to {
+    transform: translateX(110vw);
+  }
+}
+
+/* ============ STICKY NOTE ============ */
+.sticky-note {
+  position: absolute;
+  top: 76px;
+  right: 36px;
+  width: 190px;
+  background: var(--butter);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 16px 14px 18px;
+  transform: rotate(4deg);
+  z-index: 60;
+  transition: transform 0.15s ease;
+}
+.sticky-note:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+.sticky-pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+.sticky-note p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.sticky-sign {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+/* ============ DESKTOP ICONS ============ */
+.icons {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(1, 80px);
+  gap: 8px;
+}
+.icon {
+  width: 80px;
+  padding: 8px 4px;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  cursor: inherit;
+  user-select: none;
+}
+.icon .icon-img {
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(2px 2px 0 rgba(74, 46, 74, 0.35));
+}
+.icon span {
+  font-family: var(--font-display);
+  font-size: 8px;
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.6;
+  padding: 2px 3px;
+}
+.icon--selected span {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.icon--selected .icon-img {
+  transform: scale(1.08);
+}
+
+/* ============ TRASH CAN ============ */
+#trash {
+  position: absolute;
+  bottom: 100px;
+  right: 24px;
+  z-index: 30;
+  width: 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: none;
+  cursor: inherit;
+}
+#trash .icon-img {
+  width: 42px;
+  height: 42px;
+}
+#trash span {
+  font-family: var(--font-display);
+  font-size: 8px;
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.5;
+}
+#trash:hover .icon-img {
+  animation: shake 0.4s infinite;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+}
+
+/* ============ GIRL ============ */
+.girl {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 112px;
+  height: 168px;
+  z-index: 25;
+  pointer-events: none;
+  animation: bob 2.6s ease-in-out infinite;
+}
+.girl svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(3px 4px 0 rgba(74, 46, 74, 0.35));
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
+/* ============ DOCK ============ */
+.dock {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 9px 16px;
+  z-index: 400;
+  backdrop-filter: blur(2px);
+}
+.dock-item {
+  width: 44px;
+  height: 44px;
+  cursor: inherit;
+  transition: transform 0.12s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dock-item:hover {
+  transform: translateY(-8px) scale(1.15);
+}
+
+/* ============ WINDOWS ============ */
+.windows-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+.win {
+  position: absolute;
+  min-width: 300px;
+  min-height: 200px;
+  background: var(--window-bg);
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(74, 46, 74, 0.5);
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+}
+.titlebar {
+  height: 32px;
+  background: repeating-linear-gradient(90deg, var(--mint) 0 8px, #cdf3e5 8px 16px);
+  border-bottom: 3px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 9px;
+  cursor: grab;
+  user-select: none;
+}
+.titlebar:active {
+  cursor: grabbing;
+}
+.tl-title {
+  font-size: 9px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.ttico {
+  width: 15px;
+  height: 15px;
+}
+.tl-buttons {
+  display: flex;
+  gap: 7px;
+}
+.tlbtn {
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--ink);
+  cursor: inherit;
+}
+.tlbtn--close {
+  background: #ff9d9d;
+}
+.tlbtn--min {
+  background: #ffe08a;
+}
+.tlbtn--max {
+  background: #a6e3a1;
+}
+
+/* Content: this is the readability-focused area — generous size,
+   comfortable line length and line-height, clear heading hierarchy. */
+.content {
+  flex: 1;
+  overflow: auto;
+  padding: 20px 24px;
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  color: var(--ink);
+  max-width: 66ch;
+}
+.content h2 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+.content h3 {
+  font-family: var(--font-display);
+  font-size: 10px;
+  line-height: 1.7;
+  margin: 18px 0 10px;
+  color: var(--ink);
+}
+.content p {
+  margin: 0 0 12px;
+}
+.content ul {
+  margin: 0 0 12px;
+  padding-left: 22px;
+}
+.content li {
+  margin-bottom: 4px;
+}
+.content .tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 8px;
+  background: var(--pink);
+  border: 2px solid var(--ink);
+  padding: 4px 7px;
+  margin: 0 6px 8px 0;
+}
+.content a.btn,
+.content button.btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 9px;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--butter);
+  border: 2px solid var(--ink);
+  padding: 10px 12px;
+  box-shadow: 3px 3px 0 var(--ink);
+  margin-top: 8px;
+  cursor: inherit;
+}
+.content a.btn:hover,
+.content button.btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.resize-handle {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: 0;
+  bottom: 0;
+  cursor: nwse-resize;
+  background: repeating-linear-gradient(135deg, var(--ink) 0 2px, transparent 2px 4px);
+}
+
+/* ============ CONTACT FORM ============ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+.contact-form label {
+  font-family: var(--font-display);
+  font-size: 8px;
+  margin: 12px 0 6px;
+  color: var(--ink);
+}
+.contact-form input,
+.contact-form textarea {
+  font-family: var(--font-body);
+  font-size: 18px;
+  padding: 8px 10px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  resize: vertical;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 1px;
+}
+.form-error {
+  color: #c23b3b;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.form-hint {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin-top: 14px;
+}
+
+/* ============ BOOT SCREEN ============ */
+.boot {
+  position: fixed;
+  inset: 0;
+  background: #1b1024;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  color: #f6dfff;
+  transition: opacity 0.6s ease;
+}
+.boot-logo {
+  width: 64px;
+  height: 64px;
+}
+.boot-text {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-align: center;
+  line-height: 2.4;
+}
+.boot-barwrap {
+  width: 270px;
+  height: 18px;
+  border: 3px solid #f6dfff;
+  padding: 2px;
+}
+.boot-bar {
+  height: 100%;
+  width: 0%;
+  background: repeating-linear-gradient(90deg, #ff8fc0 0 6px, #cdb8ec 6px 12px);
+  transition: width 0.15s linear;
+}
+.boot-blink {
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.boot-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+::-webkit-scrollbar-track {
+  background: #fbe9f4;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border: 2px solid #fbe9f4;
+}
+
+@media (max-width: 760px) {
+  .icons {
+    grid-template-columns: repeat(1, 68px);
+  }
+  .sticky-note,
+  .girl {
+    display: none;
+  }
+}
