@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import PixelIcon from './PixelIcon';
 
-export default function DesktopIcons({ projects, onOpen }) {
+// Renders the desktop icon grid. On tablet/mobile this switches to a
+// centered multi-column grid (via the `icons--compact` class) instead
+// of the single left-hand column used on desktop.
+export default function DesktopIcons({ projects, onOpen, isMobile, isTablet }) {
   const [selectedId, setSelectedId] = useState(null);
+  const compact = isMobile || isTablet;
 
   return (
-    <div className="icons">
+    <div className={`icons${compact ? ' icons--compact' : ''}`}>
       {projects.map((p) => (
         <button
           key={p.id}

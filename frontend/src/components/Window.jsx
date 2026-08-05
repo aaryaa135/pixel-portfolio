@@ -3,16 +3,17 @@ import PixelIcon from './PixelIcon';
 import ContactForm from './ContactForm';
 
 // A single draggable / resizable / stackable macOS-style window.
-// Dragging + resizing are done with plain mouse events and local
-// state, so each window is independent of the others.
-export default function Window({ win, index, onFocus, onClose, onMinimize, sfx }) {
+// On mobile it renders as a full-screen panel instead — dragging
+// and free resizing don't work well with touch, so those handlers
+// are skipped entirely rather than just hidden visually.
+export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, isMobile }) {
   const { project, z, minimized } = win;
 
   const [pos, setPos] = useState(() => ({
-    left: 120 + index * 26,
-    top: 70 + index * 26,
+    left: 140 + index * 28,
+    top: 74 + index * 28,
   }));
-  const [size, setSize] = useState({ width: 380, height: 380 });
+  const [size, setSize] = useState({ width: 560, height: 440 });
   const [maximized, setMaximized] = useState(false);
   const prevRect = useRef(null);
 
@@ -21,6 +22,7 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx }
 
   const startDrag = useCallback(
     (e) => {
+      if (isMobile) return;
       if (e.target.closest('.tlbtn')) return;
       onFocus(project.id);
       dragRef.current = { dx: e.clientX - pos.left, dy: e.clientY - pos.top };
@@ -29,7 +31,7 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx }
         if (!dragRef.current) return;
         setPos({
           left: Math.max(0, ev.clientX - dragRef.current.dx),
-          top: Math.max(34, ev.clientY - dragRef.current.dy),
+          top: Math.max(40, ev.clientY - dragRef.current.dy),
         });
       };
       const onUp = () => {
@@ -40,11 +42,12 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx }
       window.addEventListener('mousemove', onMove);
       window.addEventListener('mouseup', onUp);
     },
-    [onFocus, project.id, pos.left, pos.top]
+    [isMobile, onFocus, project.id, pos.left, pos.top]
   );
 
   const startResize = useCallback(
     (e) => {
+      if (isMobile) return;
       e.stopPropagation();
       onFocus(project.id);
       resizeRef.current = { sx: e.clientX, sy: e.clientY, w: size.width, h: size.height };
@@ -52,8 +55,8 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx }
       const onMove = (ev) => {
         if (!resizeRef.current) return;
         setSize({
-          width: Math.max(280, resizeRef.current.w + (ev.clientX - resizeRef.current.sx)),
-          height: Math.max(180, resizeRef.current.h + (ev.clientY - resizeRef.current.sy)),
+          width: Math.max(320, resizeRef.current.w + (ev.clientX - resizeRef.current.sx)),
+          height: Math.max(220, resizeRef.current.h + (ev.clientY - resizeRef.current.sy)),
         });
       };
       const onUp = () => {
@@ -64,14 +67,15 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx }
       window.addEventListener('mousemove', onMove);
       window.addEventListener('mouseup', onUp);
     },
-    [onFocus, project.id, size.width, size.height]
+    [isMobile, onFocus, project.id, size.width, size.height]
   );
 
   const toggleMaximize = () => {
+    if (isMobile) return;
     sfx.click();
     if (!maximized) {
       prevRect.current = { ...pos, ...size };
-      setPos({ left: 24, top: 46 });
+      setPos({ left: 24, top: 50 });
       setSize({ width: window.innerWidth - 48, height: window.innerHeight - 150 });
     } else if (prevRect.current) {
       setPos({ left: prevRect.current.left, top: prevRect.current.top });
@@ -82,27 +86,35 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx }
 
   if (minimized) return null;
 
+  const style = isMobile
+    ? { left: 0, top: 40, right: 0, bottom: 0, width: 'auto', height: 'auto', zIndex: z }
+    : { left: pos.left, top: pos.top, width: size.width, height: size.height, zIndex: z };
+
   return (
     <div
-      className="win"
-      style={{ left: pos.left, top: pos.top, width: size.width, height: size.height, zIndex: z }}
+      className={`win${isMobile ? ' win--mobile' : ''}`}
+      style={style}
       onMouseDown={() => onFocus(project.id)}
     >
-      <div className="titlebar" onMouseDown={startDrag}>
+      <div className="titlebar" onMouseDown={startDrag} style={{ cursor: isMobile ? 'default' : 'grab' }}>
         <div className="tl-title pixel-font">
           <PixelIcon name={project.icon} className="ttico" />
           {project.title}
         </div>
         <div className="tl-buttons">
-          <div
-            className="tlbtn tlbtn--min"
-            title="Minimize"
-            onClick={() => {
-              sfx.click();
-              onMinimize(project.id);
-            }}
-          />
-          <div className="tlbtn tlbtn--max" title="Maximize" onClick={toggleMaximize} />
+          {!isMobile && (
+            <>
+              <div
+                className="tlbtn tlbtn--min"
+                title="Minimize"
+                onClick={() => {
+                  sfx.click();
+                  onMinimize(project.id);
+                }}
+              />
+              <div className="tlbtn tlbtn--max" title="Maximize" onClick={toggleMaximize} />
+            </>
+          )}
           <div
             className="tlbtn tlbtn--close"
             title="Close"
@@ -110,7 +122,9 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx }
               sfx.close();
               onClose(project.id);
             }}
-          />
+          >
+            {isMobile ? '✕' : ''}
+          </div>
         </div>
       </div>
 
@@ -118,14 +132,11 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx }
         {project.id === 'proj-contact' ? (
           <ContactForm />
         ) : (
-          // Project descriptions come from the backend/fallback data as
-          // simple HTML strings (headings, tags, links) — safe here since
-          // it's all content we author ourselves, not user input.
           <div dangerouslySetInnerHTML={{ __html: project.body }} />
         )}
       </div>
 
-      <div className="resize-handle" onMouseDown={startResize} />
+      {!isMobile && <div className="resize-handle" onMouseDown={startResize} />}
     </div>
   );
 }

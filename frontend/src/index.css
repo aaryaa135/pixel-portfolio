@@ -6,12 +6,11 @@
   --butter: #fff3b0;
   --ink: #4a2e4a;
   --ink-soft: #6a4a6a;
+  --ink-muted: #8a6a8a;
   --window-bg: #fffbfd;
   --accent: #ff8fc0;
   --shadow: 4px 4px 0 var(--ink);
 
-  /* Readability tuning: Press Start 2P stays for headers/labels/UI chrome,
-     VT323 (a readable pixel-style monospace) carries all body copy. */
   --font-display: 'Press Start 2P', monospace;
   --font-body: 'VT323', monospace;
   --body-size: 19px;
@@ -49,17 +48,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(160deg, var(--pink) 0%, var(--peach) 45%, var(--lavender) 100%);
-}
-
-#desktop::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.35;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px);
-  background-size: 6px 6px;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--peach) 55%, var(--lavender) 100%);
 }
 
 /* ============ MENU BAR ============ */
@@ -68,20 +57,21 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 36px;
-  background: repeating-linear-gradient(180deg, #ffffff 0 2px, #fdeef7 2px 4px);
+  height: 40px;
+  background: #fdf6fa;
   border-bottom: 3px solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 12px;
-  z-index: 500;
-  box-shadow: 0 3px 0 rgba(74, 46, 74, 0.15);
+  padding: 0 14px;
+  z-index: 600;
+  box-shadow: 0 3px 0 rgba(74, 46, 74, 0.12);
 }
 .menubar-side {
   display: flex;
   align-items: center;
   gap: 18px;
+  height: 100%;
 }
 .menubar-logo {
   font-size: 11px;
@@ -90,29 +80,121 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
 }
 .menubar-face {
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
 }
-.menu-item {
-  font-family: var(--font-body);
+.menubar-subtitle {
   font-size: 15px;
-  color: var(--ink);
-  opacity: 0.75;
+  color: var(--ink-muted);
+  white-space: nowrap;
 }
-.menu-item--name {
-  font-family: var(--font-display);
-  font-size: 10px;
-  opacity: 1;
+.menubar-divider {
+  width: 2px;
+  height: 18px;
+  background: var(--ink);
+  opacity: 0.2;
+}
+.menubar-status {
+  font-size: 16px;
+  line-height: 1;
 }
 .menubar-clock {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--ink);
   background: #fff;
   border: 2px solid var(--ink);
-  padding: 4px 7px;
+  padding: 5px 8px;
   box-shadow: 2px 2px 0 var(--ink);
+  white-space: nowrap;
+}
+
+/* ---- functional nav dropdowns ---- */
+.nav-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.nav-trigger {
+  font-size: 16px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 6px 4px;
+  border-bottom: 2px solid transparent;
+  user-select: none;
+}
+.nav-trigger:hover {
+  color: var(--ink-soft);
+}
+.nav-trigger--active {
+  border-bottom-color: var(--accent);
+}
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: -4px;
+  margin-top: 10px;
+  background: var(--window-bg);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 0 10px 24px rgba(74, 46, 74, 0.25);
+  min-width: 180px;
+  padding: 6px;
+  z-index: 700;
+}
+.nav-dropdown--right {
+  left: auto;
+  right: -4px;
+}
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 14px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 8px solid var(--ink);
+}
+.nav-dropdown::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 15px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 7px solid var(--window-bg);
+}
+.nav-dropdown--right::before {
+  left: auto;
+  right: 14px;
+}
+.nav-dropdown--right::after {
+  left: auto;
+  right: 15px;
+}
+.nav-row {
+  padding: 10px 12px;
+  font-size: 16px;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.nav-row:hover {
+  background: #ffe8f3;
+}
+.hamburger {
+  font-size: 20px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 2px 4px;
 }
 
 /* ============ CLOUDS ============ */
@@ -143,7 +225,7 @@ body {
 /* ============ STICKY NOTE ============ */
 .sticky-note {
   position: absolute;
-  top: 76px;
+  top: 82px;
   right: 36px;
   width: 190px;
   background: var(--butter);
@@ -185,33 +267,43 @@ body {
 /* ============ DESKTOP ICONS ============ */
 .icons {
   position: absolute;
-  top: 50px;
-  left: 20px;
+  top: 62px;
+  left: 22px;
   z-index: 20;
   display: grid;
-  grid-template-columns: repeat(1, 80px);
-  gap: 8px;
+  grid-template-columns: repeat(1, 100px);
+  gap: 22px;
+}
+.icons--compact {
+  left: 50%;
+  transform: translateX(-50%);
+  grid-template-columns: repeat(2, 92px);
+  justify-items: center;
 }
 .icon {
-  width: 80px;
+  width: 100px;
   padding: 8px 4px;
   background: transparent;
   border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   cursor: inherit;
   user-select: none;
 }
 .icon .icon-img {
-  width: 38px;
-  height: 38px;
+  width: 56px;
+  height: 56px;
   filter: drop-shadow(2px 2px 0 rgba(74, 46, 74, 0.35));
+  transition: transform 0.1s;
+}
+.icon:hover .icon-img {
+  transform: translateY(-2px);
 }
 .icon span {
   font-family: var(--font-display);
-  font-size: 8px;
+  font-size: 9px;
   color: var(--ink);
   text-align: center;
   line-height: 1.6;
@@ -242,8 +334,8 @@ body {
   cursor: inherit;
 }
 #trash .icon-img {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
 }
 #trash span {
   font-family: var(--font-display);
@@ -310,10 +402,13 @@ body {
   padding: 9px 16px;
   z-index: 400;
   backdrop-filter: blur(2px);
+  max-width: 92vw;
+  overflow-x: auto;
 }
 .dock-item {
   width: 44px;
   height: 44px;
+  flex-shrink: 0;
   cursor: inherit;
   transition: transform 0.12s;
   display: flex;
@@ -342,6 +437,15 @@ body {
   flex-direction: column;
   pointer-events: auto;
 }
+.win--mobile {
+  position: fixed;
+  min-width: 0;
+  min-height: 0;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  box-shadow: none;
+}
 .titlebar {
   height: 32px;
   background: repeating-linear-gradient(90deg, var(--mint) 0 8px, #cdf3e5 8px 16px);
@@ -350,8 +454,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 9px;
-  cursor: grab;
   user-select: none;
+  flex-shrink: 0;
 }
 .titlebar:active {
   cursor: grabbing;
@@ -376,6 +480,12 @@ body {
   height: 15px;
   border: 2px solid var(--ink);
   cursor: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  line-height: 1;
+  color: var(--ink);
 }
 .tlbtn--close {
   background: #ff9d9d;
@@ -387,8 +497,6 @@ body {
   background: #a6e3a1;
 }
 
-/* Content: this is the readability-focused area — generous size,
-   comfortable line length and line-height, clear heading hierarchy. */
 .content {
   flex: 1;
   overflow: auto;
@@ -559,12 +667,23 @@ body {
   border: 2px solid #fbe9f4;
 }
 
-@media (max-width: 760px) {
-  .icons {
-    grid-template-columns: repeat(1, 68px);
+/* ============ RESPONSIVE FALLBACKS ============ */
+/* App.jsx / MenuBar.jsx / DesktopIcons.jsx drive most responsive
+   behavior with JS (useViewport) since windows need real behavior
+   changes, not just style changes. These queries are a CSS-only
+   backstop for the same breakpoints. */
+@media (max-width: 1023px) {
+  .sticky-note {
+    top: 70px;
+    width: 160px;
   }
-  .sticky-note,
-  .girl {
+}
+@media (max-width: 639px) {
+  .menubar {
+    padding: 0 10px;
+  }
+  .menubar-subtitle,
+  .menubar-divider {
     display: none;
   }
 }

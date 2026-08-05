@@ -92,7 +92,7 @@ This updates existing rows (matched by `slug`) rather than duplicating
 them, so it's safe to re-run any time.
 
 Each project needs:
-- `slug` — unique id, e.g. `'proj-code'`
+- `slug` — unique id, e.g. `'proj-projects'` (current set: `proj-about`, `proj-projects`, `proj-game`, `proj-resume`, `proj-contact`)
 - `label` — text under the desktop icon
 - `icon` — one of: `code`, `palette`, `joystick`, `notebook`, `camera`,
   `cassette`, `idcard`, `scroll`, `mail` (see `frontend/src/data/icons.js`

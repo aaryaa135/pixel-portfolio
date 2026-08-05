@@ -10,20 +10,21 @@ import Dock from './components/Dock';
 import Window from './components/Window';
 import useSound from './hooks/useSound';
 import useWindows from './hooks/useWindows';
+import useViewport from './hooks/useViewport';
 import { fetchProjects } from './api';
 import fallbackProjects, { REJECTED } from './data/projects';
 
-const YOUR_NAME = 'AVA CHEN';
+const YOUR_NAME = 'AARYA GUPTA';
+const YOUR_TITLE = 'Software Engineer';
 const TAGLINE = 'i build cute things that also ship on time. ✿';
 
 export default function App() {
   const [booted, setBooted] = useState(false);
   const [projects, setProjects] = useState(fallbackProjects);
   const sfx = useSound();
-  const { windows, open, close, focus, minimize } = useWindows();
+  const { windows, open, close, focus, minimize, closeAll } = useWindows();
+  const { isMobile, isTablet } = useViewport();
 
-  // Try loading projects from the backend; silently keep the local
-  // fallback data if the API isn't running (e.g. during frontend-only dev).
   useEffect(() => {
     fetchProjects()
       .then((data) => {
@@ -41,13 +42,10 @@ export default function App() {
 
   const findProject = (id) => projects.find((p) => p.id === id);
 
-  const dockItems = [
-    { icon: 'house', label: 'Desktop', action: () => windows.forEach((w) => minimize(w.id)) },
-    { icon: 'idcard', label: 'About', action: () => openProject(findProject('proj-about')) },
-    { icon: 'code', label: 'Projects', action: () => openProject(findProject('proj-code')) },
-    { icon: 'scroll', label: 'Resume', action: () => openProject(findProject('proj-resume')) },
-    { icon: 'mail', label: 'Contact', action: () => openProject(findProject('proj-contact')) },
-  ];
+  const dockItems = projects
+    .filter((p) => p.id !== 'proj-about')
+    .map((p) => ({ icon: p.icon, label: p.label, action: () => openProject(p) }));
+  dockItems.unshift({ icon: 'idcard', label: 'About', action: () => openProject(findProject('proj-about')) });
 
   return (
     <>
@@ -61,25 +59,44 @@ export default function App() {
       )}
 
       <div id="desktop">
-        <MenuBar name={YOUR_NAME} />
-        <Clouds />
-        <StickyNote tagline={TAGLINE} signature="ava" />
-
-        <DesktopIcons projects={projects} onOpen={openProject} />
-
-        <TrashCan
-          onOpen={() => {
-            sfx.trash();
-            open(REJECTED);
-          }}
+        <MenuBar
+          name={YOUR_NAME}
+          title={YOUR_TITLE}
+          projects={projects}
+          onOpen={openProject}
+          onCloseAll={closeAll}
+          isMobile={isMobile}
         />
 
-        <Girl />
-        <Dock items={dockItems} />
+        {!isMobile && <Clouds />}
+        {!isMobile && <StickyNote tagline={TAGLINE} signature="aarya" />}
+
+        <DesktopIcons projects={projects} onOpen={openProject} isMobile={isMobile} isTablet={isTablet} />
+
+        {!isMobile && (
+          <TrashCan
+            onOpen={() => {
+              sfx.trash();
+              open(REJECTED);
+            }}
+          />
+        )}
+
+        {!isMobile && !isTablet && <Girl />}
+        {!isMobile && <Dock items={dockItems} />}
 
         <div className="windows-layer">
           {windows.map((w, i) => (
-            <Window key={w.id} win={w} index={i} onFocus={focus} onClose={close} onMinimize={minimize} sfx={sfx} />
+            <Window
+              key={w.id}
+              win={w}
+              index={i}
+              onFocus={focus}
+              onClose={close}
+              onMinimize={minimize}
+              sfx={sfx}
+              isMobile={isMobile}
+            />
           ))}
         </div>
       </div>
