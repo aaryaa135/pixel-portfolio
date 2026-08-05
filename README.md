@@ -1,25 +1,21 @@
-# /etc/developer.conf
+# Aarya Gupta
 
-```yaml
-developer:
-  name: Aarya Gupta
-  role: Software Engineer
-
-kernel:
-  philosophy:
-    - Think in systems
-    - Build with intent
-    - Optimize relentlessly
-    - Ship with confidence
-
-specialization:
-  - Backend Engineering
-  - Artificial Intelligence
-  - Full-Stack Development
-
-status:
-  current: Building products that solve real problems.
-  next: Engineering systems that scale.
+```cpp
+class Engineer {
+public:
+    string focus = "Backend • AI • Full Stack";
+    string philosophy = "Build reliable software that solves real problems.";
+};
 ```
 
-> *"Great software isn't just written—it's architected."*
+### Interests
+
+- Backend Engineering
+- Artificial Intelligence
+- System Design
+- Scalable Web Applications
+- Open Source
+
+### Currently
+
+Building products, exploring new technologies, and always looking for interesting engineering challenges.
