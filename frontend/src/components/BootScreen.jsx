@@ -26,9 +26,9 @@ export default function BootScreen({ onDone }) {
     <div className={`boot${hiding ? ' boot-hide' : ''}`}>
       <PixelIcon name="star" className="boot-logo" />
       <div className="boot-text">
-        PIXEL-OS&nbsp; v1.0
+        AARYA-OS v1.0&nbsp; v1.0
         <br />
-        LOADING PORTFOLIO<span className="boot-blink">_</span>
+        INITIALIZING DEVELOPER ENVIRONMENT...<span className="boot-blink">_</span>
       </div>
       <div className="boot-barwrap">
         <div className="boot-bar" style={{ width: `${pct}%` }} />
