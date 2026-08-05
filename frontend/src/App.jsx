@@ -16,7 +16,7 @@ import fallbackProjects, { REJECTED } from './data/projects';
 
 const YOUR_NAME = 'AARYA GUPTA';
 const YOUR_TITLE = 'Software Engineer';
-const TAGLINE = 'i build cute things that also ship on time. ✿';
+const TAGLINE = 'git commit -m "it works now" ✿';
 const GITHUB_URL = 'https://github.com/aaryaa135/pixel-portfolio';
 
 export default function App() {
