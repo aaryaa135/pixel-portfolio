@@ -16,20 +16,28 @@ const projects = [
     label: 'About Me',
     title: 'About Aarya',
     body: `<h2>HI, I'M AARYA</h2>
-    <p>I'm a Computer Science student and software engineer who enjoys building reliable, user-focused products.</p>
-    <p>My interests lie in backend engineering, full-stack development, and AI-powered applications. I enjoy designing scalable systems, building clean APIs, and creating software that solves real-world problems.</p>
-    <p>Over the past few years, I've worked on web applications, machine learning projects, and developer tools, always focusing on writing maintainable code and continuously improving my skills.</p>
+    <p>I'm a Computer Science student and software engineer with a strong interest in backend engineering, AI, and building systems that scale.</p>
+    <p>I enjoy turning ideas into production-ready software—from secure authentication platforms and intelligent computer vision models to reliable APIs and automation tools.</p>
+    <p>My approach is simple: write maintainable code, design clean architectures, and build software that's meant to last.</p>
     <h3>Engineering Kernel</h3>
-    <div class="tag">Systems over scripts.</div><div class="tag">Architecture over shortcuts.</div><div class="tag">Reliability over complexity.</div><div class="tag">Always building forward.</div>
+    <div class="tag">Systems over scripts.</div><div class="tag">Architecture over shortcuts.</div><div class="tag">Reliability over complexity.</div><div class="tag">Ship with confidence.</div>
     <h3>Currently</h3>
-    <p>Open to new opportunities — Building AI-powered applications, exploring modern backend systems, and seeking opportunities to contribute to impactful engineering teams.</p>`,
+    <p>Building secure backend systems, AI-powered applications, and developer tools while exploring distributed systems and modern cloud infrastructure.</p>
+    <p>Open to Software Engineering, Backend, and AI internship opportunities.</p>`,
   },
   {
     id: 'proj-stack',
     icon: 'stack',
     label: 'Stack',
     title: 'Tech Stack',
-    body: `<h2>MY STACK</h2><p>Fill this in.</p>`,
+    body: `<h2>TECHNICAL TOOLKIT</h2>
+    <p>Languages : Python, C++, JavaScript, SQL, C </p>
+    <p>Backend : FastAPI, Django, Express.js, REST APIs, SQLAlchemy, Pydantic, JWT, OAuth2, RBAC </p>
+    <p>Frontend : React, Next.js, Tailwind CSS, HTML5, CSS3 </p>
+    <p>Databases : PostgreSQL,MongoDB, MySQL,Redis </p>
+    <p>AI / ML : PyTorch, TensorFlow, YOLOv8, OpenCV, Scikit-learn, XGBoost, NumPy, Pandas </p>
+    <p>DevOps : Docker, Git, GitHub Actions, Linux, Postman, Pytest </p>
+    <p>Cloud : AWS </p>`,
   },
   {
     id: 'proj-projects',
@@ -37,10 +45,14 @@ const projects = [
     label: 'Projects',
     title: 'Projects',
     body: `<h2>PROJECTS</h2>
-    <p><strong>Sprout — Habit Tracker</strong><br>A habit-tracking web app. Users grow a pixel plant as their streaks go up.</p>
-    <div class="tag">React</div><div class="tag">Node</div><div class="tag">PostgreSQL</div>
-    <p style="margin-top:18px;"><strong>RouteWise — API Service</strong><br>A backend service that scores delivery routes for a logistics side project.</p>
-    <div class="tag">Express</div><div class="tag">Docker</div><div class="tag">Redis</div>
+    <p><strong>AuthForge</strong><br>Production-ready authentication platform featuring JWT authentication, RBAC, refresh token rotation, Redis blacklisting, email verification, audit logging, and CI-powered testing.</p>
+    <div class="tag">FastAPI</div><div class="tag">Redis</div><div class="tag">Docker</div><div class="tag">JWT</div><div class="tag">Github Actions</div>
+    <a class="btn" href="#" onclick="return false;">VIEW ON GITHUB →</a>
+    <p style="margin-top:18px;"><strong>CardioVision</strong><br>AI-powered coronary artery stenosis detection using YOLOv8 with Grad-CAM visualization for interpretable medical imaging.</p>
+    <div class="tag">Pytorch</div><div class="tag">Yolov8</div><div class="tag">OpenCV</div><div class="tag">Computer Vision</div>
+    <a class="btn" href="#" onclick="return false;">VIEW ON GITHUB →</a>
+    <p style="margin-top:18px;"><strong>Retail Inventory API</strong><br>Production-grade inventory management backend supporting transactional order processing, stock restoration, and comprehensive automated testing.</p>
+    <div class="tag">FastAPI</div><div class="tag">PostgreSQL</div><div class="tag">Pytest</div><div class="tag">Docker</div>
     <a class="btn" href="#" onclick="return false;">VIEW ON GITHUB →</a>`,
   },
   {
@@ -59,19 +71,21 @@ const projects = [
     label: 'Resume',
     title: 'Resume.pdf',
     body: `<h2>EXPERIENCE</h2>
-    <p><strong>Software Engineer</strong> — Freelance, 2023–Present<br>Design and build full-stack products for small teams and startups.</p>
-    <p><strong>Backend Developer</strong> — Studio Petal, 2021–2023<br>Owned the API layer and core data models.</p>
+    <p><strong>Project Intern - IIT Delhi</strong>: Jun 2025 — Jul 2025<br>Automated Cisco DNA Center REST workflows, developed Linux automation pipelines, and streamlined Git-based deployment workflows.</p>
+    <p><strong>Web Master - ACM JUIT</strong>: Aug 2025 — May 2026<br>Leading development of the ACM chapter website while improving collaboration workflows and user experience through analytics-driven iterations.</p>
     <h3>Education</h3>
-    <p>B.S. Computer Science</p>
-    <a class="btn" href="#" onclick="return false;">DOWNLOAD PDF →</a>`,
+    <p>Jaypee University of Information Technology</p>
+    <p>B.Tech Computer Science</p>
+    <p>CGPA : 8.07 / 10</p>
+    <a class="btn" href="#" onclick="return false;">OPEN RESUME →</a>`,
   },
   {
     id: 'proj-contact',
     icon: 'mail',
     label: 'Contact',
     title: 'LET US CONNECT',
-    body: `<p>Have an opportunity, collaboration, or project in mind?.</p>
-           <p>I'd love to hear from you. Whether you're a recruiter, fellow developer, or someone with an interesting idea, feel free to reach out.</p>`,
+    body: `<p>Whether it's an internship, collaboration, open-source project, or just an interesting engineering problem—</p>
+           <p>I'd love to connect.</p>`,
   },
 ];
 
@@ -82,10 +96,11 @@ export const REJECTED = {
   body: `<h2>🗑️ REJECTED CONCEPTS</h2>
   <p>You found the trash can. Here's what didn't make the cut:</p>
   <ul>
-    <li>"Comic Sans OS" — client said no. client was right.</li>
-    <li>Portfolio as a literal cereal box unboxing simulator</li>
-    <li>Autoplaying chiptune remix of my own resume</li>
-    <li>A dock made entirely of tiny hamsters</li>
+    <li>npm install hope</li>
+    <li>Added 17 features. <br>Fixed 1 bug. <br>Created 19 new ones.</li>
+    <li>TODO: <br>Fix the TODOs.</li>
+    <li>"Temporary solution" <br>— committed 8 months ago</li>
+    <li>It worked in production... <br>once.</li>
     <li>Dark mode that's just... more pink</li>
   </ul>
   <p>Thanks for digging around. You clearly have good taste in easter eggs. 🍑</p>`,
