@@ -1,6 +1,7 @@
 import { useRef, useState, useCallback } from 'react';
 import PixelIcon from './PixelIcon';
 import ContactForm from './ContactForm';
+import MiniGame from './MiniGame';
 
 // A single draggable / resizable / stackable macOS-style window.
 // On mobile it renders as a full-screen panel instead — dragging
@@ -141,6 +142,8 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
       <div className="content">
         {project.id === 'proj-contact' ? (
           <ContactForm />
+        ) : project.id === 'proj-game' ? (
+          <MiniGame />
         ) : (
           <div dangerouslySetInnerHTML={{ __html: project.body }} />
         )}
