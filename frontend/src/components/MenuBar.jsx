@@ -2,13 +2,26 @@ import { useState, useRef, useEffect } from 'react';
 import PixelIcon from './PixelIcon';
 import useClock from '../hooks/useClock';
 
+// Which project ids belong to which nav category. Edit these arrays
+// if you rename/add project ids so the dropdowns keep matching reality.
+const PROJECT_CATEGORY_IDS = ['proj-projects', 'proj-game'];
+const ABOUT_CATEGORY_IDS = ['proj-about', 'proj-stack', 'proj-resume', 'proj-contact'];
+
+const ICON_FOR = {
+  'proj-about': '🪪',
+  'proj-stack': '🧩',
+  'proj-resume': '📜',
+  'proj-contact': '✉️',
+  'proj-projects': '💻',
+  'proj-game': '🕹️',
+};
+
 // Top menu bar. On desktop/tablet: File / Projects / About are real
-// dropdowns. On mobile: they collapse into a single hamburger menu
-// listing every project (there's no room for 3 separate dropdowns
-// on a phone-width screen, and dropdown are a worse fit for touch).
-export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isMobile }) {
+// dropdowns whose contents actually match their names. On mobile they
+// collapse into a single hamburger menu listing everything.
+export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isMobile, githubUrl }) {
   const time = useClock();
-  const [openMenu, setOpenMenu] = useState(null); // 'file' | 'projects' | 'about' | 'mobile' | null
+  const [openMenu, setOpenMenu] = useState(null);
   const barRef = useRef(null);
 
   useEffect(() => {
@@ -28,9 +41,8 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
     setOpenMenu(null);
   };
 
-  const findProject = (id) => projects.find((p) => p.id === id);
-  const about = findProject('proj-about');
-  const contact = findProject('proj-contact');
+  const projectItems = projects.filter((p) => PROJECT_CATEGORY_IDS.includes(p.id));
+  const aboutItems = projects.filter((p) => ABOUT_CATEGORY_IDS.includes(p.id));
 
   return (
     <div className="menubar" ref={barRef} onClick={(e) => e.stopPropagation()}>
@@ -53,9 +65,18 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
               </span>
               {openMenu === 'file' && (
                 <div className="nav-dropdown">
-                  <div className="nav-row" onClick={(e) => e.stopPropagation()}>
-                    🗔 New window
-                  </div>
+                  {githubUrl && (
+                    <div
+                      className="nav-row"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(githubUrl, '_blank', 'noopener,noreferrer');
+                        setOpenMenu(null);
+                      }}
+                    >
+                      🐙 View source on GitHub
+                    </div>
+                  )}
                   <div
                     className="nav-row"
                     onClick={(e) => {
@@ -79,13 +100,11 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
               </span>
               {openMenu === 'projects' && (
                 <div className="nav-dropdown">
-                  {projects
-                    .filter((p) => p.id !== 'proj-about' && p.id !== 'proj-contact')
-                    .map((p) => (
-                      <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
-                        {p.label}
-                      </div>
-                    ))}
+                  {projectItems.map((p) => (
+                    <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
+                      {ICON_FOR[p.id] || '📁'} {p.label}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
@@ -99,16 +118,11 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
               </span>
               {openMenu === 'about' && (
                 <div className="nav-dropdown">
-                  {about && (
-                    <div className="nav-row" onClick={handleOpen(about)}>
-                      🪪 About me
+                  {aboutItems.map((p) => (
+                    <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
+                      {ICON_FOR[p.id] || '📁'} {p.label}
                     </div>
-                  )}
-                  {contact && (
-                    <div className="nav-row" onClick={handleOpen(contact)}>
-                      ✉️ Contact
-                    </div>
-                  )}
+                  ))}
                 </div>
               )}
             </div>
@@ -138,7 +152,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
               <div className="nav-dropdown nav-dropdown--right">
                 {projects.map((p) => (
                   <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
-                    {p.label}
+                    {ICON_FOR[p.id] || '📁'} {p.label}
                   </div>
                 ))}
               </div>

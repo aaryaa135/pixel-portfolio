@@ -17,6 +17,7 @@ import fallbackProjects, { REJECTED } from './data/projects';
 const YOUR_NAME = 'AARYA GUPTA';
 const YOUR_TITLE = 'Software Engineer';
 const TAGLINE = 'i build cute things that also ship on time. ✿';
+const GITHUB_URL = 'https://github.com/aaryaa135/pixel-portfolio';
 
 export default function App() {
   const [booted, setBooted] = useState(false);
@@ -53,6 +54,9 @@ export default function App() {
         <BootScreen
           onDone={() => {
             setBooted(true);
+            // On mobile, a full-screen window popping up the instant the
+            // site loads is disorienting — let people see the home screen
+            // first and tap into About themselves.
             if (!isMobile) {
               openProject(findProject('proj-about'));
             }
@@ -68,6 +72,7 @@ export default function App() {
           onOpen={openProject}
           onCloseAll={closeAll}
           isMobile={isMobile}
+          githubUrl={GITHUB_URL}
         />
 
         <Clouds />

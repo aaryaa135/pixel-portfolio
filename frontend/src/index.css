@@ -324,6 +324,15 @@ body {
   line-height: 1.6;
   padding: 2px 3px;
 }
+@media (max-width: 639px) {
+  .icon {
+    padding: 6px 4px 10px;
+  }
+  .icon span {
+    font-size: 8px;
+    line-height: 1.7;
+  }
+}
 .icon--selected span {
   background: var(--accent);
   color: #fff;
@@ -630,14 +639,14 @@ body {
 .boot {
   position: fixed;
   inset: 0;
-  background: #1b1024;
+  background: linear-gradient(150deg, #6a4a72 0%, #4a2e4a 100%);
   z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
-  color: #f6dfff;
+  color: #fbe9f4;
   transition: opacity 0.6s ease;
 }
 .boot-logo {
@@ -705,7 +714,10 @@ body {
   #trash { bottom: 20px; right: 14px; width: 60px; }
   #trash .icon-img { width: 34px; height: 34px; }
   #trash span { font-size: 6px; }
-  .icons--compact { top: 155px; }
+  .icons--compact {
+      top: 155px;
+      gap: 26px 20px;
+    }
   .cloud { opacity: 0.6; }
 }
 
@@ -731,6 +743,9 @@ body {
   #trash { bottom: 20px; right: 14px; width: 60px; }
   #trash .icon-img { width: 34px; height: 34px; }
   #trash span { font-size: 6px; }
-  .icons--compact { top: 130px; }
+  .icons--compact {
+    top: 155px;
+    gap: 26px 20px;
+  }
   .cloud { opacity: 0.6; }
 }
