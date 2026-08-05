@@ -26,7 +26,7 @@ export default function BootScreen({ onDone }) {
     <div className={`boot${hiding ? ' boot-hide' : ''}`}>
       <PixelIcon name="star" className="boot-logo" />
       <div className="boot-text">
-        AARYA-OS v1.0&nbsp; v1.0
+        AARYA-OS&nbsp; v1.0
         <br />
         INITIALIZING DEVELOPER ENVIRONMENT...<span className="boot-blink">_</span>
       </div>
