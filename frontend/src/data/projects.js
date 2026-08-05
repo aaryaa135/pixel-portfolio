@@ -15,13 +15,14 @@ const projects = [
     icon: 'idcard',
     label: 'About Me',
     title: 'About Aarya',
-    body: `<h2>HI, I'M AARYA 👋</h2>
-    <p>Software engineer who builds full-stack products end to end — clean frontends, solid backends, and databases that hold up under real use.</p>
-    <p>I like taking a project from a blank repo to something people actually use, and sweating the small details along the way.</p>
-    <h3>Stack</h3>
-    <div class="tag">React</div><div class="tag">Node</div><div class="tag">TypeScript</div><div class="tag">SQL</div>
+    body: `<h2>HI, I'M AARYA</h2>
+    <p>I'm a Computer Science student and software engineer who enjoys building reliable, user-focused products.</p>
+    <p>My interests lie in backend engineering, full-stack development, and AI-powered applications. I enjoy designing scalable systems, building clean APIs, and creating software that solves real-world problems.</p>
+    <p>Over the past few years, I've worked on web applications, machine learning projects, and developer tools, always focusing on writing maintainable code and continuously improving my skills.</p>
+    <h3>Engineering Kernel</h3>
+    <div class="tag">Systems over scripts.</div><div class="tag">Architecture over shortcuts.</div><div class="tag">Reliability over complexity.</div><div class="tag">Always building forward.</div>
     <h3>Currently</h3>
-    <p>Open to new opportunities — building small tools and side projects in the meantime.</p>`,
+    <p>Open to new opportunities — Building AI-powered applications, exploring modern backend systems, and seeking opportunities to contribute to impactful engineering teams.</p>`,
   },
   {
     id: 'proj-projects',
@@ -61,8 +62,9 @@ const projects = [
     id: 'proj-contact',
     icon: 'mail',
     label: 'Contact',
-    title: 'Say Hi',
-    body: `<p>Always happy to chat about projects, roles, or pixel art.</p>`,
+    title: 'LET US CONNECT',
+    body: `<p>Have an opportunity, collaboration, or project in mind?.</p>
+           <p>I'd love to hear from you. Whether you're a recruiter, fellow developer, or someone with an interesting idea, feel free to reach out.</p>`,
   },
 ];
 
