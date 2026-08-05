@@ -25,6 +25,13 @@ const projects = [
     <p>Open to new opportunities — Building AI-powered applications, exploring modern backend systems, and seeking opportunities to contribute to impactful engineering teams.</p>`,
   },
   {
+    id: 'proj-stack',
+    icon: 'stack',
+    label: 'Stack',
+    title: 'Tech Stack',
+    body: `<h2>MY STACK</h2><p>Fill this in.</p>`,
+  },
+  {
     id: 'proj-projects',
     icon: 'code',
     label: 'Projects',

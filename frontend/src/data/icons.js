@@ -154,6 +154,21 @@ export const ICONS = {
     '...kbbbbk...',
     '....kkkk....',
   ],
+  stack: [
+  '............',
+  '.....kk.....',
+  '....kaakk...',
+  '...kaaaaak..',
+  '..kaaaaaaak.',
+  '...kkkkkkk..',
+  '....kbbkk...',
+  '...kbbbbbk..',
+  '..kbbbbbbbk.',
+  '...kkkkkkk..',
+  '....kccbk...',
+  '...kcccccb..',
+  '..kcccccccb.',
+],
   house: [
     '......kk....',
     '.....kppk...',
@@ -188,6 +203,7 @@ export const ICONS = {
   ],
 };
 
+
 export const iconPalettes = {
   code: { k: P.k, w: P.w, m: P.mint2, b: P.mint },
   palette: { k: P.k, w: P.w, r: P.red, g: P.green, b: P.blue, y: P.butter, p: P.purple },
@@ -199,6 +215,7 @@ export const iconPalettes = {
   scroll: { k: P.k, g: P.gold, w: '#fdf5e3', '=': P.grey2 },
   mail: { k: P.k, b: P.blue, x: P.blue2 },
   trash: { k: P.k, g: P.grey2, b: P.k, r: P.red2 },
+  stack: { k: P.k, a: P.lav, b: P.mint, c: P.d },
   house: { k: P.k, p: P.peach, w: P.w, b: P.brown },
   star: { k: P.k, g: P.gold },
   faceLogo: { h: P.lav, s: P.s, e: P.k, d: P.d, w: P.w },

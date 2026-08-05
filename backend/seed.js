@@ -18,6 +18,13 @@ const projects = [
     <p>Open to new opportunities — building small tools and side projects in the meantime.</p>`,
   },
   {
+    id: 'proj-stack',
+    icon: 'stack',
+    label: 'Stack',
+    title: 'Tech Stack',
+    body: `<h2>MY STACK</h2><p>Fill this in.</p>`,
+  },
+  {
     slug: 'proj-projects',
     label: 'Projects',
     icon: 'code',

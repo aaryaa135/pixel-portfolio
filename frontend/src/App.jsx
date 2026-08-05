@@ -53,7 +53,9 @@ export default function App() {
         <BootScreen
           onDone={() => {
             setBooted(true);
-            openProject(findProject('proj-about'));
+            if (!isMobile) {
+              openProject(findProject('proj-about'));
+            }
           }}
         />
       )}

@@ -76,7 +76,8 @@ body {
 .menubar-logo {
   font-size: 11px;
   letter-spacing: 1px;
-  color: var(--ink);
+  color: #2e1a2e;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -679,13 +680,14 @@ body {
   }
 }
 @media (max-width: 639px) {
-  .menubar {
-    padding: 0 10px;
-  }
-  .menubar-subtitle,
-  .menubar-divider {
-    display: none;
-  }
+  .sticky-note { top: 46px; right: 10px; width: 108px; padding: 8px 8px 10px; z-index: 40; }
+  .sticky-note p { font-size: 12px; line-height: 1.35; }
+  .sticky-sign { font-size: 10px; margin-top: 6px; }
+  #trash { bottom: 20px; right: 14px; width: 60px; }
+  #trash .icon-img { width: 34px; height: 34px; }
+  #trash span { font-size: 6px; }
+  .icons--compact { top: 155px; }
+  .cloud { opacity: 0.6; }
 }
 
 /* ============ MOBILE BACK BUTTON ============ */
