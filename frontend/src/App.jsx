@@ -68,19 +68,17 @@ export default function App() {
           isMobile={isMobile}
         />
 
-        {!isMobile && <Clouds />}
-        {!isMobile && <StickyNote tagline={TAGLINE} signature="aarya" />}
+        <Clouds />
+        <StickyNote tagline={TAGLINE} signature="aarya" />
 
         <DesktopIcons projects={projects} onOpen={openProject} isMobile={isMobile} isTablet={isTablet} />
 
-        {!isMobile && (
-          <TrashCan
-            onOpen={() => {
-              sfx.trash();
-              open(REJECTED);
-            }}
-          />
-        )}
+        <TrashCan
+          onOpen={() => {
+            sfx.trash();
+            open(REJECTED);
+          }}
+        />
 
         {!isMobile && !isTablet && <Girl />}
         {!isMobile && <Dock items={dockItems} />}

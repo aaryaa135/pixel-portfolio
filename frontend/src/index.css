@@ -687,3 +687,29 @@ body {
     display: none;
   }
 }
+
+/* ============ MOBILE BACK BUTTON ============ */
+.mobile-back-btn {
+  font-size: 10px;
+  color: var(--ink);
+  background: var(--butter);
+  border: 2px solid var(--ink);
+  padding: 6px 10px;
+  box-shadow: 2px 2px 0 var(--ink);
+  cursor: pointer;
+}
+.mobile-back-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+/* ============ MOBILE: keep sticky note + trash can, just smaller ============ */
+@media (max-width: 639px) {
+  .sticky-note { top: 52px; right: 14px; width: 130px; padding: 10px 10px 12px; z-index: 40; }
+  .sticky-note p { font-size: 15px; }
+  #trash { bottom: 20px; right: 14px; width: 60px; }
+  #trash .icon-img { width: 34px; height: 34px; }
+  #trash span { font-size: 6px; }
+  .icons--compact { top: 130px; }
+  .cloud { opacity: 0.6; }
+}

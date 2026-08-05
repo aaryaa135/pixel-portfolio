@@ -102,30 +102,40 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
           {project.title}
         </div>
         <div className="tl-buttons">
-          {!isMobile && (
-            <>
-              <div
-                className="tlbtn tlbtn--min"
-                title="Minimize"
-                onClick={() => {
-                  sfx.click();
-                  onMinimize(project.id);
-                }}
-              />
-              <div className="tlbtn tlbtn--max" title="Maximize" onClick={toggleMaximize} />
-            </>
-          )}
-          <div
-            className="tlbtn tlbtn--close"
-            title="Close"
+        {!isMobile && (
+          <>
+            <div
+              className="tlbtn tlbtn--min"
+              title="Minimize"
+              onClick={() => {
+                sfx.click();
+                onMinimize(project.id);
+              }}
+            />
+            <div className="tlbtn tlbtn--max" title="Maximize" onClick={toggleMaximize} />
+            <div
+              className="tlbtn tlbtn--close"
+              title="Close"
+              onClick={() => {
+                sfx.close();
+                onClose(project.id);
+              }}
+            />
+          </>
+        )}
+        {isMobile && (
+          <button
+            type="button"
+            className="mobile-back-btn pixel-font"
             onClick={() => {
               sfx.close();
               onClose(project.id);
             }}
           >
-            {isMobile ? '✕' : ''}
-          </div>
-        </div>
+            ← Back
+          </button>
+        )}
+      </div>
       </div>
 
       <div className="content">
