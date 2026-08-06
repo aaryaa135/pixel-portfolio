@@ -3,6 +3,7 @@ import BootScreen from './components/BootScreen';
 import MenuBar from './components/MenuBar';
 import Clouds from './components/Clouds';
 import StickyNote from './components/StickyNote';
+import StoryCard from './components/StoryCard';
 import Girl from './components/Girl';
 import DesktopIcons from './components/DesktopIcons';
 import TrashCan from './components/TrashCan';
@@ -16,7 +17,7 @@ import fallbackProjects, { REJECTED } from './data/projects';
 
 const YOUR_NAME = 'AARYA GUPTA';
 const YOUR_TITLE = 'Software Engineer';
-const TAGLINE = '404 : imposter syndrome not found';
+const TAGLINE = 'i build cute things that also ship on time. ✿';
 const GITHUB_URL = 'https://github.com/aaryaa135/pixel-portfolio';
 
 export default function App() {
@@ -41,11 +42,11 @@ export default function App() {
     open(project);
   };
 
-  // On mobile, a window is a full-screen panel — without this, the phone's
-  // hardware/swipe-back gesture would just leave the site entirely instead
-  // of closing the window. This keeps one history entry in sync with
-  // "a window is open" so back-button presses close it and land on the
-  // desktop instead of exiting.
+  // On mobile, a window is a full-screen panel — if the phone's hardware
+  // or swipe-back gesture isn't hooked up, it would just leave the site
+  // entirely instead of closing the window. This keeps one history entry
+  // in sync with "a window is open" so back-button presses close windows
+  // and land back on the desktop instead.
   const pushedHistoryRef = useRef(false);
   const ignoreNextPopRef = useRef(false);
 
@@ -72,6 +73,9 @@ export default function App() {
       window.history.pushState({ pixelOsWindow: true }, '');
       pushedHistoryRef.current = true;
     } else if (!hasWindow && pushedHistoryRef.current) {
+      // A window was closed via the in-app "← Back" button rather than the
+      // hardware back button — consume the extra history entry we pushed
+      // so the two stay in sync, without re-triggering our own close logic.
       pushedHistoryRef.current = false;
       ignoreNextPopRef.current = true;
       window.history.back();
@@ -114,6 +118,7 @@ export default function App() {
 
         <Clouds />
         <StickyNote tagline={TAGLINE} signature="aarya" />
+        <StoryCard />
 
         <DesktopIcons projects={projects} onOpen={openProject} isMobile={isMobile} isTablet={isTablet} />
 
@@ -125,7 +130,7 @@ export default function App() {
         />
 
         {!isMobile && !isTablet && <Girl />}
-        {!isMobile && <Dock items={dockItems} />}
+        {!isMobile && !isTablet && <Dock items={dockItems} />}
 
         <div className="windows-layer">
           {windows.map((w, i) => (
