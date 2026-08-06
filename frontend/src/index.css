@@ -48,13 +48,20 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--pink) 0%, var(--peach) 45%, var(--lavender) 100%);
-  background-size: 140% 140%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg fill='%234a2e4a' fill-opacity='0.07' font-family='monospace' font-size='16' transform='rotate(-12 130 130)'%3E%3Ctext x='4' y='30'%3EREACT%3C/text%3E%3Ctext x='120' y='68'%3EPYTHON%3C/text%3E%3Ctext x='8' y='118'%3EDOCKER%3C/text%3E%3Ctext x='138' y='156'%3EFASTAPI%3C/text%3E%3Ctext x='24' y='206'%3EPOSTGRES%3C/text%3E%3Ctext x='150' y='244'%3EGIT%3C/text%3E%3C/g%3E%3C/svg%3E")
+      repeat,
+    linear-gradient(135deg, var(--pink) 0%, var(--peach) 45%, var(--lavender) 100%);
+  background-size: 260px 260px, 140% 140%;
   animation: bgdrift 22s ease-in-out infinite;
 }
 @keyframes bgdrift {
-  0%, 100% { background-position: 0% 0%; }
-  50% { background-position: 100% 60%; }
+  0%,
+  100% {
+    background-position: 0 0, 0% 0%;
+  }
+  50% {
+    background-position: 0 0, 100% 60%;
+  }
 }
 
 /* ============ MENU BAR ============ */
@@ -725,6 +732,19 @@ body {
 
 /* ============ MOBILE: keep sticky note + trash can, just smaller ============ */
 @media (max-width: 639px) {
+  html,
+  body,
+  #root {
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+  }
+  #desktop {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
   .sticky-note {
     top: 46px;
     right: 10px;
@@ -741,7 +761,7 @@ body {
     margin-top: 6px;
   }
   #trash {
-    top: 540px;
+    top: 640px;
     bottom: auto;
     right: 14px;
     width: 60px;
@@ -754,22 +774,34 @@ body {
     font-size: 6px;
   }
   .icons--compact {
-    top: 168px;
-    gap: 26px 20px;
+    top: 220px;
+    grid-template-columns: repeat(3, 84px);
+    gap: 20px 10px;
+  }
+  .icons--compact .icon {
+    width: 84px;
+  }
+  .icons--compact .icon .icon-img {
+    width: 46px;
+    height: 46px;
+  }
+  .icons--compact .icon span {
+    font-size: 7px;
   }
   .cloud {
     opacity: 0.6;
   }
-  /* A short welcome line so the home screen doesn't read as empty/unfinished */
   #desktop::before {
-    content: 'welcome to aarya\2019 s dev space \1F44B';
+    content: "hi, i'm aarya \A full-stack dev · auth · apis · ml";
     position: absolute;
-    top: 48px;
+    top: 50px;
     left: 20px;
-    right: 130px;
+    right: 132px;
+    white-space: pre-line;
     font-family: 'VT323', monospace;
-    font-size: 15px;
-    color: var(--ink-soft);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
     z-index: 10;
   }
 }
