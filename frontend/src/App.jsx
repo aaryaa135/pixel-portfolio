@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import BootScreen from './components/BootScreen';
 import MenuBar from './components/MenuBar';
 import Clouds from './components/Clouds';
@@ -40,6 +40,43 @@ export default function App() {
     sfx.open();
     open(project);
   };
+
+  // On mobile, a window is a full-screen panel — without this, the phone's
+  // hardware/swipe-back gesture would just leave the site entirely instead
+  // of closing the window. This keeps one history entry in sync with
+  // "a window is open" so back-button presses close it and land on the
+  // desktop instead of exiting.
+  const pushedHistoryRef = useRef(false);
+  const ignoreNextPopRef = useRef(false);
+
+  useEffect(() => {
+    if (!isMobile) return undefined;
+    const onPopState = () => {
+      if (ignoreNextPopRef.current) {
+        ignoreNextPopRef.current = false;
+        return;
+      }
+      if (pushedHistoryRef.current) {
+        pushedHistoryRef.current = false;
+        closeAll();
+      }
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, [isMobile, closeAll]);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const hasWindow = windows.length > 0;
+    if (hasWindow && !pushedHistoryRef.current) {
+      window.history.pushState({ pixelOsWindow: true }, '');
+      pushedHistoryRef.current = true;
+    } else if (!hasWindow && pushedHistoryRef.current) {
+      pushedHistoryRef.current = false;
+      ignoreNextPopRef.current = true;
+      window.history.back();
+    }
+  }, [windows.length, isMobile]);
 
   const findProject = (id) => projects.find((p) => p.id === id);
 

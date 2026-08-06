@@ -707,19 +707,6 @@ body {
     width: 160px;
   }
 }
-@media (max-width: 639px) {
-  .sticky-note { top: 46px; right: 10px; width: 108px; padding: 8px 8px 10px; z-index: 40; }
-  .sticky-note p { font-size: 12px; line-height: 1.35; }
-  .sticky-sign { font-size: 10px; margin-top: 6px; }
-  #trash { bottom: 20px; right: 14px; width: 60px; }
-  #trash .icon-img { width: 34px; height: 34px; }
-  #trash span { font-size: 6px; }
-  .icons--compact {
-      top: 155px;
-      gap: 26px 20px;
-    }
-  .cloud { opacity: 0.6; }
-}
 
 /* ============ MOBILE BACK BUTTON ============ */
 .mobile-back-btn {
@@ -738,16 +725,53 @@ body {
 
 /* ============ MOBILE: keep sticky note + trash can, just smaller ============ */
 @media (max-width: 639px) {
-  .sticky-note { top: 52px; right: 14px; width: 130px; padding: 10px 10px 12px; z-index: 40; }
-  .sticky-note p { font-size: 15px; }
-  #trash { bottom: 20px; right: 14px; width: 60px; }
-  #trash .icon-img { width: 34px; height: 34px; }
-  #trash span { font-size: 6px; }
+  .sticky-note {
+    top: 46px;
+    right: 10px;
+    width: 108px;
+    padding: 8px 8px 10px;
+    z-index: 40;
+  }
+  .sticky-note p {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  .sticky-sign {
+    font-size: 10px;
+    margin-top: 6px;
+  }
+  #trash {
+    top: 540px;
+    bottom: auto;
+    right: 14px;
+    width: 60px;
+  }
+  #trash .icon-img {
+    width: 34px;
+    height: 34px;
+  }
+  #trash span {
+    font-size: 6px;
+  }
   .icons--compact {
-    top: 155px;
+    top: 168px;
     gap: 26px 20px;
   }
-  .cloud { opacity: 0.6; }
+  .cloud {
+    opacity: 0.6;
+  }
+  /* A short welcome line so the home screen doesn't read as empty/unfinished */
+  #desktop::before {
+    content: 'welcome to aarya\2019 s dev space \1F44B';
+    position: absolute;
+    top: 48px;
+    left: 20px;
+    right: 130px;
+    font-family: 'VT323', monospace;
+    font-size: 15px;
+    color: var(--ink-soft);
+    z-index: 10;
+  }
 }
 @media (max-width: 639px) {
   .menubar {
