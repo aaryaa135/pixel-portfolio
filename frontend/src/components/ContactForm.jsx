@@ -39,7 +39,8 @@ export default function ContactForm() {
   return (
     <form onSubmit={submit} className="contact-form">
       <h2>GET IN TOUCH</h2>
-      <p>Always happy to chat about projects, collaborations, or pixel art techniques.</p>
+      <p>Whether you're a recruiter, engineer, founder, or someone with an interesting idea—
+        my inbox is always open.</p>
 
       <label htmlFor="cf-name">Name</label>
       <input id="cf-name" required value={form.name} onChange={update('name')} />
@@ -53,12 +54,15 @@ export default function ContactForm() {
       {status === 'error' && <p className="form-error">⚠ {errorMsg}</p>}
 
       <button type="submit" className="btn" disabled={status === 'sending'}>
-        {status === 'sending' ? 'SENDING…' : 'SEND MESSAGE →'}
+        {status === 'sending' ? 'SENDING…' : 'DROP A MESSAGE →'}
       </button>
 
-      <p className="form-hint">
-        or email directly: <a href="mailto:hello@avachen.dev">hello@avachen.dev</a>
-      </p>
+      {/* 
+        <p className="form-hint">
+          or email directly:{" "}
+          <a href="mailto:hello@example.com">hello@example.com</a>
+        </p>
+        */}
     </form>
   );
 }

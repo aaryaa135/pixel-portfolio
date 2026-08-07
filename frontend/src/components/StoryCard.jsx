@@ -14,15 +14,15 @@ export default function StoryCard() {
         <p>
           <span className="story-card__prompt">$</span> whoami
         </p>
-        <p>a CS student who ships backend systems, breaks them, then fixes them faster the second time.</p>
+        <p>Computer Science student and software engineer building scalable backend systems, AI-powered applications, and products that solve real problems.</p>
         <p>
-          <span className="story-card__prompt">$</span> cat skills.txt
+          <span className="story-card__prompt">$</span> cat expertise.txt
         </p>
-        <p>auth systems · REST APIs · a little too much YOLOv8 · always mid-refactor</p>
+        <p>Backend Engineering • REST APIs • FastAPI • AI/ML • System Design</p>
         <p>
           <span className="story-card__prompt">$</span> status
         </p>
-        <p>open to opportunities. probably debugging something right now. 🐛</p>
+        <p>Open to Software Engineering opportunities. Currently shipping code, not excuses.</p>
       </div>
     </div>
   );
