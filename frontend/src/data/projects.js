@@ -26,7 +26,7 @@ const projects = [
     <p>Open to Software Engineering, Backend, and AI internship opportunities.</p>
     <br>
     <h3>Off the clock</h3>
-    <p>Probably listening to <a href="https://open.spotify.com/playlist/YOUR_PLAYLIST_ID" target="_blank" rel="noopener noreferrer">this playlist</a> while debugging something. 🎧</p>`,
+    <p>Probably listening to <a href="https://open.spotify.com/playlist/7ovDJn7e2YgVpYSedBgNZR?si=0ca71e6a925f4f90&pt=ce7591d704b9416ce030fc7b906823ff" target="_blank" rel="noopener noreferrer">this playlist</a> while debugging something. 🎧</p>`,
   },
   {
     id: 'proj-stack',
