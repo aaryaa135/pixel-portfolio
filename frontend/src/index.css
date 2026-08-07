@@ -279,16 +279,25 @@ body {
 }
 
 /* ============ STORY CARD ============ */
+/* ============ STORY CARD ============ */
 .story-card {
   position: absolute;
-  top: 74px;
-  left: 200px;
-  width: 420px;
+  top: 60px;
+
+  /* Reserve space for desktop icons */
+  left: clamp(220px, 22vw, 340px);
+
+  /* Responsive width */
+  width: min(650px, 58vw);
+  max-width: calc(100vw - 380px);
+
   background: #241a2e;
   border: 3px solid var(--ink);
   box-shadow: 5px 5px 0 rgba(74, 46, 74, 0.4);
-  z-index: 15;
+
+  z-index: 20;
 }
+
 .story-card__bar {
   display: flex;
   align-items: center;
@@ -297,39 +306,67 @@ body {
   background: #3a2a44;
   border-bottom: 2px solid var(--ink);
 }
+
 .story-card__dot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
 }
+
 .story-card__dot--red {
   background: #ff9d9d;
 }
+
 .story-card__dot--yellow {
   background: #ffe08a;
 }
+
 .story-card__dot--green {
   background: #a6e3a1;
 }
+
 .story-card__title {
   margin-left: 8px;
   font-size: 10px;
   color: #e8d6ee;
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
 }
+
 .story-card__body {
   padding: 14px 16px;
   color: #e8d6ee;
   font-size: 16px;
-  line-height: 1.5;
-  font-family: 'VT323', monospace;
+  line-height: 1.6;
+  font-family: "VT323", monospace;
 }
+
 .story-card__body p {
   margin: 0 0 8px;
 }
+
 .story-card__prompt {
   color: #8fd6c9;
   margin-right: 6px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .story-card {
+    left: 180px;
+    width: calc(100vw - 220px);
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: calc(100% - 2rem);
+    max-width: none;
+    margin: 1rem auto;
+  }
 }
 
 /* ============ DESKTOP ICONS ============ */
