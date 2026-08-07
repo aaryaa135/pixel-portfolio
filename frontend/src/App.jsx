@@ -95,12 +95,6 @@ export default function App() {
         <BootScreen
           onDone={() => {
             setBooted(true);
-            // On mobile, a full-screen window popping up the instant the
-            // site loads is disorienting — let people see the home screen
-            // first and tap into About themselves.
-            if (!isMobile) {
-              openProject(findProject('proj-about'));
-            }
           }}
         />
       )}
