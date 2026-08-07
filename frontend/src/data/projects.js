@@ -24,7 +24,6 @@ const projects = [
     <h3>Currently</h3>
     <p>Building secure backend systems, AI-powered applications, and developer tools while exploring distributed systems and modern cloud infrastructure.</p>
     <p>Open to Software Engineering, Backend, and AI internship opportunities.</p>
-    <br>
     <h3>Off the clock</h3>
     <p>Probably listening to <a href="https://open.spotify.com/playlist/7ovDJn7e2YgVpYSedBgNZR?si=0ca71e6a925f4f90&pt=ce7591d704b9416ce030fc7b906823ff" target="_blank" rel="noopener noreferrer">this playlist</a> while debugging something. 🎧</p>`,
   },

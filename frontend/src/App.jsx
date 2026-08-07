@@ -16,8 +16,8 @@ import { fetchProjects } from './api';
 import fallbackProjects, { REJECTED } from './data/projects';
 
 const YOUR_NAME = 'AARYA GUPTA';
-const YOUR_TITLE = 'Software Engineer';
-const TAGLINE = 'i build cute things that also ship on time. ✿';
+const YOUR_TITLE = 'Computer Science Student • Software Engineer';
+const TAGLINE = 'Pushed to production. Said a prayer.';
 const GITHUB_URL = 'https://github.com/aaryaa135/pixel-portfolio';
 
 export default function App() {
