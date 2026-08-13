@@ -974,3 +974,30 @@ body {
     z-index: 10;
   }
 }
+.content a.btn-secondary {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 9px;
+  color: #fdf6fa;
+  text-decoration: none;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 10px 12px;
+  box-shadow: 3px 3px 0 rgba(74, 46, 74, 0.4);
+  margin-top: 8px;
+  cursor: inherit;
+}
+.content a.btn-secondary:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 rgba(74, 46, 74, 0.4);
+}
+.content .btn-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.content .btn-row .btn,
+.content .btn-row .btn-secondary {
+  margin-top: 10px;
+}
