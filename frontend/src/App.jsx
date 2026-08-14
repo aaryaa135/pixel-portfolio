@@ -85,10 +85,15 @@ export default function App() {
 
   const findProject = (id) => projects.find((p) => p.id === id);
 
-  const dockItems = projects
-    .filter((p) => p.id !== 'proj-about')
+  const otherProjects = projects.filter((p) => p.id !== 'proj-about' && p.id !== 'proj-guide');
+  const guideProject = projects.find((p) => p.id === 'proj-guide');
+  
+  const dockItems = otherProjects
     .map((p) => ({ icon: p.icon, label: p.label, action: () => openProject(p) }));
   dockItems.unshift({ icon: 'idcard', label: 'About', action: () => openProject(findProject('proj-about')) });
+  if (guideProject) {
+    dockItems.push({ icon: guideProject.icon, label: guideProject.label, action: () => openProject(guideProject) });
+  }
 
   return (
     <>
