@@ -172,6 +172,19 @@ export const ICONS = {
     '...kbbbbbbk...',
     '....kbbbbk....',
   ],
+  guide: [
+    '..kkkkkkkk..',
+    '.kbbbbbbbbk.',
+    '.kb.......bk',
+    '.kb..kk..bk.',
+    '.kb..kk..bk.',
+    '.kb.......bk',
+    '.kb..kkkk.bk',
+    '.kb......bk.',
+    '.kb.......bk',
+    '.kbbbbbbbbk.',
+    '..kkkkkkkk..',
+  ],
   stack: [
   '............',
   '.....kk.....',
@@ -332,6 +345,7 @@ export const iconPalettes = {
   headphones: { k: P.k, w: P.w },
   phone: { k: P.k, w: P.w },
   server: { k: P.k, g: P.grey, b: P.laptop, '.': P.w },
+  guide: { k: P.k, b: P.blue },
   faceLogo: { h: P.lav, s: P.s, e: P.k, d: P.d, w: P.w },
 };
 

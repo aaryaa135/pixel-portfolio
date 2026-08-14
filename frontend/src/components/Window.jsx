@@ -112,8 +112,12 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
                 sfx.click();
                 onMinimize(project.id);
               }}
-            />
-            <div className="tlbtn tlbtn--max" title="Maximize" onClick={toggleMaximize} />
+            >
+              −
+            </div>
+            <div className="tlbtn tlbtn--max" title="Maximize" onClick={toggleMaximize}>
+              ��
+            </div>
             <div
               className="tlbtn tlbtn--close"
               title="Close"
@@ -121,7 +125,9 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
                 sfx.close();
                 onClose(project.id);
               }}
-            />
+            >
+              ×
+            </div>
           </>
         )}
         {isMobile && (
