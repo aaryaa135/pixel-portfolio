@@ -22,7 +22,7 @@ export default function MiniGame() {
       basketX: WIDTH / 2 - BASKET_WIDTH / 2,
       crumbs: [],
       lastSpawn: 0,
-      speed: 2.8,
+      speed: 3.2,
       keys: {},
     };
     setScore(0);
@@ -57,7 +57,7 @@ export default function MiniGame() {
       if (s.keys.ArrowRight || s.keys.d) s.basketX += 7;
       s.basketX = Math.max(0, Math.min(WIDTH - BASKET_WIDTH, s.basketX));
 
-      if (frame - s.lastSpawn > Math.max(12, 30 - Math.floor(score / 2))) {
+      if (frame - s.lastSpawn > Math.max(8, 20 - Math.floor(score / 2))) {
         s.crumbs.push({ x: Math.random() * (WIDTH - 12), y: -12 });
         s.lastSpawn = frame;
       }
