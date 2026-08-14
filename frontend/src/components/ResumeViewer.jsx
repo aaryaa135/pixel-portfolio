@@ -14,10 +14,10 @@ export default function ResumeViewer() {
         </span>
         <div className="toolbar-actions">
           <button className="btn btn-sm" onClick={handleDownload} title="Download PDF">
-            <span className="pixel-font" style={{ fontSize: '8px' }}>��� DOWNLOAD</span>
+            <span className="pixel-font" style={{ fontSize: '8px' }}>DOWNLOAD</span>
           </button>
           <a className="btn btn-sm" href="/resume.pdf" target="_blank" rel="noopener noreferrer" title="Open in new tab">
-            <span className="pixel-font" style={{ fontSize: '8px' }}>��� POP OUT</span>
+            <span className="pixel-font" style={{ fontSize: '8px' }}>POP OUT</span>
           </a>
         </div>
       </div>
