@@ -8,12 +8,13 @@ const PROJECT_CATEGORY_IDS = ['proj-projects', 'proj-game'];
 const ABOUT_CATEGORY_IDS = ['proj-about', 'proj-stack', 'proj-resume', 'proj-contact'];
 
 const ICON_FOR = {
-  'proj-about': '🪪',
-  'proj-stack': '🧩',
-  'proj-resume': '📜',
-  'proj-contact': '✉️',
-  'proj-projects': '💻',
-  'proj-game': '🕹️',
+  'proj-about': '����',
+  'proj-stack': '����',
+  'proj-resume': '����',
+  'proj-contact': '������',
+  'proj-projects': '����',
+  'proj-game': '�������',
+  'proj-guide': '�������',
 };
 
 // Top menu bar. On desktop/tablet: File / Projects / About are real
@@ -155,7 +156,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
 {isMobile && (
           <div className="nav-item">
             <span className="hamburger" onClick={toggle('mobile')}>
-              =
+              <span className="hamburger-inner">=</span>
             </span>
             {openMenu === 'mobile' && (
               <div className="nav-dropdown nav-dropdown--right">

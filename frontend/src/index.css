@@ -205,10 +205,28 @@ body {
   background: #ffe8f3;
 }
 .hamburger {
-  font-size: 20px;
+  font-size: 24px;
   color: var(--ink);
   cursor: pointer;
-  padding: 2px 4px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--butter);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.hamburger:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+.hamburger-inner {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: bold;
 }
 
 /* ============ CLOUDS ============ */
