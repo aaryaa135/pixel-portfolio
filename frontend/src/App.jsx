@@ -121,7 +121,7 @@ export default function App() {
         <StickyNote tagline={TAGLINE} signature="aarya" />
         <StoryCard />
 
-        <DesktopIcons projects={projects.filter(p => p.id !== 'proj-guide')} onOpen={openProject} isMobile={isMobile} isTablet={isTablet} />
+        <DesktopIcons projects={projects} onOpen={openProject} isMobile={isMobile} isTablet={isTablet} />
 
         <TrashCan
           onOpen={() => {

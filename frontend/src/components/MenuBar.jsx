@@ -150,7 +150,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
             </span>
             {openMenu === 'mobile' && (
               <div className="nav-dropdown nav-dropdown--right">
-                {projects.filter(p => p.id !== 'proj-guide').map((p) => (
+                {projects.map((p) => (
                   <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
                     {ICON_FOR[p.id] || '����'} {p.label}
                   </div>
