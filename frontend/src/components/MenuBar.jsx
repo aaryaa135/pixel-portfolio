@@ -8,13 +8,13 @@ const PROJECT_CATEGORY_IDS = ['proj-projects', 'proj-game'];
 const ABOUT_CATEGORY_IDS = ['proj-about', 'proj-stack', 'proj-resume', 'proj-contact'];
 
 const ICON_FOR = {
-  'proj-about': '����',
-  'proj-stack': '����',
-  'proj-resume': '����',
-  'proj-contact': '������',
-  'proj-projects': '����',
-  'proj-game': '�������',
-  'proj-guide': '�������',
+  'proj-about': '💻',
+  'proj-stack': '🗃️',
+  'proj-resume': '📃',
+  'proj-contact': '📱',
+  'proj-projects': '📂',
+  'proj-game': ' 🎮',
+  'proj-guide': '📖',
 };
 
 // Top menu bar. On desktop/tablet: File / Projects / About are real
