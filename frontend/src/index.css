@@ -730,8 +730,8 @@ body {
   background: #a6e3a1;
 }
 .tlbtn--max::after {
-  content: '��';
-  font-size: 9px;
+  content: '\25A1';
+  font-size: 10px;
 }
 
 .content {
