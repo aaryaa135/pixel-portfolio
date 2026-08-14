@@ -8,9 +8,12 @@ export default function DesktopIcons({ projects, onOpen, isMobile, isTablet }) {
   const [selectedId, setSelectedId] = useState(null);
   const compact = isMobile || isTablet;
 
+  const guideProject = projects.find((p) => p.id === 'proj-guide');
+  const otherProjects = projects.filter((p) => p.id !== 'proj-guide');
+
   return (
     <div className={`icons${compact ? ' icons--compact' : ''}`}>
-      {projects.map((p) => (
+      {otherProjects.map((p) => (
         <button
           key={p.id}
           type="button"
@@ -24,6 +27,34 @@ export default function DesktopIcons({ projects, onOpen, isMobile, isTablet }) {
           <span>{p.label}</span>
         </button>
       ))}
+      {guideProject && !compact && (
+        <button
+          key="proj-guide"
+          type="button"
+          className={`icon${selectedId === 'proj-guide' ? ' icon--selected' : ''} icon--guide`}
+          onClick={() => {
+            setSelectedId('proj-guide');
+            onOpen(guideProject);
+          }}
+        >
+          <PixelIcon name={guideProject.icon} className="icon-img" />
+          <span>{guideProject.label}</span>
+        </button>
+      )}
+      {compact && guideProject && (
+        <button
+          key="proj-guide"
+          type="button"
+          className={`icon${selectedId === 'proj-guide' ? ' icon--selected' : ''}`}
+          onClick={() => {
+            setSelectedId('proj-guide');
+            onOpen(guideProject);
+          }}
+        >
+          <PixelIcon name={guideProject.icon} className="icon-img" />
+          <span>{guideProject.label}</span>
+        </button>
+      )}
     </div>
   );
 }
