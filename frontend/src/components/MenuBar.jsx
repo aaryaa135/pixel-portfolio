@@ -84,7 +84,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
                         setOpenMenu(null);
                       }}
                     >
-                      🐙 View source on GitHub
+                      ��� View source on GitHub
                     </div>
                   )}
                   <div
@@ -95,7 +95,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
                       setOpenMenu(null);
                     }}
                   >
-                    ✕ Close all windows
+                    �� Close all windows
                   </div>
                 </div>
               )}
@@ -112,7 +112,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
                 <div className="nav-dropdown">
                   {projectItems.map((p) => (
                     <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
-                      {ICON_FOR[p.id] || '📁'} {p.label}
+                      {ICON_FOR[p.id] || '����'} {p.label}
                     </div>
                   ))}
                 </div>
@@ -130,7 +130,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
                 <div className="nav-dropdown">
                   {aboutItems.map((p) => (
                     <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
-                      {ICON_FOR[p.id] || '📁'} {p.label}
+                      {ICON_FOR[p.id] || '����'} {p.label}
                     </div>
                   ))}
                 </div>
@@ -144,16 +144,16 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
         {!isMobile && (
           <>
             <span className="menubar-status" title="Wi-Fi">
-              📶
+              ���
             </span>
             <span className="menubar-status" title="Battery">
-              🔋
+              ���
             </span>
           </>
         )}
         <span className="menubar-clock pixel-font">{time}</span>
 
-{isMobile && (
+        {isMobile && (
           <div className="nav-item">
             <span className="hamburger" onClick={toggle('mobile')}>
               <span className="hamburger-inner">=</span>
@@ -162,7 +162,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
               <div className="nav-dropdown nav-dropdown--right">
                 {projects.map((p) => (
                   <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
-                    {ICON_FOR[p.id] || '�'} {p.label}
+                    {ICON_FOR[p.id] || '����'} {p.label}
                   </div>
                 ))}
               </div>
