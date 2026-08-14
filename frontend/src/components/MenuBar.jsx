@@ -84,7 +84,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
                         setOpenMenu(null);
                       }}
                     >
-                      ��� View source on GitHub
+                      🪟 View source on GitHub
                     </div>
                   )}
                   <div
@@ -95,7 +95,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
                       setOpenMenu(null);
                     }}
                   >
-                    �� Close all windows
+                    📪 Close all windows
                   </div>
                 </div>
               )}
@@ -144,10 +144,10 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
         {!isMobile && (
           <>
             <span className="menubar-status" title="Wi-Fi">
-              ���
+              🛜
             </span>
             <span className="menubar-status" title="Battery">
-              ���
+              🔋
             </span>
           </>
         )}
