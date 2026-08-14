@@ -48,9 +48,18 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
     <div className="menubar" ref={barRef} onClick={(e) => e.stopPropagation()}>
       <div className="menubar-side">
         <span className="menubar-logo pixel-font">
-          <PixelIcon name="faceLogo" className="menubar-face" /> {name}
+          {isMobile ? (
+            <>
+              <PixelIcon name="code" className="menubar-face" />
+              <span style={{ marginLeft: '6px' }}>AARYA-OS</span>
+            </>
+          ) : (
+            <>
+              <PixelIcon name="faceLogo" className="menubar-face" /> {name}
+            </>
+          )}
         </span>
-        <span className="menubar-subtitle">{title}</span>
+        <span className="menubar-subtitle">{isMobile ? '' : title}</span>
 
         {!isMobile && (
           <>
