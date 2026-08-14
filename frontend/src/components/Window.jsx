@@ -2,6 +2,7 @@ import { useRef, useState, useCallback } from 'react';
 import PixelIcon from './PixelIcon';
 import ContactForm from './ContactForm';
 import MiniGame from './MiniGame';
+import ResumeViewer from './ResumeViewer';
 
 // A single draggable / resizable / stackable macOS-style window.
 // On mobile it renders as a full-screen panel instead — dragging
@@ -102,7 +103,7 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
           <PixelIcon name={project.icon} className="ttico" />
           {project.title}
         </div>
-        <div className="tl-buttons">
+<div className="tl-buttons">
         {!isMobile && (
           <>
             <div
@@ -112,12 +113,8 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
                 sfx.click();
                 onMinimize(project.id);
               }}
-            >
-              −
-            </div>
-            <div className="tlbtn tlbtn--max" title="Maximize" onClick={toggleMaximize}>
-              ��
-            </div>
+            />
+            <div className="tlbtn tlbtn--max" title="Maximize" onClick={toggleMaximize} />
             <div
               className="tlbtn tlbtn--close"
               title="Close"
@@ -125,9 +122,7 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
                 sfx.close();
                 onClose(project.id);
               }}
-            >
-              ×
-            </div>
+            />
           </>
         )}
         {isMobile && (
@@ -150,6 +145,8 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
           <ContactForm />
         ) : project.id === 'proj-game' ? (
           <MiniGame />
+        ) : project.id === 'proj-resume' ? (
+          <ResumeViewer />
         ) : (
           <div dangerouslySetInnerHTML={{ __html: project.body }} />
         )}

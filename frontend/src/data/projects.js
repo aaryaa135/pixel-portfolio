@@ -100,14 +100,12 @@ const projects = [
     <div class="tag">JavaScript</div><div class="tag">Canvas API</div>
     <a class="btn" href="#" onclick="return false;">PLAY NOW →</a>`,
   },
-  {
+{
     id: 'proj-resume',
     icon: 'scroll',
     label: 'Resume',
     title: 'Resume.pdf',
     body: `<h2>EXPERIENCE</h2>
-    <a class="btn" href="/resume.pdf" download="Aarya_Gupta_Resume.pdf">DOWNLOAD RESUME →</a>
-    <br>
     <p><strong>Project Intern - IIT Delhi</strong>: Jun 2025 — Jul 2025<br>Automated Cisco DNA Center REST API workflows, built Linux-based infrastructure automation pipelines, and streamlined Git deployment workflows to improve operational efficiency.</p>
     <p><strong>Web Master - ACM JUIT</strong>: Aug 2025 — May 2026<br>Led the redevelopment of the ACM chapter website, established Git-based collaboration workflows, and improved user engagement through iterative UI/UX enhancements.</p>
     <h3>Education</h3>
@@ -115,6 +113,14 @@ const projects = [
     <p>B.Tech Computer Science</p>
     <p>CGPA : 8.07 / 10</p>
     <p>Expected Graduation: 2027</p>`,
+  },
+{
+    id: 'proj-contact',
+    icon: 'mail',
+    label: 'Contact',
+    title: 'LET US CONNECT',
+    body: `<p>Whether it's an internship, collaboration, open-source project, or just an interesting engineering problem—</p>
+           <p>I'd love to connect.</p>`,
   },
   {
     id: 'proj-guide',
@@ -124,10 +130,10 @@ const projects = [
     body: `<h2>WELCOME TO AARYA-OS v1.0</h2>
     <p>This portfolio works like a desktop OS. Here's how to navigate:</p>
     
-    <h3>������� DESKTOP ICONS & DOCK</h3>
+    <h3>DESKTOP ICONS & DOCK</h3>
     <p>Click any icon to open a window. The dock at the bottom has quick access to all sections.</p>
     
-    <h3>���� WINDOW CONTROLS</h3>
+    <h3>WINDOW CONTROLS</h3>
     <div style="display:flex;gap:10px;margin:10px 0;align-items:center;">
       <span style="width:12px;height:12px;background:#ff9d9d;border:2px solid #4a2e4a;display:inline-block;">&nbsp;</span> <span class="tag">Close window</span>
       <span style="width:12px;height:12px;background:#ffe08a;border:2px solid #4a2e4a;display:inline-block;">&nbsp;</span> <span class="tag">Minimize to dock</span>
@@ -135,30 +141,22 @@ const projects = [
     </div>
     <p>Drag the title bar to move windows. Drag the bottom-right corner to resize.</p>
     
-    <h3>���� MENU BAR</h3>
+    <h3>MENU BAR</h3>
     <p>Top bar has <strong>File</strong> (GitHub, Close all), <strong>Projects</strong>, and <strong>About</strong> dropdowns.</p>
     
-    <h3>������� TRASH CAN</h3>
+    <h3>TRASH CAN</h3>
     <p>Click for rejected concepts easter egg.</p>
     
-    <h3>���� MOBILE / TABLET</h3>
-    <p>Windows go full-screen. Use the ← Back button to close. Icons become a grid.</p>
+    <h3>MOBILE / TABLET</h3>
+    <p>Windows go full-screen. Use the Back button to close. Icons become a grid.</p>
     
-    <h3>���� MINI GAME</h3>
+    <h3>MINI GAME</h3>
     <p>Open "Mini Game" for Crumb Quest — catch falling crumbs with arrow keys or touch buttons.</p>
     
-    <h3>���� RESUME</h3>
-    <p>Click "Resume" → "DOWNLOAD RESUME" to get the PDF.</p>
+    <h3>RESUME</h3>
+    <p>Click "Resume" -> "DOWNLOAD RESUME" to get the PDF.</p>
     
-    <p style="margin-top:16px;"><strong>Pro tip:</strong> Try the Konami code (������������←→←→BA) for a surprise! ���</p>`,
-  },
-  {
-    id: 'proj-contact',
-    icon: 'mail',
-    label: 'Contact',
-    title: 'LET US CONNECT',
-    body: `<p>Whether it's an internship, collaboration, open-source project, or just an interesting engineering problem—</p>
-           <p>I'd love to connect.</p>`,
+    <p style="margin-top:16px;"><strong>Pro tip:</strong> Try the Konami code (up up down down left right left right B A) for a surprise!</p>`,
   },
 ];
 
