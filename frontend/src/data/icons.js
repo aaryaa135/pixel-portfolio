@@ -159,6 +159,19 @@ export const ICONS = {
     '...kbbbbk...',
     '....kkkk....',
   ],
+  laptop: [
+    '..............',
+    '..kkkkkkkkkk..',
+    '.kmmmmmmmmmmk.',
+    '.kmwwwwwwwwmk.',
+    '.kmwwwwwwwwmk.',
+    '.kmwwwwwwwwmk.',
+    '.kmwwwwwwwwmk.',
+    '.kmmmmmmmmmmk.',
+    '.kkkkkkkkkkkk.',
+    '...kbbbbbbk...',
+    '....kbbbbk....',
+  ],
   stack: [
   '............',
   '.....kk.....',
@@ -322,23 +335,23 @@ export const iconPalettes = {
   faceLogo: { h: P.lav, s: P.s, e: P.k, d: P.d, w: P.w },
 };
 
-// The pixel-art girl who stands above the dock (16 wide x 15 tall) - now with laptop!
+// The pixel-art girl who stands above the dock (10 wide x 15 tall)
 export const GIRL = [
-  '......hhhhhh....',
-  '.....hhhhhhhh...',
-  '....hhhhhhhhhh..',
-  '...hssssssssh...',
-  '..hsseesseeh.l..',
-  '.hssssssssh.ll..',
-  '..sssswssss.lll.',
-  '...ddddddd..lll.',
-  '..dddddddd..ll..',
-  'sdddddddds..l...',
-  'sdddddddds......',
-  '.ddddddddd......',
-  '..ddddddd.......',
-  '..dd..dd........',
-  '.bbb..bbb.......',
+  '..hhhhhh..',
+  '.hhhhhhhh.',
+  'hhhhhhhhhh',
+  'hssssssssh',
+  'hsseesseeh',
+  'hssssssssh',
+  '.sssswssss',
+  '..dddddd..',
+  '.dddddddd.',
+  'sddddddds',
+  'sddddddds',
+  '.dddddddd.',
+  '..dddddd..',
+  '..dd..dd..',
+  '.bbb..bbb.',
 ];
 
-export const girlPalette = { h: P.lav, s: P.s, e: P.k, w: P.w, d: P.d, b: P.bo, l: P.laptop, m: P.laptopScreen, y: P.laptopKey };
+export const girlPalette = { h: P.lav, s: P.s, e: P.k, w: P.w, d: P.d, b: P.bo };
