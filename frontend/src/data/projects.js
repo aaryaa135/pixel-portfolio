@@ -124,7 +124,7 @@ const projects = [
   },
   {
     id: 'proj-guide',
-    icon: 'guide',
+    icon: 'trash',
     label: 'Guide',
     title: 'HOW TO USE THIS PORTFOLIO',
     body: `<h2>WELCOME TO AARYA-OS v1.0</h2>

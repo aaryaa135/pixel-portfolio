@@ -699,34 +699,39 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  line-height: 1;
+  font-size: 0;
+  line-height: 0;
   color: var(--ink);
+  position: relative;
+}
+.tlbtn::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-weight: bold;
+  line-height: 1;
 }
 .tlbtn--close {
   background: #ff9d9d;
 }
 .tlbtn--close::after {
   content: '×';
-  font-size: 14px;
-  line-height: 1;
+  font-size: 12px;
 }
 .tlbtn--min {
   background: #ffe08a;
 }
 .tlbtn--min::after {
   content: '−';
-  font-size: 14px;
-  line-height: 1;
+  font-size: 10px;
 }
 .tlbtn--max {
   background: #a6e3a1;
 }
 .tlbtn--max::after {
   content: '��';
-  font-size: 10px;
-  line-height: 1;
+  font-size: 9px;
 }
 
 .content {
@@ -737,6 +742,18 @@ body {
   line-height: var(--body-line);
   color: var(--ink);
   max-width: 66ch;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 209, 232, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(205, 184, 236, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(184, 236, 214, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, #fffbfd 0%, #fdf6fa 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%234a2e4a' fill-opacity='0.03'%3E%3Cpath d='M30 0h30v30H30zM0 30h30v30H0z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 200% 200%, 180% 180%, 150% 150%, 100% 100%, 60px 60px;
+  animation: contentBgDrift 30s ease-in-out infinite;
+}
+@keyframes contentBgDrift {
+  0%, 100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0 0; }
+  50% { background-position: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 30px 30px; }
 }
 .content h2 {
   font-family: var(--font-display);
@@ -836,6 +853,58 @@ body {
   font-size: 15px;
   color: var(--ink-soft);
   margin-top: 14px;
+}
+
+/* ============ RESUME VIEWER ============ */
+.resume-viewer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.resume-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, var(--mint) 0%, #cdf3e5 50%, var(--lavender) 100%);
+  border-bottom: 2px solid var(--ink);
+  border-radius: 4px 4px 0 0;
+  margin: -20px -24px 0;
+  flex-shrink: 0;
+}
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+}
+.btn-sm {
+  font-family: var(--font-display);
+  font-size: 8px;
+  padding: 6px 10px;
+  border: 2px solid var(--ink);
+  background: var(--butter);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.1s, box-shadow 0.1s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-sm:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+.resume-pdf-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+.resume-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff;
 }
 
 /* ============ BOOT SCREEN ============ */

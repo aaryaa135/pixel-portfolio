@@ -120,10 +120,10 @@ const projects = [
     body: `<p>Whether it's an internship, collaboration, open-source project, or just an interesting engineering problem—</p>
            <p>I'd love to connect.</p>`,
   },
-  {
+{
     slug: 'proj-guide',
     label: 'Guide',
-    icon: 'guide',
+    icon: 'trash',
     title: 'HOW TO USE THIS PORTFOLIO',
     sort_order: 6,
     body: `<h2>WELCOME TO AARYA-OS v1.0</h2>
@@ -155,7 +155,7 @@ const projects = [
     <h3>RESUME</h3>
     <p>Click "Resume" -> "DOWNLOAD RESUME" to get the PDF.</p>
     
-    <p style="margin-top:16px;"><strong>Pro tip:</strong> Try the Konami code (up up down down left right left right B A) for a surprise! </p>`,
+    <p style="margin-top:16px;"><strong>Pro tip:</strong> Try the Konami code (up up down down left right left right B A) for a surprise!</p>`,
   },
 ];
 

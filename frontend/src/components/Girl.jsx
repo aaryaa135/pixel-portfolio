@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { GirlSprite } from './PixelIcon';
 import PixelIcon from './PixelIcon';
+import useSound from '../hooks/useSound';
 
 const GREETINGS = [
   'hello_world();',
@@ -18,15 +19,17 @@ const GREETINGS = [
 export default function Girl() {
   const [greeting, setGreeting] = useState(GREETINGS[0]);
   const [show, setShow] = useState(false);
+  const sfx = useSound();
 
   useEffect(() => {
     const timer = setInterval(() => {
       setGreeting(GREETINGS[Math.floor(Math.random() * GREETINGS.length)]);
       setShow(true);
-      setTimeout(() => setShow(false), 3000);
-    }, 8000);
+      sfx.click();
+      setTimeout(() => setShow(false), 2500);
+    }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [sfx]);
 
   return (
     <div className="girl" aria-hidden="true">
