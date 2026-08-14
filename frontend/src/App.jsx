@@ -9,6 +9,7 @@ import DesktopIcons from './components/DesktopIcons';
 import TrashCan from './components/TrashCan';
 import Dock from './components/Dock';
 import Window from './components/Window';
+import TechHardware from './components/TechHardware';
 import useSound from './hooks/useSound';
 import useWindows from './hooks/useWindows';
 import useViewport from './hooks/useViewport';
@@ -110,6 +111,7 @@ export default function App() {
           githubUrl={GITHUB_URL}
         />
 
+        <TechHardware />
         <Clouds />
         <StickyNote tagline={TAGLINE} signature="aarya" />
         <StoryCard />

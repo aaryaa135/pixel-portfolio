@@ -106,7 +106,7 @@ const projects = [
     label: 'Resume',
     title: 'Resume.pdf',
     body: `<h2>EXPERIENCE</h2>
-    <a class="btn" href="https://drive.google.com/file/d/1_mq_HHIdj9bu_1M_4qq7DHG6BRTXOi1T/view" target="_blank" rel="noopener noreferrer"">VIEW RESUME →</a>
+    <a class="btn" href="https://drive.google.com/file/d/1_mq_HHIdj9bu_1M_4qq7DHG6BRTXOi1T/view" target="_blank" rel="noopener noreferrer">VIEW RESUME →</a>
     <p><strong>Project Intern - IIT Delhi</strong>: Jun 2025 — Jul 2025<br>Automated Cisco DNA Center REST API workflows, built Linux-based infrastructure automation pipelines, and streamlined Git deployment workflows to improve operational efficiency.</p>
     <p><strong>Web Master - ACM JUIT</strong>: Aug 2025 — May 2026<br>Led the redevelopment of the ACM chapter website, established Git-based collaboration workflows, and improved user engagement through iterative UI/UX enhancements.</p>
     <h3>Education</h3>
