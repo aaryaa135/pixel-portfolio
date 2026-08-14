@@ -155,13 +155,13 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
 {isMobile && (
           <div className="nav-item">
             <span className="hamburger" onClick={toggle('mobile')}>
-              ��
+              =
             </span>
             {openMenu === 'mobile' && (
               <div className="nav-dropdown nav-dropdown--right">
                 {projects.map((p) => (
                   <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
-                    {ICON_FOR[p.id] || '����'} {p.label}
+                    {ICON_FOR[p.id] || '�'} {p.label}
                   </div>
                 ))}
               </div>
