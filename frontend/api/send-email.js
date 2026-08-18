@@ -2,6 +2,40 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Same validation as client-side
+const BLOCKED_EMAIL_PATTERNS = [
+  /^test@/i,
+  /^fake@/i,
+  /^dummy@/i,
+  /^example@/i,
+  /^admin@/i,
+  /^root@/i,
+  /^user@/i,
+  /^noreply@/i,
+  /^no-reply@/i,
+  /^donotreply@/i,
+  /^postmaster@/i,
+  /^webmaster@/i,
+  /^info@.*\.test$/i,
+  /^contact@.*\.test$/i,
+  /\.test$/i,
+  /\.local$/i,
+  /\.example$/i,
+  /\.invalid$/i,
+  /aaryax135@gmail\.com$/i,
+];
+
+const isValidEmail = (email) => {
+  const basicRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!basicRegex.test(email)) return false;
+  
+  for (const pattern of BLOCKED_EMAIL_PATTERNS) {
+    if (pattern.test(email)) return false;
+  }
+  
+  return true;
+};
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -11,6 +45,11 @@ export default async function handler(req, res) {
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Missing fields' });
+  }
+
+  // Server-side email validation
+  if (!isValidEmail(email)) {
+    return res.status(400).json({ error: 'Invalid email address. Please use a real email (no test/fake/disposable emails).' });
   }
 
   try {

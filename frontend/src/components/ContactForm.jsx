@@ -1,19 +1,72 @@
 import { useState } from 'react';
 import { sendContactMessage } from '../api';
 
+// Block disposable/test email domains and obviously fake patterns
+const BLOCKED_EMAIL_PATTERNS = [
+  /^test@/i,
+  /^fake@/i,
+  /^dummy@/i,
+  /^example@/i,
+  /^admin@/i,
+  /^root@/i,
+  /^user@/i,
+  /^noreply@/i,
+  /^no-reply@/i,
+  /^donotreply@/i,
+  /^postmaster@/i,
+  /^webmaster@/i,
+  /^info@.*\.test$/i,
+  /^contact@.*\.test$/i,
+  /\.test$/i,
+  /\.local$/i,
+  /\.example$/i,
+  /\.invalid$/i,
+  /@gmail\.com$/i, // block aaryax135@gmail.com specifically if needed
+  /aaryax135@gmail\.com$/i, // block your own email
+];
+
+const isValidEmail = (email) => {
+  const basicRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!basicRegex.test(email)) return false;
+  
+  // Check against blocked patterns
+  for (const pattern of BLOCKED_EMAIL_PATTERNS) {
+    if (pattern.test(email)) return false;
+  }
+  
+  return true;
+};
+
 // Real contact form wired to the backend's POST /api/contact endpoint.
 // See /backend — messages are stored in a SQLite database there.
 export default function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState('');
+  const [emailError, setEmailError] = useState('');
 
-  const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
+  const update = (field) => (e) => {
+    const value = e.target.value;
+    setForm((f) => ({ ...f, [field]: value }));
+    if (field === 'email') {
+      setEmailError(isValidEmail(value) ? '' : 'Please enter a valid email address');
+    }
+  };
 
   const submit = async (e) => {
     e.preventDefault();
+    
+    // Validate email before sending
+    if (!isValidEmail(form.email)) {
+      setEmailError('Please enter a valid email address (no test/fake emails)');
+      setStatus('error');
+      setErrorMsg('Invalid email address');
+      return;
+    }
+    
     setStatus('sending');
     setErrorMsg('');
+    setEmailError('');
     try {
       await sendContactMessage(form);
       setStatus('sent');
@@ -47,6 +100,7 @@ export default function ContactForm() {
 
       <label htmlFor="cf-email">Email</label>
       <input id="cf-email" type="email" required value={form.email} onChange={update('email')} />
+      {emailError && <p className="form-error" style={{marginTop: '4px'}}>⚠ {emailError}</p>}
 
       <label htmlFor="cf-message">Message</label>
       <textarea id="cf-message" required rows={4} value={form.message} onChange={update('message')} />
