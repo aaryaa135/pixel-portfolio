@@ -2,12 +2,24 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import db from './db.js';
+import nodemailer from 'nodemailer';
 
 dotenv.config();
 
 const app = express();
 app.use(cors({ origin: process.env.CORS_ORIGIN || 'http://localhost:5173' }));
 app.use(express.json());
+
+// Email transporter (configured via env vars)
+const transporter = process.env.SMTP_HOST ? nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT) || 465,
+  secure: true,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+}) : null;
 
 // GET /api/projects — returns all projects, ordered for the desktop grid.
 // The frontend maps `slug` -> `id` so window state keys stay stable.
@@ -25,7 +37,7 @@ app.get('/api/projects', (req, res) => {
 });
 
 // POST /api/contact — stores a message from the Contact window's form.
-app.post('/api/contact', (req, res) => {
+app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body || {};
 
   if (!name || !email || !message) {
@@ -37,6 +49,18 @@ app.post('/api/contact', (req, res) => {
 
   const stmt = db.prepare('INSERT INTO messages (name, email, message) VALUES (?, ?, ?)');
   const info = stmt.run(name.trim(), email.trim(), message.trim());
+
+  // Send email notification (non-blocking)
+  if (transporter && process.env.CONTACT_EMAIL_TO) {
+    transporter.sendMail({
+      from: process.env.SMTP_FROM || process.env.SMTP_USER,
+      to: process.env.CONTACT_EMAIL_TO,
+      subject: `Portfolio Contact: ${name}`,
+      text: `From: ${name} <${email}>\n\n${message}`,
+      html: `<p><strong>From:</strong> ${name} <${email}></p><p>${message.replace(/\n/g, '<br>')}</p>`,
+    }).catch((err) => console.error('Email send failed:', err));
+  }
+
   res.status(201).json({ id: info.lastInsertRowid });
 });
 
