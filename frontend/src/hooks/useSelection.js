@@ -7,9 +7,9 @@ export default function useSelection() {
 
   const handleMouseDown = useCallback((e) => {
     if (e.button !== 0) return;
-    
+
     const target = e.target;
-    if (target.closest('.icon, .dock-item, .win, .menubar, #trash, .sticky-note, .story-card, .girl, .cloud, .tech-item')) {
+    if (target.closest('button, input, textarea, select, a[href], .tlbtn, .nav-trigger, .hamburger, .dock-item, .icon, .mobile-back-btn, .btn, .btn-sm, .contact-form input, .contact-form textarea')) {
       return;
     }
 
@@ -21,7 +21,7 @@ export default function useSelection() {
       width: 0,
       height: 0,
     });
-    
+
     e.preventDefault();
   }, []);
 
