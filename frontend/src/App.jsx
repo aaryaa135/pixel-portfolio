@@ -10,6 +10,7 @@ import TrashCan from './components/TrashCan';
 import Dock from './components/Dock';
 import Window from './components/Window';
 import TechHardware from './components/TechHardware';
+import Footer from './components/Footer';
 import useSound from './hooks/useSound';
 import useWindows from './hooks/useWindows';
 import useViewport from './hooks/useViewport';
@@ -161,6 +162,7 @@ export default function App() {
             }}
           />
         )}
+        <Footer />
       </div>
     </>
   );

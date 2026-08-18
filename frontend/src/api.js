@@ -3,7 +3,6 @@
 // local fallback data in src/data/projects.js — see fetchProjects() in App.jsx.
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
-const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || 'io/f/xoeapqgy';
 
 export async function fetchProjects() {
   const res = await fetch(`${API_URL}/api/projects`);
@@ -12,7 +11,7 @@ export async function fetchProjects() {
 }
 
 export async function sendContactMessage({ name, email, message }) {
-  const res = await fetch(`https://formspree.io/f/xoeapqgy`, {
+  const res = await fetch('/api/send-email', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, message }),
