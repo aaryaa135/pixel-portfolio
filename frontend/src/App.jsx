@@ -13,6 +13,7 @@ import TechHardware from './components/TechHardware';
 import useSound from './hooks/useSound';
 import useWindows from './hooks/useWindows';
 import useViewport from './hooks/useViewport';
+import useSelection from './hooks/useSelection';
 import { fetchProjects } from './api';
 import fallbackProjects, { REJECTED } from './data/projects';
 
@@ -27,6 +28,7 @@ export default function App() {
   const sfx = useSound();
   const { windows, open, close, focus, minimize, closeAll } = useWindows();
   const { isMobile, isTablet } = useViewport();
+  const { selection, isSelecting } = useSelection();
 
   useEffect(() => {
     fetchProjects()
@@ -147,6 +149,18 @@ export default function App() {
             />
           ))}
         </div>
+
+        {selection && isSelecting && (
+          <div
+            className="selection-box"
+            style={{
+              left: selection.x,
+              top: selection.y,
+              width: selection.width,
+              height: selection.height,
+            }}
+          />
+        )}
       </div>
     </>
   );

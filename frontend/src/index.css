@@ -42,6 +42,34 @@ body {
   font-family: var(--font-display);
 }
 
+/* ============ SELECTION BOX ============ */
+.selection-box {
+  position: fixed;
+  pointer-events: none;
+  border: 2px dashed var(--accent);
+  background: rgba(255, 143, 192, 0.15);
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 143, 192, 0.4),
+    0 0 12px rgba(255, 143, 192, 0.3);
+  z-index: 50;
+  animation: selectionPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes selectionPulse {
+  0%, 100% {
+    border-color: var(--accent);
+    box-shadow: 
+      inset 0 0 0 1px rgba(255, 143, 192, 0.4),
+      0 0 12px rgba(255, 143, 192, 0.3);
+  }
+  50% {
+    border-color: #ffb3d1;
+    box-shadow: 
+      inset 0 0 0 1px rgba(255, 143, 192, 0.6),
+      0 0 20px rgba(255, 143, 192, 0.5);
+  }
+}
+
 /* ============ DESKTOP ============ */
 #desktop {
   position: relative;
@@ -49,8 +77,8 @@ body {
   height: 100vh;
   overflow: hidden;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg fill='%234a2e4a' fill-opacity='0.07' font-family='monospace' font-size='16' transform='rotate(-12 130 130)'%3E%3Ctext x='4' y='30'%3EREACT%3C/text%3E%3Ctext x='120' y='68'%3EPYTHON%3C/text%3E%3Ctext x='8' y='118'%3EDOCKER%3C/text%3E%3Ctext x='138' y='156'%3EFASTAPI%3C/text%3E%3Ctext x='24' y='206'%3EPOSTGRES%3C/text%3E%3Ctext x='150' y='244'%3EGIT%3C/text%3E%3C/g%3E%3C/svg%3E")
-      repeat,
-    linear-gradient(135deg, var(--pink) 0%, var(--peach) 45%, var(--lavender) 100%);
+    repeat,
+  linear-gradient(135deg, var(--pink) 0%, var(--peach) 45%, var(--lavender) 100%);
   background-size: 260px 260px, 140% 140%;
   animation: bgdrift 22s ease-in-out infinite;
 }
