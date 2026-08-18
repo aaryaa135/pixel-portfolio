@@ -2,6 +2,11 @@ import { useState, useRef, useEffect } from 'react';
 import PixelIcon from './PixelIcon';
 import useClock from '../hooks/useClock';
 
+const SOCIAL_LINKS = [
+  { name: 'github', label: 'GitHub', url: 'https://github.com/aaryaa135' },
+  { name: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/aarya--gupta/' },
+];
+
 // Which project ids belong to which nav category. Edit these arrays
 // if you rename/add project ids so the dropdowns keep matching reality.
 const PROJECT_CATEGORY_IDS = ['proj-projects', 'proj-game'];
@@ -150,6 +155,47 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
               🔋
             </span>
           </>
+        )}
+        {!isMobile && (
+          <div className="menubar-social" style={{ display: 'flex', gap: '8px', marginRight: '8px' }}>
+            {SOCIAL_LINKS.map((s) => (
+              <a
+                key={s.name}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="menubar-social-link"
+                title={s.label}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '28px',
+                  height: '28px',
+                  border: '2px solid var(--ink)',
+                  borderRadius: '4px',
+                  background: '#fff',
+                  boxShadow: '2px 2px 0 var(--ink)',
+                  transition: 'transform 0.1s, box-shadow 0.1s',
+                  textDecoration: 'none',
+                }}
+                onMouseDown={(e) => {
+                  e.currentTarget.style.transform = 'translate(1px, 1px)';
+                  e.currentTarget.style.boxShadow = '1px 1px 0 var(--ink)';
+                }}
+                onMouseUp={(e) => {
+                  e.currentTarget.style.transform = 'translate(0, 0)';
+                  e.currentTarget.style.boxShadow = '2px 2px 0 var(--ink)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translate(0, 0)';
+                  e.currentTarget.style.boxShadow = '2px 2px 0 var(--ink)';
+                }}
+              >
+                <PixelIcon name={s.name} style={{ width: '16px', height: '16px' }} />
+              </a>
+            ))}
+          </div>
         )}
         <span className="menubar-clock pixel-font">{time}</span>
 

@@ -322,6 +322,34 @@ export const ICONS = {
     '.hddddddh.',
     '.hd.ww.dh.',
   ],
+  github: [
+    '..kkkkkk....',
+    '.kwwwwwwk...',
+    '.kwwwwwwk...',
+    '.kwwwwwk....',
+    '.kwwwwk.....',
+    '.kwwwwk.....',
+    '.kwwwwk.....',
+    '.kwwwwk.....',
+    '.kwwwwk.....',
+    '.kwwwwwwk...',
+    '.kwwwwwwk...',
+    '..kkkkkk....',
+  ],
+  linkedin: [
+    '..kkkkkk....',
+    '.kwwwwwwk...',
+    '.kww..wwk...',
+    '.kww..wwk...',
+    '.kwwwwwwk...',
+    '.kww..wwk...',
+    '.kww..wwk...',
+    '.kww..wwk...',
+    '.kww..wwk...',
+    '.kww..wwk...',
+    '.kww..wwk...',
+    '..kkkkkk....',
+  ],
 };
 
 
@@ -347,6 +375,8 @@ export const iconPalettes = {
   server: { k: P.k, g: P.grey, b: P.laptop, '.': P.w },
   guide: { k: P.k, b: P.blue },
   faceLogo: { h: P.lav, s: P.s, e: P.k, d: P.d, w: P.w },
+  github: { k: P.k, w: P.w },
+  linkedin: { k: P.k, w: P.blue, '.': P.w },
 };
 
 // The pixel-art girl who stands above the dock (10 wide x 15 tall)
