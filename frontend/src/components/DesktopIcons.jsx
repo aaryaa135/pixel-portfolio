@@ -1,18 +1,29 @@
 import { useState } from 'react';
 import PixelIcon from './PixelIcon';
 
-// Renders the desktop icon grid. On tablet/mobile this switches to a
-// centered multi-column grid (via the `icons--compact` class) instead
-// of the single left-hand column used on desktop.
+const DESKTOP_ICON_ORDER = [
+  'proj-about',
+  'proj-stack',
+  'proj-projects',
+  'proj-resume',
+  'proj-events',
+  'proj-certificates',
+  'proj-game',
+  'proj-contact',
+];
+
 export default function DesktopIcons({ projects, onOpen, isMobile, isTablet }) {
   const [selectedId, setSelectedId] = useState(null);
   const compact = isMobile || isTablet;
 
-  const otherProjects = projects.filter((p) => p.id !== 'proj-guide');
+  const projectMap = new Map(projects.map(p => [p.id, p]));
+  const orderedProjects = DESKTOP_ICON_ORDER
+    .map(id => projectMap.get(id))
+    .filter(Boolean);
 
   return (
     <div className={`icons${compact ? ' icons--compact' : ''}`}>
-      {otherProjects.map((p) => (
+      {orderedProjects.map((p) => (
         <button
           key={p.id}
           type="button"

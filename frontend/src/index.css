@@ -444,9 +444,8 @@ body {
   bottom: 130px;
   z-index: 20;
   display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(3, 106px);
-  grid-auto-columns: 100px;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(4, 106px);
   gap: 18px 24px;
   align-content: start;
 }
@@ -454,9 +453,8 @@ body {
   left: 50%;
   bottom: auto;
   transform: translateX(-50%);
-  grid-auto-flow: row;
-  grid-template-rows: none;
   grid-template-columns: repeat(2, 92px);
+  grid-template-rows: repeat(4, auto);
   justify-items: center;
 }
 .icon {
