@@ -21,13 +21,13 @@ const BLOCKED_EMAIL_PATTERNS = [
   /\.local$/i,
   /\.example$/i,
   /\.invalid$/i,
-  /@gmail\.com$/i, // block aaryax135@gmail.com specifically if needed
   /aaryax135@gmail\.com$/i, // block your own email
 ];
 
+const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
 const isValidEmail = (email) => {
-  const basicRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!basicRegex.test(email)) return false;
+  if (!emailRegex.test(email) || email.length > 254) return false;
   
   // Check against blocked patterns
   for (const pattern of BLOCKED_EMAIL_PATTERNS) {
