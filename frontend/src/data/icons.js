@@ -350,6 +350,32 @@ export const ICONS = {
     '.kww..wwk...',
     '..kkkkkk....',
   ],
+  certificate: [
+    '..kkkkkkkk..',
+    '.kwwwwwwwwk.',
+    'kwwwwwwwwwwk',
+    'kwg.gg.gg.wk',
+    'kwg.gg.gg.wk',
+    'kwggggggggwk',
+    'kwg.gg.gg.wk',
+    'kwg.gg.gg.wk',
+    'kwwwwwwwwwwk',
+    '.kwwwwwwwwk.',
+    '..kkkkkkkk..',
+  ],
+  calendar: [
+    '..kkkkkkkk..',
+    '.kwwwwwwwwk.',
+    'kwwwwwwwwwwk',
+    'kwggggggggwk',
+    'kwg....g.wk',
+    'kwg....g.wk',
+    'kwg....g.wk',
+    'kwg....g.wk',
+    'kwggggggggwk',
+    '.kwwwwwwwwk.',
+    '..kkkkkkkk..',
+  ],
 };
 
 
@@ -377,6 +403,8 @@ export const iconPalettes = {
   faceLogo: { h: P.lav, s: P.s, e: P.k, d: P.d, w: P.w },
   github: { k: P.k, w: P.w },
   linkedin: { k: P.k, w: P.blue, '.': P.w },
+  certificate: { k: P.k, w: P.w, g: P.gold },
+  calendar: { k: P.k, w: P.w, g: P.blue2 },
 };
 
 // The pixel-art girl who stands above the dock (10 wide x 15 tall)

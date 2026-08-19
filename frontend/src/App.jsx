@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import OpeningAnimation from './components/OpeningAnimation';
 import BootScreen from './components/BootScreen';
 import MenuBar from './components/MenuBar';
 import Clouds from './components/Clouds';
@@ -24,7 +23,6 @@ const TAGLINE = 'Pushed to production. Said a prayer.';
 const GITHUB_URL = 'https://github.com/aaryaa135/pixel-portfolio';
 
 export default function App() {
-  const [opened, setOpened] = useState(false);
   const [booted, setBooted] = useState(false);
   const [projects, setProjects] = useState(fallbackProjects);
   const sfx = useSound();
@@ -101,15 +99,7 @@ export default function App() {
 
   return (
     <>
-      {!opened && (
-        <OpeningAnimation
-          onDone={() => {
-            setOpened(true);
-          }}
-        />
-      )}
-
-      {opened && !booted && (
+      {!booted && (
         <BootScreen
           onDone={() => {
             setBooted(true);
@@ -117,8 +107,7 @@ export default function App() {
         />
       )}
 
-      {booted && (
-        <div id="desktop">
+      <div id="desktop">
         <MenuBar
           name={YOUR_NAME}
           title={YOUR_TITLE}
@@ -173,7 +162,6 @@ export default function App() {
           />
         )}
       </div>
-      )}
     </>
   );
 }
