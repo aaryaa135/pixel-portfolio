@@ -112,11 +112,104 @@ const projects = [
     <p>Expected Graduation: 2027</p>`,
   },
   {
+    slug: 'proj-certificates',
+    label: 'Certificates',
+    icon: 'certificate',
+    title: 'Certifications',
+    sort_order: 5,
+    body: `<h2>CERTIFICATIONS</h2>
+    <p>Professional certifications validating expertise across backend engineering, AI/ML, and cloud technologies.</p>
+
+    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">AWS CLOUD PRACTITIONER</p>
+    <p>Amazon Web Services</p>
+    <p style="margin:0 0 8px;">Fundamental understanding of AWS Cloud concepts, services, security, architecture, pricing, and support.</p>
+    <div class="tag">AWS</div><div class="tag">Cloud</div>
+    <br>
+    <a class="btn" href="https://www.credly.com/badges/aws-cloud-practitioner" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    </div>
+
+    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#fbf6ee;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">PYTHON FOR DATA SCIENCE</p>
+    <p>NPTEL / IIT</p>
+    <p style="margin:0 0 8px;">Comprehensive Python programming for data analysis, visualization, and machine learning workflows.</p>
+    <div class="tag">Python</div><div class="tag">Data Science</div>
+    <br>
+    <a class="btn" href="https://nptel.ac.in" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    </div>
+
+    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">MACHINE LEARNING SPECIALIZATION</p>
+    <p>DeepLearning.AI / Andrew Ng</p>
+    <p style="margin:0 0 8px;">Supervised learning, unsupervised learning, and best practices for ML model development and deployment.</p>
+    <div class="tag">ML</div><div class="tag">DeepLearning.AI</div>
+    <br>
+    <a class="btn" href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    </div>
+
+    <div style="border:2px solid #4a2e4a;padding:14px;background:#fbf6ee;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">DOCKER & KUBERNETES FUNDAMENTALS</p>
+    <p>Linux Foundation / CNCF</p>
+    <p style="margin:0 0 8px;">Container orchestration, Kubernetes architecture, deployments, services, and production-grade cluster management.</p>
+    <div class="tag">Docker</div><div class="tag">Kubernetes</div><div class="tag">DevOps</div>
+    <br>
+    <a class="btn" href="https://training.linuxfoundation.org" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    </div>`,
+  },
+  {
+    slug: 'proj-events',
+    label: 'Events',
+    icon: 'calendar',
+    title: 'Events Attended',
+    sort_order: 6,
+    body: `<h2>EVENTS & HACKATHONS</h2>
+    <p>Technical events, hackathons, and conferences attended as a participant, organizer, or speaker.</p>
+
+    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">SMART INDIA HACKATHON 2024</p>
+    <p>Grand Finale — Top 50 Teams Nationwide</p>
+    <p style="margin:0 0 8px;">Built an AI-powered agricultural disease detection system using YOLOv8 and edge deployment on Jetson Nano. Competed among 1000+ teams across India.</p>
+    <div class="tag">Hackathon</div><div class="tag">AI/ML</div><div class="tag">Edge Computing</div>
+    <br>
+    <a class="btn" href="https://www.sih.gov.in" target="_blank" rel="noopener noreferrer">DETAILS →</a>
+    </div>
+
+    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#fbf6ee;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">HACKRX 2024</p>
+    <p>Healthcare Track — 2nd Runner Up</p>
+    <p style="margin:0 0 8px;">Developed a real-time patient monitoring dashboard with FastAPI, WebSockets, and React for ICU vitals tracking.</p>
+    <div class="tag">Hackathon</div><div class="tag">Healthcare</div><div class="tag">FastAPI</div>
+    <br>
+    <a class="btn" href="https://hackrx.tech" target="_blank" rel="noopener noreferrer">DETAILS →</a>
+    </div>
+
+    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">DEVCON INDIA 2024</p>
+    <p>Attendee — Blockchain & Web3 Conference</p>
+    <p style="margin:0 0 8px;">Explored decentralized infrastructure, zero-knowledge proofs, and next-gen developer tooling. Networked with core protocol engineers.</p>
+    <div class="tag">Conference</div><div class="tag">Web3</div><div class="tag">Blockchain</div>
+    </div>
+
+    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#fbf6ee;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">ACM ICPC REGIONALS 2023</p>
+    <p>Regional Contest Participant</p>
+    <p style="margin:0 0 8px;">Competitive programming contest solving algorithmic problems under time constraints. Ranked in top 15% regionally.</p>
+    <div class="tag">Competitive Programming</div><div class="tag">Algorithms</div>
+    </div>
+
+    <div style="border:2px solid #4a2e4a;padding:14px;background:#f4fbf8;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">GITHUB UNIVERSE 2023 (VIRTUAL)</p>
+    <p>Attendee — Developer Conference</p>
+    <p style="margin:0 0 8px;">Sessions on GitHub Copilot, Actions, Codespaces, and AI-assisted development workflows.</p>
+    <div class="tag">Conference</div><div class="tag">GitHub</div><div class="tag">DevTools</div>
+    </div>`,
+  },
+  {
     slug: 'proj-contact',
     label: 'Contact',
     icon: 'mail',
     title: 'LET US CONNECT',
-    sort_order: 5,
+    sort_order: 7,
     body: `<p>Whether it's an internship, collaboration, open-source project, or just an interesting engineering problem—</p>
            <p>I'd love to connect.</p>`,
   },
@@ -125,7 +218,7 @@ const projects = [
     label: 'Guide',
     icon: 'trash',
     title: 'HOW TO USE THIS PORTFOLIO',
-    sort_order: 6,
+    sort_order: 8,
     body: `<h2>WELCOME TO AARYA-OS v1.0</h2>
     <p>This portfolio works like a desktop OS. Here's how to navigate:</p>
     
