@@ -95,7 +95,7 @@ export default async function handler(req, res) {
           </p>
           
           <div style="text-align: center; margin: 30px 0;">
-            <a href="https://aarya-pixelportfolio.vercel.app/" style="display: inline-block; background: #fff3b0; border: 2px solid #4a2e4a; padding: 12px 20px; margin: 8px; text-decoration: none; color: #4a2e4a; font-family: 'Press Start 2P', monospace; font-size: 10px; box-shadow: 3px 3px 0 #4a2e4a;">
+            <a href="https://pixel-portfolio-theta.vercel.app/" style="display: inline-block; background: #fff3b0; border: 2px solid #4a2e4a; padding: 12px 20px; margin: 8px; text-decoration: none; color: #4a2e4a; font-family: 'Press Start 2P', monospace; font-size: 10px; box-shadow: 3px 3px 0 #4a2e4a;">
               🎮 PLAY CRUMB QUEST
             </a>
             <a href="https://github.com/aaryaa135" style="display: inline-block; background: #b8ecd6; border: 2px solid #4a2e4a; padding: 12px 20px; margin: 8px; text-decoration: none; color: #4a2e4a; font-family: 'Press Start 2P', monospace; font-size: 10px; box-shadow: 3px 3px 0 #4a2e4a;">
