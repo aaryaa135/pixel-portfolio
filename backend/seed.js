@@ -138,7 +138,7 @@ const projects = [
     <p style="margin:0 0 8px;">Foundational understanding of machine learning concepts, workflows, model development, and core ML principles through AWS Academy.</p>
     <div class="tag">AWS</div><div class="tag">Machine Learning</div>
     <br>
-    <a class="btn" href="https://www.credly.com/org/amazon-web-services" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    <a class="btn" href="https://www.credly.com/badges/72768d36-e046-4ea2-94f6-c689b540d736/linked_in_profile" target="_blank" rel="noopener noreferrer">VERIFY →</a>
     </div>
 
     <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#fbf6ee;">
@@ -147,7 +147,7 @@ const projects = [
     <p style="margin:0 0 8px;">Foundational understanding of AI concepts, Oracle Cloud Infrastructure, AI services, machine learning, and generative AI fundamentals.</p>
     <div class="tag">OCI</div><div class="tag">AI</div><div class="tag">Cloud</div>
     <br>
-    <a class="btn" href="https://catalog-education.oracle.com/ords/certview/sharebadge" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    <a class="btn" href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=4D057139F3215ABE633F1912D8FE8FEA83F27776DE66247FCD7521E99338855D" target="_blank" rel="noopener noreferrer">VERIFY →</a>
     </div>
 
     <div style="border:2px solid #4a2e4a;padding:14px;background:#f4fbf8;">
@@ -156,7 +156,7 @@ const projects = [
     <p style="margin:0 0 8px;">Foundational understanding of cloud computing concepts, AWS services, cloud architecture, security, pricing, and support.</p>
     <div class="tag">AWS</div><div class="tag">Cloud</div>
     <br>
-    <a class="btn" href="https://www.credly.com/org/amazon-web-services" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    <a class="btn" href="https://www.credly.com/badges/353d602d-1406-4e9c-bbc7-552dd05a91f9/linked_in_profile" target="_blank" rel="noopener noreferrer">VERIFY →</a>
     </div>`,
   },
   {
