@@ -23,6 +23,18 @@ export default function StoryCard() {
           <span className="story-card__prompt">$</span> status
         </p>
         <p>Open to Software Engineering opportunities. Currently shipping code, not excuses.</p>
+        <p>
+          <span className="story-card__prompt">$</span> now playing —{' '}
+          <a
+            href="https://open.spotify.com/playlist/6zqVg6wxGgk7fkASj44ao1?si=54ec13bfe6eb4280"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#ff8fc0', textDecoration: 'underline' }}
+          >
+            playlist 🎧
+          </a>{' '}
+          on loop
+        </p>
       </div>
     </div>
   );
