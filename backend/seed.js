@@ -130,42 +130,33 @@ const projects = [
     title: 'Certifications',
     sort_order: 5,
     body: `<h2>CERTIFICATIONS</h2>
-    <p>Professional certifications validating expertise across backend engineering, AI/ML, and cloud technologies.</p>
+    <p>Professional certifications validating expertise across cloud, machine learning, and AI technologies.</p>
 
     <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
-    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">AWS CLOUD PRACTITIONER</p>
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">AWS MACHINE LEARNING</p>
     <p>Amazon Web Services</p>
-    <p style="margin:0 0 8px;">Fundamental understanding of AWS Cloud concepts, services, security, architecture, pricing, and support.</p>
-    <div class="tag">AWS</div><div class="tag">Cloud</div>
+    <p style="margin:0 0 8px;">Foundational understanding of machine learning concepts, workflows, model development, and core ML principles through AWS Academy.</p>
+    <div class="tag">AWS</div><div class="tag">Machine Learning</div>
     <br>
-    <a class="btn" href="https://www.credly.com/badges/aws-cloud-practitioner" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    <a class="btn" href="https://www.credly.com/org/amazon-web-services" target="_blank" rel="noopener noreferrer">VERIFY →</a>
     </div>
 
     <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#fbf6ee;">
-    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">PYTHON FOR DATA SCIENCE</p>
-    <p>NPTEL / IIT</p>
-    <p style="margin:0 0 8px;">Comprehensive Python programming for data analysis, visualization, and machine learning workflows.</p>
-    <div class="tag">Python</div><div class="tag">Data Science</div>
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">OCI AI FOUNDATIONS</p>
+    <p>Oracle</p>
+    <p style="margin:0 0 8px;">Foundational understanding of AI concepts, Oracle Cloud Infrastructure, AI services, machine learning, and generative AI fundamentals.</p>
+    <div class="tag">OCI</div><div class="tag">AI</div><div class="tag">Cloud</div>
     <br>
-    <a class="btn" href="https://nptel.ac.in" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    <a class="btn" href="https://catalog-education.oracle.com/ords/certview/sharebadge" target="_blank" rel="noopener noreferrer">VERIFY →</a>
     </div>
 
-    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
-    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">MACHINE LEARNING SPECIALIZATION</p>
-    <p>DeepLearning.AI / Andrew Ng</p>
-    <p style="margin:0 0 8px;">Supervised learning, unsupervised learning, and best practices for ML model development and deployment.</p>
-    <div class="tag">ML</div><div class="tag">DeepLearning.AI</div>
+    <div style="border:2px solid #4a2e4a;padding:14px;background:#f4fbf8;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">AWS CLOUD FOUNDATIONS</p>
+    <p>Amazon Web Services</p>
+    <p style="margin:0 0 8px;">Foundational understanding of cloud computing concepts, AWS services, cloud architecture, security, pricing, and support.</p>
+    <div class="tag">AWS</div><div class="tag">Cloud</div>
     <br>
-    <a class="btn" href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" rel="noopener noreferrer">VERIFY →</a>
-    </div>
-
-    <div style="border:2px solid #4a2e4a;padding:14px;background:#fbf6ee;">
-    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">DOCKER & KUBERNETES FUNDAMENTALS</p>
-    <p>Linux Foundation / CNCF</p>
-    <p style="margin:0 0 8px;">Container orchestration, Kubernetes architecture, deployments, services, and production-grade cluster management.</p>
-    <div class="tag">Docker</div><div class="tag">Kubernetes</div><div class="tag">DevOps</div>
-    <br>
-    <a class="btn" href="https://training.linuxfoundation.org" target="_blank" rel="noopener noreferrer">VERIFY →</a>
+    <a class="btn" href="https://www.credly.com/org/amazon-web-services" target="_blank" rel="noopener noreferrer">VERIFY →</a>
     </div>`,
   },
   {
