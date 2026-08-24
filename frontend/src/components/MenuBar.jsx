@@ -13,8 +13,10 @@ const ICON_FOR = {
   'proj-resume': '📃',
   'proj-contact': '📱',
   'proj-projects': '📂',
-  'proj-game': ' 🎮',
+  'proj-game': '🎮',
   'proj-guide': '📖',
+  'proj-certificates': '🏆',
+  'proj-events': '📅',
 };
 
 // Top menu bar. On desktop/tablet: File / Projects / About are real
@@ -112,7 +114,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
                 <div className="nav-dropdown">
                   {projectItems.map((p) => (
                     <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
-                      {ICON_FOR[p.id] || '����'} {p.label}
+                      {ICON_FOR[p.id] || '📄'} {p.label}
                     </div>
                   ))}
                 </div>
@@ -130,7 +132,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
                 <div className="nav-dropdown">
                   {aboutItems.map((p) => (
                     <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
-                      {ICON_FOR[p.id] || '����'} {p.label}
+                      {ICON_FOR[p.id] || '📄'} {p.label}
                     </div>
                   ))}
                 </div>
@@ -162,7 +164,7 @@ export default function MenuBar({ name, title, projects, onOpen, onCloseAll, isM
               <div className="nav-dropdown nav-dropdown--right">
                 {projects.map((p) => (
                   <div key={p.id} className="nav-row" onClick={handleOpen(p)}>
-                    {ICON_FOR[p.id] || '����'} {p.label}
+                    {ICON_FOR[p.id] || '📄'} {p.label}
                   </div>
                 ))}
               </div>
