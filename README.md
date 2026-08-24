@@ -1,61 +1,34 @@
-# pixel-portfolio
-*A retro-futuristic desktop OS portfolio. Built with React, SQLite, and a pinch of nostalgia.*
+# Aarya Gupta
 
-## The Vibe
-🖥️ **Aarya-OS v1.0** — a pixel-perfect desktop environment simulated in your browser.
-- Drag windows, minimize, maximize, close
-- Click icons to open project panels
-- A grumpy girl sprite lives above the dock (she has opinions)
-- Konami code easter egg 🐧
+**Computer Science Student • Software Engineer**
 
-## Tech Stack
-| Layer | Tech |
-|-------|------|
-| Frontend | React 18, Vite, Tailwind-adjacent CSS |
-| State | React hooks (`useWindows`, `useViewport`, `useSound`) |
-| Backend | Express + Better-SQLite3 |
-| Data | SQLite `portfolio.db` (file-based, zero config) |
-| Styling | Custom properties, keyframe animations, SVG patterns |
+> Pushed to production. Said a prayer.
 
-## How It Works
-1. **Boot sequence** → progress bar → desktop reveals
-2. **Projects loaded** from `backend/api/projects` (falls back to local data if offline)
-3. **Click icons** → windows open with drag/resize/minimize controls
-4. **Contact form** → validates email → stores message in DB + sends non-blocking email
-5. **Trash can** → reveals "rejected concepts" easter egg
+## The Quick Edit
 
-## Responsive
-- **Desktop** (≥1024px): full window management, docked icons
-- **Tablet** (640–1023px): windows stack, compact icon grid
-- **Mobile** (<640px): full-screen windows, hamburger menu, touch-friendly
+- 🎓 CS student | backend • AI • full-stack
+- 💻 Building secure backends, AI-powered apps, developer tools
+- 🐧 Konami code → secret surprise (up up down down left right left right B A)
+- 📧 Open to Software Engineering / Backend / AI internships
 
-## Run Locally
-```bash
-# Backend
-cd backend && npm install && npm run dev
+## Tech Stack (at a glance)
 
-# Frontend  
-cd frontend && npm install && npm run dev
-```
+| Language | Backend | Frontend | DB | AI/ML |
+|----------|---------|----------|----|-------|
+| Python • C++ • C • JavaScript | FastAPI • Django • Express.js | React • HTML5 • CSS3 | PostgreSQL • MongoDB • Redis | PyTorch • YOLOv8 • OpenCV |
 
-Visit `http://localhost:5173` — the boot screen will serenade you.
+## Goodies
 
-## Folder Quick-Start
-```
-frontend/src/components/   → 15 UI bricks (Window, Dock, MenuBar, etc.)
-frontend/src/data/         → projects + icon definitions
-frontend/src/hooks/        → useWindows, useViewport, useSound, useSelection
-frontend/src/api.js        → thin wrapper over backend
-backend/index.js           → Express + rate limit + email transport
-backend/seed.js            → populate portfolio.db
-```
+- 🎨 Pixel-art portfolio: **Aarya-OS v1.0** (drag windows, click icons, hear 8-bit blips)
+- 👾 Girl sprite with random greetings (`console.log("hi")`, `docker run portfolio`, etc.)
+- 📦 Projects: Authforge (auth), CardioVision (AI medical), Retail Inventory API
+- 🏀 Always open to interesting challenges
 
-## Fun Parts
-- Girl sprite random greetings (`console.log("hi")`, `docker run portfolio`, etc.)
-- Boot animation with progress bar + blinky cursor
-- Background drifting SVG + animated hardware icons
-- Konami code → surprise!
-- `useSelection()` drag-to-select box (try selecting text elsewhere on the page)
+## Find Me
 
-## License
-MIT — or "do whatever you want, just don't claim you wrote the boot sound."
+- GitHub: [@aaryaa135](https://github.com/aaryaa135)
+- LinkedIn: [aarya--gupta](https://www.linkedin.com/in/aarya--gupta/)
+
+---
+
+*Built with React, SQLite, and a sprinkle of nostalgia.*
