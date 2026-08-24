@@ -9,7 +9,7 @@ export default function useSelection() {
     if (e.button !== 0) return;
 
     const target = e.target;
-    if (target.closest('button, input, textarea, select, a[href], .tlbtn, .nav-trigger, .hamburger, .dock-item, .icon, .mobile-back-btn, .btn, .btn-sm, .contact-form input, .contact-form textarea')) {
+    if (target.closest('button, input, textarea, select, a[href], .tlbtn, .nav-trigger, .hamburger, .dock-item, .icon, .mobile-back-btn, .btn, .btn-sm')) {
       return;
     }
 
