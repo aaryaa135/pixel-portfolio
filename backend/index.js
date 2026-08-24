@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import rateLimit from 'express-rate-limit';
 import db from './db.js';
 import nodemailer from 'nodemailer';
 
@@ -9,6 +10,19 @@ dotenv.config();
 const app = express();
 app.use(cors({ origin: process.env.CORS_ORIGIN || 'http://localhost:5173' }));
 app.use(express.json());
+
+// Rate limiting: 10 requests per 15 minutes per IP for contact endpoints
+const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  message: { error: 'Too many requests. Please try again later.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Apply to contact-related routes
+app.use('/api/contact', contactLimiter);
+app.use('/api/send-email', contactLimiter);
 
 // Email transporter (configured via env vars)
 const transporter = process.env.SMTP_HOST ? nodemailer.createTransport({
@@ -43,7 +57,7 @@ app.post('/api/contact', async (req, res) => {
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'name, email and message are all required' });
   }
-  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!emailRegex.test(email) || email.length > 254) {
     return res.status(400).json({ error: 'please enter a valid email address' });
   }
@@ -65,10 +79,13 @@ app.post('/api/contact', async (req, res) => {
   res.status(201).json({ id: info.lastInsertRowid });
 });
 
-// GET /api/messages?key=... — simple protected endpoint so you can read
-// submitted messages. Swap ADMIN_KEY for real auth before going to production.
+// GET /api/messages — protected endpoint so you can read submitted messages.
+// Uses Bearer token auth via ADMIN_TOKEN env var (more secure than query param).
 app.get('/api/messages', (req, res) => {
-  if (!process.env.ADMIN_KEY || req.query.key !== process.env.ADMIN_KEY) {
+  const authHeader = req.headers.authorization;
+  const token = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  
+  if (!process.env.ADMIN_TOKEN || token !== process.env.ADMIN_TOKEN) {
     return res.status(401).json({ error: 'unauthorized' });
   }
   const rows = db.prepare('SELECT * FROM messages ORDER BY created_at DESC').all();

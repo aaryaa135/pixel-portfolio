@@ -1,8 +1,9 @@
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useMemo } from 'react';
 import PixelIcon from './PixelIcon';
 import ContactForm from './ContactForm';
 import MiniGame from './MiniGame';
 import ResumeViewer from './ResumeViewer';
+import DOMPurify from 'dompurify';
 
 // A single draggable / resizable / stackable macOS-style window.
 // On mobile it renders as a full-screen panel instead — dragging
@@ -148,7 +149,7 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
         ) : project.id === 'proj-resume' ? (
           <ResumeViewer />
         ) : (
-          <div dangerouslySetInnerHTML={{ __html: project.body }} />
+          <div dangerouslySetInnerHTML={{ __html: useMemo(() => DOMPurify.sanitize(project.body), [project.body]) }} />
         )}
       </div>
 

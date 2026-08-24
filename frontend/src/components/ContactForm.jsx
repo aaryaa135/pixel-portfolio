@@ -1,39 +1,12 @@
 import { useState } from 'react';
 import { sendContactMessage } from '../api';
 
-// Block disposable/test email domains and obviously fake patterns
-const BLOCKED_EMAIL_PATTERNS = [
-  /^test@/i,
-  /^fake@/i,
-  /^dummy@/i,
-  /^example@/i,
-  /^admin@/i,
-  /^root@/i,
-  /^user@/i,
-  /^noreply@/i,
-  /^no-reply@/i,
-  /^donotreply@/i,
-  /^postmaster@/i,
-  /^webmaster@/i,
-  /^info@.*\.test$/i,
-  /^contact@.*\.test$/i,
-  /\.test$/i,
-  /\.local$/i,
-  /\.example$/i,
-  /\.invalid$/i,
-  /aaryax135@gmail\.com$/i, // block your own email
-];
-
-const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+// Standard email regex (matches backend)
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const isValidEmail = (email) => {
-  if (!emailRegex.test(email) || email.length > 254) return false;
-  
-  // Check against blocked patterns
-  for (const pattern of BLOCKED_EMAIL_PATTERNS) {
-    if (pattern.test(email)) return false;
-  }
-  
+  if (!EMAIL_REGEX.test(email) || email.length > 254) return false;
+  if (email.toLowerCase() === 'aaryax135@gmail.com') return false;
   return true;
 };
 
