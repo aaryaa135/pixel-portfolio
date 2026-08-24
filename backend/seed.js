@@ -36,6 +36,8 @@ const projects = [
     <div class="tag">PostgreSQL</div><div class="tag">MongoDB</div><div class="tag">MySQL</div><div class="tag">Redis</div>
     <h3>AI / ML</h3>
     <div class="tag">PyTorch</div><div class="tag">YOLOv8</div><div class="tag">OpenCV</div><div class="tag">Scikit-learn</div><div class="tag">XGBoost</div><div class="tag">NumPy</div><div class="tag">Pandas</div>
+    <h3>Data Analytics & BI</h3>
+    <div class="tag">Power BI</div><div class="tag">Excel</div><div class="tag">DAX</div><div class="tag">Power Query</div><div class="tag">Data Modeling</div><div class="tag">Data Visualization</div><div class="tag">Data Analysis</div>
     <h3>DevOps & Testing</h3>
     <div class="tag">Docker</div><div class="tag">Git</div><div class="tag">GitHub Actions</div><div class="tag">Linux</div><div class="tag">Postman</div><div class="tag">Pytest</div>
     <h3>Cloud</h3>
