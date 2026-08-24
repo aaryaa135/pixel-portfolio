@@ -1,4 +1,4 @@
-import db from './db.js';
+﻿import db from './db.js';
 
 const projects = [
   {
@@ -17,7 +17,7 @@ const projects = [
     <p>Building secure backend systems, AI-powered applications, and developer tools while exploring distributed systems, cloud infrastructure, and software architecture.</p>
     <p>Open to Software Engineering, Backend, and AI internship opportunities where I can build impactful products and continue learning from great engineers.</p>
     <h3>Off the clock</h3>
-    <p>Probably fixing a bug while <a href="https://open.spotify.com/playlist/7ovDJn7e2YgVpYSedBgNZR?si=0ca71e6a925f4f90&pt=ce7591d704b9416ce030fc7b906823ff" target="_blank" rel="noopener noreferrer">this playlist</a> pretends to help.����</p>`,
+    <p>Probably fixing a bug while <a href="https://open.spotify.com/playlist/7ovDJn7e2YgVpYSedBgNZR?si=0ca71e6a925f4f90&pt=ce7591d704b9416ce030fc7b906823ff" target="_blank" rel="noopener noreferrer">this playlist</a> pretends to help.🎧</p>`,
   },
   {
     slug: 'proj-stack',
@@ -52,11 +52,21 @@ const projects = [
     body: `<h2>PROJECTS</h2>
     <p>A collection of products built to solve real-world problems—from secure backend systems to AI-powered applications.</p>
 
+    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#fbf6ee;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">E-COMMERCE ANALYTICS</p>
+    <p>Interactive Sales Dashboard</p>
+    <p style="margin:0 0 8px;">Interactive Power BI dashboard for analyzing e-commerce sales performance, product trends, regional patterns, and business insights — with dynamic filters, slicers, drill-downs, and data-driven visualizations.</p>
+    <p>📊 Data Analytics & Business Intelligence</p>
+    <div class="tag">Power BI</div><div class="tag">Data Analysis</div><div class="tag">Data Visualization</div><div class="tag">Data Modeling</div>
+    <br>
+    <a class="btn" href="https://github.com/aaryaa135/ecommerce-sales-powerbi" target="_blank" rel="noopener noreferrer">GITHUB →</a>
+    </div>
+
     <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
     <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">AUTHFORGE</p>
     <p>Secure Authentication Platform</p>
     <p style="margin:0 0 8px;">Production-grade authentication platform with JWT, RBAC, refresh token rotation, Redis token blacklisting, email verification, and audit logging—built for secure, scalable applications.</p>
-    <p>���� Production Ready</p>
+    <p>🟢 Production Ready</p>
     <div class="tag">FastAPI</div><div class="tag">Redis</div><div class="tag">Docker</div><div class="tag">Pytest</div>
     <br>
     <a class="btn" style="margin-right:8px;" href="https://authforge-ovjf.onrender.com/" target="_blank" rel="noopener noreferrer">LIVE →</a>
@@ -67,7 +77,7 @@ const projects = [
     <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">CARDIOVISION</p>
     <p>AI Medical Imaging</p>
     <p style="margin:0 0 8px;">AI-powered coronary artery stenosis detection using YOLOv8 and Grad-CAM to improve clinical interpretability, achieving 94.4% mAP@0.5 and a 0.91 F1-score.</p>
-    <p>���� Research Project</p>
+    <p>🟣 Research Project</p>
     <div class="tag">PyTorch</div><div class="tag">YOLOv8</div><div class="tag">OpenCV</div>
     <br>
     <a class="btn" style="margin-right:8px;" href="https://cardio-vision-murex.vercel.app/" target="_blank" rel="noopener noreferrer">LIVE  →</a>
@@ -78,7 +88,7 @@ const projects = [
     <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">RETAIL INVENTORY MANAGEMENT</p>
     <p>Production REST API</p>
     <p style="margin:0 0 8px;">Production-ready inventory management API featuring transactional order processing, stock management, low-stock alerts, and a fully tested backend with 41 automated test cases.</p>
-    <p>���� Production Ready</p>
+    <p>🟢 Production Ready</p>
     <div class="tag">FastAPI</div><div class="tag">PostgreSQL</div><div class="tag">TDD</div>
     <br>
     <a class="btn" href="https://github.com/aaryaa135/retail-inventory" target="_blank" rel="noopener noreferrer">GITHUB →</a>

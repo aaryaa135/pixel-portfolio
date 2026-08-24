@@ -58,6 +58,16 @@ const projects = [
     body: `<h2>PROJECTS</h2>
     <p>A collection of products built to solve real-world problems—from secure backend systems to AI-powered applications.</p>
 
+    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#fbf6ee;">
+    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">E-COMMERCE ANALYTICS</p>
+    <p>Interactive Sales Dashboard</p>
+    <p style="margin:0 0 8px;">Interactive Power BI dashboard for analyzing e-commerce sales performance, product trends, regional patterns, and business insights — with dynamic filters, slicers, drill-downs, and data-driven visualizations.</p>
+    <p>📊 Data Analytics & Business Intelligence</p>
+    <div class="tag">Power BI</div><div class="tag">Data Analysis</div><div class="tag">Data Visualization</div><div class="tag">Data Modeling</div>
+    <br>
+    <a class="btn" href="https://github.com/aaryaa135/ecommerce-sales-powerbi" target="_blank" rel="noopener noreferrer">GITHUB →</a>
+    </div>
+
     <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
     <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">AUTHFORGE</p>
     <p>Secure Authentication Platform</p>
