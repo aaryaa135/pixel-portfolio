@@ -165,48 +165,8 @@ const projects = [
     id: 'proj-events',
     icon: 'calendar',
     label: 'Events',
-    title: 'Events Attended',
-    body: `<h2>EVENTS & HACKATHONS</h2>
-    <p>Technical events, hackathons, and conferences attended as a participant, organizer, or speaker.</p>
-
-    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
-    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">SMART INDIA HACKATHON 2024</p>
-    <p>Grand Finale — Top 50 Teams Nationwide</p>
-    <p style="margin:0 0 8px;">Built an AI-powered agricultural disease detection system using YOLOv8 and edge deployment on Jetson Nano. Competed among 1000+ teams across India.</p>
-    <div class="tag">Hackathon</div><div class="tag">AI/ML</div><div class="tag">Edge Computing</div>
-    <br>
-    <a class="btn" href="https://www.sih.gov.in" target="_blank" rel="noopener noreferrer">DETAILS →</a>
-    </div>
-
-    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#fbf6ee;">
-    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">HACKRX 2024</p>
-    <p>Healthcare Track — 2nd Runner Up</p>
-    <p style="margin:0 0 8px;">Developed a real-time patient monitoring dashboard with FastAPI, WebSockets, and React for ICU vitals tracking.</p>
-    <div class="tag">Hackathon</div><div class="tag">Healthcare</div><div class="tag">FastAPI</div>
-    <br>
-    <a class="btn" href="https://hackrx.tech" target="_blank" rel="noopener noreferrer">DETAILS →</a>
-    </div>
-
-    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#f4fbf8;">
-    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">DEVCON INDIA 2024</p>
-    <p>Attendee — Blockchain & Web3 Conference</p>
-    <p style="margin:0 0 8px;">Explored decentralized infrastructure, zero-knowledge proofs, and next-gen developer tooling. Networked with core protocol engineers.</p>
-    <div class="tag">Conference</div><div class="tag">Web3</div><div class="tag">Blockchain</div>
-    </div>
-
-    <div style="border:2px solid #4a2e4a;padding:14px;margin-bottom:14px;background:#fbf6ee;">
-    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">ACM ICPC REGIONALS 2023</p>
-    <p>Regional Contest Participant</p>
-    <p style="margin:0 0 8px;">Competitive programming contest solving algorithmic problems under time constraints. Ranked in top 15% regionally.</p>
-    <div class="tag">Competitive Programming</div><div class="tag">Algorithms</div>
-    </div>
-
-    <div style="border:2px solid #4a2e4a;padding:14px;background:#f4fbf8;">
-    <p style="font-family:'Press Start 2P',monospace;font-size:11px;margin:0 0 8px;">GITHUB UNIVERSE 2023 (VIRTUAL)</p>
-    <p>Attendee — Developer Conference</p>
-    <p style="margin:0 0 8px;">Sessions on GitHub Copilot, Actions, Codespaces, and AI-assisted development workflows.</p>
-    <div class="tag">Conference</div><div class="tag">GitHub</div><div class="tag">DevTools</div>
-    </div>`,
+    title: 'EVENTS, HACKATHONS & LEADERSHIP',
+    body: '', // Content rendered by EventsSection component
   },
   {
     id: 'proj-contact',

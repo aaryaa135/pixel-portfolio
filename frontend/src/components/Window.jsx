@@ -3,6 +3,7 @@ import PixelIcon from './PixelIcon';
 import ContactForm from './ContactForm';
 import MiniGame from './MiniGame';
 import ResumeViewer from './ResumeViewer';
+import EventsSection from './EventsSection';
 import DOMPurify from 'dompurify';
 
 // A single draggable / resizable / stackable macOS-style window.
@@ -148,6 +149,8 @@ export default function Window({ win, index, onFocus, onClose, onMinimize, sfx, 
           <MiniGame />
         ) : project.id === 'proj-resume' ? (
           <ResumeViewer />
+        ) : project.id === 'proj-events' ? (
+          <EventsSection />
         ) : (
           <div dangerouslySetInnerHTML={{ __html: useMemo(() => DOMPurify.sanitize(project.body), [project.body]) }} />
         )}
