@@ -8,12 +8,6 @@ export default function EventsPreview({ onViewAll }) {
 
   return (
     <div className="events-preview">
-      <div className="events-preview__bar">
-        <span className="events-preview__dot events-preview__dot--red" />
-        <span className="events-preview__dot events-preview__dot--yellow" />
-        <span className="events-preview__dot events-preview__dot--green" />
-        <span className="events-preview__title pixel-font">events.log</span>
-      </div>
       <div className="events-preview__body">
         {featuredEvents.map((event, idx) => {
           const category = EVENT_CATEGORIES.find(c => c.id === event.category);

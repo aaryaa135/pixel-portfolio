@@ -449,40 +449,6 @@ body {
   z-index: 20;
 }
 
-.events-preview__bar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 10px;
-  background: linear-gradient(90deg, var(--pink) 0%, var(--peach) 50%, var(--lavender) 100%);
-  border-bottom: 2px solid var(--ink);
-}
-
-.events-preview__dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-}
-
-.events-preview__dot--red {
-  background: #ff9d9d;
-}
-
-.events-preview__dot--yellow {
-  background: #ffe08a;
-}
-
-.events-preview__dot--green {
-  background: #a6e3a1;
-}
-
-.events-preview__title {
-  margin-left: 8px;
-  font-size: 10px;
-  color: var(--ink);
-  font-family: "Press Start 2P", monospace;
-}
-
 .events-preview__body {
   padding: 14px 16px;
   display: flex;
