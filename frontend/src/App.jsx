@@ -4,6 +4,7 @@ import MenuBar from './components/MenuBar';
 import Clouds from './components/Clouds';
 import StickyNote from './components/StickyNote';
 import StoryCard from './components/StoryCard';
+import EventsPreview from './components/EventsPreview';
 import Girl from './components/Girl';
 import DesktopIcons from './components/DesktopIcons';
 import TrashCan from './components/TrashCan';
@@ -122,6 +123,7 @@ export default function App() {
         <Clouds />
         <StickyNote tagline={TAGLINE} signature="aarya" />
         <StoryCard />
+        <EventsPreview onViewAll={() => openProject(findProject('proj-events'))} />
 
         <DesktopIcons projects={projects} onOpen={openProject} isMobile={isMobile} isTablet={isTablet} />
 
