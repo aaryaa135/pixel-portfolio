@@ -1482,18 +1482,18 @@ body {
     font-size: 6px;
   }
   .icons--compact {
-    grid-template-columns: repeat(3, 84px);
-    gap: 20px 10px;
+    grid-template-columns: repeat(3, 96px);
+    gap: 24px 12px;
   }
   .icons--compact .icon {
-    width: 84px;
+    width: 96px;
   }
   .icons--compact .icon .icon-img {
-    width: 46px;
-    height: 46px;
+    width: 56px;
+    height: 56px;
   }
   .icons--compact .icon span {
-    font-size: 7px;
+    font-size: 8px;
   }
   .cloud {
     opacity: 0.6;
