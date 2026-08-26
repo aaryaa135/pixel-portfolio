@@ -163,7 +163,6 @@ export default function EventCard({ event, categoryConfig }) {
       {hasTimeline && (
         <div className="event-card-timeline">
           <div className="timeline-header pixel-font">PROGRESSION</div>
-          <div className="timeline-line" />
           {event.timeline.map((item, idx) => (
             <div key={idx} className="timeline-item">
               <div className="timeline-marker" />
