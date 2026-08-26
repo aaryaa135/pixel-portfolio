@@ -23,14 +23,6 @@ export const EVENT_CATEGORIES = [
     prominent: true,
   },
   {
-    id: 'panels',
-    label: 'PANELS & JUDGING',
-    description: 'Evaluating projects, sharing expertise, and mentoring the next generation.',
-    color: 'var(--lavender)',
-    borderColor: 'var(--ink)',
-    prominent: false,
-  },
-  {
     id: 'conferences',
     label: 'TECH EVENTS & CONFERENCES',
     description: 'Learning from industry leaders, networking, and staying current.',
@@ -120,28 +112,18 @@ export const EVENTS = [
     ],
     timeline: [
       {
-        date: '1st Year',
+        date: '2023-24',
         title: 'MEMBER',
         description: 'Joined ACM Student Chapter, JUIT. Participated in chapter activities, workshops, and events. Attended Technex IIT (BHU) through ACM.',
       },
       {
-        date: '2nd Year — Early',
-        title: 'WEB DEVELOPER',
-        description: 'Joined web development team. Built and maintained chapter web properties.',
+        date: '2025',
+        title: 'WEB DEV TEAM LEAD',
+        description: 'Led web development team. Built and maintained chapter web properties, guided junior developers, established coding standards.',
       },
       {
-        date: '2nd Year — Mid',
-        title: 'WEB DEVELOPER LEAD',
-        description: 'Led web development initiatives. Guided junior developers, established coding standards.',
-      },
-      {
-        date: '2nd Year — Late',
-        title: 'TEAM LEAD',
-        description: 'Managed the full web team. Coordinated deliverables, timelines, and cross-functional collaboration.',
-      },
-      {
-        date: '3rd Year',
-        title: 'COUNCIL MEMBER · WEBMASTER',
+        date: '2025-26',
+        title: 'WEBMASTER (COUNCIL)',
         description: 'Elected to governing council. Served as Webmaster — owned chapter web presence, infrastructure, and digital strategy. Attended Technex IIT (BHU) with council delegation.',
       },
     ],
