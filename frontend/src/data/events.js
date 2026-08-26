@@ -87,7 +87,7 @@ export const EVENTS = [
       },
     ],
     featured: true,
-    externalLink: 'https://www.sih.gov.in',
+    externalLink: '',
   }),
 
   // ============================================================
@@ -127,7 +127,7 @@ export const EVENTS = [
         description: 'Elected to governing council. Served as Webmaster — owned chapter web presence, infrastructure, and digital strategy. Attended Technex IIT (BHU) with council delegation.',
       },
     ],
-    featured: true,
+    featured: false,
     externalLink: '',
     chapterHighlights: [
       {
