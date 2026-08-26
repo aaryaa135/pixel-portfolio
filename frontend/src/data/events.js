@@ -97,29 +97,6 @@ export const EVENTS = [
     featured: true,
     externalLink: 'https://www.sih.gov.in',
   }),
-  event({
-    id: 'hackrx-2024',
-    category: 'hackathons',
-    name: 'HackRx 2024',
-    year: '2024',
-    role: 'Full-Stack Developer',
-    description: 'Healthcare Track — 2nd Runner Up. Developed a real-time patient monitoring dashboard with FastAPI, WebSockets, and React for ICU vitals tracking.',
-    tags: ['Hackathon', 'Healthcare', 'FastAPI', 'WebSockets', 'React'],
-    images: [],
-    featured: false,
-    externalLink: 'https://hackrx.tech',
-  }),
-  event({
-    id: 'acm-icpc-2023',
-    category: 'hackathons',
-    name: 'ACM ICPC Regionals 2023',
-    year: '2023',
-    role: 'Competitive Programmer',
-    description: 'Regional contest participant solving algorithmic problems under time constraints. Ranked in top 15% regionally.',
-    tags: ['Competitive Programming', 'Algorithms', 'C++'],
-    images: [],
-    featured: false,
-  }),
 
   // ============================================================
   // ORGANIZING & LEADERSHIP
@@ -226,28 +203,6 @@ export const EVENTS = [
     ],
     featured: false,
     externalLink: '',
-  }),
-  event({
-    id: 'devcon-2024',
-    category: 'conferences',
-    name: 'Devcon India 2024',
-    year: '2024',
-    role: 'Attendee',
-    description: 'Blockchain & Web3 conference. Explored decentralized infrastructure, zero-knowledge proofs, and next-gen developer tooling. Networked with core protocol engineers.',
-    tags: ['Conference', 'Web3', 'Blockchain', 'ZK Proofs'],
-    images: [],
-    featured: false,
-  }),
-  event({
-    id: 'github-universe-2023',
-    category: 'conferences',
-    name: 'GitHub Universe 2023 (Virtual)',
-    year: '2023',
-    role: 'Attendee',
-    description: 'Developer conference with sessions on GitHub Copilot, Actions, Codespaces, and AI-assisted development workflows.',
-    tags: ['Conference', 'GitHub', 'DevTools', 'AI'],
-    images: [],
-    featured: false,
   }),
 ];
 
