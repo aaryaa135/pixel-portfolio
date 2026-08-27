@@ -27,6 +27,7 @@ export default function ResumeViewer() {
             src="/resume.pdf"
             title="Aarya Gupta Resume"
             className="resume-iframe"
+            style={{ width: '100%', height: '100%', border: 'none', background: '#fff' }}
           />
         </div>
         <div className="resume-details">

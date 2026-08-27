@@ -30,6 +30,30 @@ export const EVENT_CATEGORIES = [
     borderColor: 'var(--ink)',
     prominent: false,
   },
+  {
+    id: 'quiz-competitions',
+    label: 'QUIZ & KNOWLEDGE COMPETITIONS',
+    description: 'Business quizzes, general knowledge, and analytical thinking challenges.',
+    color: 'var(--peach)',
+    borderColor: 'var(--ink)',
+    prominent: false,
+  },
+  {
+    id: 'tech-challenges',
+    label: 'TECH CHALLENGES & INNOVATION',
+    description: 'Corporate tech challenges, problem-solving competitions, and innovation tracks.',
+    color: 'var(--lavender)',
+    borderColor: 'var(--ink)',
+    prominent: false,
+  },
+  {
+    id: 'workshops',
+    label: 'WORKSHOPS & HANDS-ON LEARNING',
+    description: 'Immersive workshops, team projects, and practical skill-building experiences.',
+    color: 'var(--accent)',
+    borderColor: 'var(--ink)',
+    prominent: false,
+  },
 ];
 
 // Helper: create an event card with consistent structure
@@ -183,6 +207,54 @@ export const EVENTS = [
       // { src: '/events/devfest/photo.jpg', alt: 'DevFest Chandigarh', caption: 'DevFest Chandigarh' },
       // { src: '/events/devfest/badge.jpg', alt: 'DevFest Badge', caption: 'Attendee badge' },
     ],
+    featured: false,
+    externalLink: '',
+  }),
+
+  // ============================================================
+  // QUIZ & KNOWLEDGE COMPETITIONS
+  // ============================================================
+  event({
+    id: 'tata-crucible-2025',
+    category: 'quiz-competitions',
+    name: 'Tata Crucible Campus Quiz 2025',
+    year: '2025',
+    role: 'Shortlisted — Next Round Qualifier',
+    description: 'Participated in the Tata Crucible Campus Quiz 2025 and successfully shortlisted for the next round. A great learning experience testing business acumen, general awareness, and analytical thinking.',
+    tags: ['Tata Group', 'Business Quiz', 'Campus Quiz', 'General Awareness', 'Analytical Thinking'],
+    images: [],
+    featured: true,
+    externalLink: '',
+  }),
+
+  // ============================================================
+  // TECH CHALLENGES & INNOVATION
+  // ============================================================
+  event({
+    id: 'flipkart-grid-7',
+    category: 'tech-challenges',
+    name: 'Flipkart GRiD 7.0',
+    year: '2025',
+    role: 'National Semi-Finalist',
+    description: 'Earned a spot as a National Semi-Finalist at Flipkart GRiD 7.0. Competed through multiple rounds of problem-solving and tech challenges among thousands of participants nationwide.',
+    tags: ['Flipkart', 'GRiD', 'Problem Solving', 'Tech Challenge', 'National Semi-Finalist', 'Competitive Programming'],
+    images: [],
+    featured: true,
+    externalLink: '',
+  }),
+
+  // ============================================================
+  // WORKSHOPS & HANDS-ON LEARNING
+  // ============================================================
+  event({
+    id: 'enkindle-robotic-arm',
+    category: 'workshops',
+    name: 'Innovation in Motion: Robotic Arm Technology',
+    year: '2025',
+    role: 'Team Member — Digital Demons',
+    description: 'Completed a 3-day hands-on workshop on Robotic Arm Technology organized by Enkindle JUIT. Collaborated with team Digital Demons to explore cutting-edge robotic arm technology. Received Certificate of Appreciation for innovation and teamwork.',
+    tags: ['Enkindle JUIT', 'Robotics', 'Robotic Arm', 'Workshop', 'Team Project', 'Innovation', 'Certificate of Appreciation'],
+    images: [],
     featured: false,
     externalLink: '',
   }),

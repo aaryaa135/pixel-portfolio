@@ -228,9 +228,23 @@ body {
   cursor: pointer;
   border-radius: 3px;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .nav-row:hover {
   background: #ffe8f3;
+}
+.nav-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.nav-divider {
+  height: 1px;
+  background: var(--ink);
+  opacity: 0.2;
+  margin: 4px 0;
 }
 .hamburger {
   font-size: 24px;
@@ -1610,6 +1624,25 @@ body {
   gap: 14px;
 }
 
+@media (max-width: 1023px) {
+  .events-featured-grid,
+  .events-regular-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 639px) {
+  .events-section-title { font-size: 12px; }
+  .events-category-header { padding: 10px 12px; }
+  .events-category-label { font-size: 8px; }
+  .events-category-description { font-size: 13px; }
+  .event-card { padding: 14px; }
+  .event-card-name { font-size: 9px; }
+  .event-card-year { font-size: 11px; }
+  .event-card-role { font-size: 11px; }
+  .event-card-description { font-size: 13px; }
+  .tag { font-size: 7px; padding: 3px 6px; }
+}
+
 /* ============ EVENT CARD ============ */
 .event-card {
   padding: 18px;
@@ -2212,4 +2245,249 @@ body {
   color: var(--ink-muted);
   margin: 0;
   text-align: center;
+}
+
+/* ============ COMPREHENSIVE RESPONSIVE FIXES ============ */
+
+/* --- Tablet (1023px and below) --- */
+@media (max-width: 1023px) {
+  /* Desktop Icons - tighter grid */
+  .icons--compact {
+    grid-template-columns: repeat(3, 92px);
+    gap: 16px 20px;
+    padding: 0 16px;
+  }
+  .icons--compact .icon { width: 92px; }
+  .icons--compact .icon .icon-img { width: 52px; height: 52px; }
+  .icons--compact .icon span { font-size: 8px; }
+
+  /* Dock - show on tablet, horizontal scroll */
+  .dock {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 90vw;
+    padding: 8px 14px;
+    z-index: 400;
+  }
+  .dock-item { width: 40px; height: 40px; }
+
+  /* Story Card - flow layout */
+  .story-card {
+    position: static;
+    width: calc(100% - 32px);
+    max-width: 480px;
+    margin: 16px auto;
+    order: 1;
+  }
+
+  /* Trash Can - flow layout */
+  #trash {
+    position: static;
+    margin: 16px auto 32px;
+    order: 2;
+  }
+
+  /* Girl - hidden on tablet */
+  .girl { display: none; }
+
+  /* Window content padding */
+  .content { padding: 16px 20px; }
+
+  /* Carousel */
+  .events-carousel-item { width: 260px; }
+  .events-carousel-item img { height: 160px; }
+
+  /* Lightbox */
+  .lightbox { padding: 20px; }
+  .lightbox-close { top: 10px; right: 10px; width: 36px; height: 36px; font-size: 12px; }
+  .lightbox-nav { width: 44px; height: 44px; font-size: 18px; }
+  .lightbox-prev { left: 10px; }
+  .lightbox-next { right: 10px; }
+}
+
+/* --- Mobile (639px and below) --- */
+@media (max-width: 639px) {
+  /* Root font size */
+  :root { --body-size: 17px; }
+
+  /* Menu Bar */
+  .menubar { height: 44px; padding: 0 8px; }
+  .menubar-logo { font-size: 9px; }
+  .menubar-clock { font-size: 8px; padding: 3px 6px; }
+  .hamburger { font-size: 20px; padding: 4px 6px; }
+  .hamburger-inner { font-size: 16px; }
+
+  /* Desktop Icons - 4 column grid */
+  .icons--compact {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px 8px;
+    padding: 0 12px;
+    max-width: 100%;
+  }
+  .icon { padding: 6px 2px 8px; }
+  .icon .icon-img { width: 48px; height: 48px; }
+  .icon span { font-size: 7px; line-height: 1.5; }
+
+  /* Dock - smaller items */
+  .dock {
+    bottom: 12px;
+    padding: 6px 10px;
+    gap: 8px;
+  }
+  .dock-item { width: 36px; height: 36px; }
+
+  /* Sticky Note */
+  .sticky-note {
+    top: 48px;
+    right: 8px;
+    width: 100px;
+    padding: 8px 6px 10px;
+  }
+  .sticky-note p { font-size: 11px; line-height: 1.3; }
+  .sticky-sign { font-size: 9px; margin-top: 4px; }
+  .sticky-pin { width: 10px; height: 10px; top: -6px; }
+
+  /* Story Card */
+  .story-card {
+    width: calc(100% - 24px);
+    margin: 12px auto;
+    max-width: none;
+  }
+  .story-card__bar { padding: 6px 8px; }
+  .story-card__dot { width: 7px; height: 7px; }
+  .story-card__title { font-size: 8px; margin-left: 6px; }
+  .story-card__body { padding: 10px 12px; font-size: 14px; }
+
+  /* Trash Can */
+  #trash { margin: 12px auto 24px; }
+  #trash .icon-img { width: 32px; height: 32px; }
+  #trash span { font-size: 6px; }
+
+  /* Window - full screen handled by JS, but ensure content fits */
+  .win--mobile .content { padding: 14px 16px; }
+  .content h2 { font-size: 12px; }
+  .content h3 { font-size: 9px; }
+  .content p { font-size: 16px; line-height: 1.6; }
+  .content .tag { font-size: 7px; padding: 3px 5px; }
+  .content a.btn,
+  .content button.btn { font-size: 8px; padding: 8px 10px; }
+
+  /* Contact Form */
+  .contact-form label { font-size: 7px; margin: 10px 0 4px; }
+  .contact-form input,
+  .contact-form textarea { font-size: 16px; padding: 6px 8px; }
+  .form-error { font-size: 14px; }
+
+  /* Resume Viewer */
+  .resume-toolbar { padding: 8px 10px; margin: -16px -20px 0; }
+  .btn-sm { font-size: 7px; padding: 5px 8px; }
+  .resume-pdf-container { height: 280px; }
+  .resume-details { padding: 14px 16px; }
+  .resume-section h3 { font-size: 9px; }
+  .resume-section p { font-size: 15px; }
+  .resume-section .btn { font-size: 8px; padding: 8px 10px; }
+
+  /* Events Section */
+  .events-section { padding: 6px 2px 12px; }
+  .events-section-title { font-size: 11px; }
+  .events-section-subtitle { font-size: 14px; }
+  .events-nav { gap: 4px; margin-bottom: 16px; padding-bottom: 12px; }
+  .events-nav-btn { font-size: 6px; padding: 5px 8px; }
+  .events-carousel { margin-bottom: 20px; }
+  .events-carousel::before,
+  .events-carousel::after { width: 60px; }
+  .events-carousel-item { width: 220px; }
+  .events-carousel-item img { height: 130px; }
+  .events-carousel-caption { padding: 8px 10px; }
+  .events-carousel-category { font-size: 6px; }
+  .events-carousel-title { font-size: 11px; }
+  .event-card { padding: 12px; gap: 10px; }
+  .event-card-name { font-size: 8px; }
+  .event-card-year { font-size: 10px; }
+  .event-card-role { font-size: 10px; }
+  .event-card-description { font-size: 12px; line-height: 1.5; }
+  .tag { font-size: 6px; padding: 2px 5px; }
+  .event-card-thumb { width: 52px; height: 30px; }
+  .gallery-nav-btn { font-size: 9px; padding: 2px 6px; }
+  .gallery-counter { font-size: 6px; }
+  .gallery-hint { font-size: 5px; }
+  .timeline-header { font-size: 6px; }
+  .timeline-date { font-size: 6px; }
+  .timeline-title { font-size: 11px; }
+  .timeline-description { font-size: 11px; }
+  .chapter-highlights-header { font-size: 6px; }
+  .chapter-highlight-name { font-size: 8px; }
+  .chapter-highlight-years { font-size: 6px; }
+  .chapter-highlight-description { font-size: 12px; }
+  .chapter-highlight-context { font-size: 11px; }
+  .chapter-highlight-thumb { width: 48px; height: 28px; }
+  .chapter-highlight-caption { font-size: 5px; }
+
+  /* Event Card Gallery Nav */
+  .event-card-gallery-nav { padding: 3px 8px; gap: 6px; }
+  .chapter-highlight-gallery-nav { padding: 2px 6px; gap: 4px; }
+
+  /* Menu Bar Dropdown */
+  .nav-row { padding: 8px 10px; font-size: 14px; }
+  .nav-icon { width: 14px; height: 14px; }
+  .nav-dropdown { min-width: 160px; }
+
+  /* Mini Game - handled by component but ensure canvas scales */
+  .content canvas { max-width: 100%; height: auto; }
+
+  /* Boot Screen */
+  .boot-logo { width: 52px; height: 52px; }
+  .boot-text { font-size: 10px; line-height: 2; }
+  .boot-barwrap { width: 220px; height: 14px; }
+
+  /* Opening Animation */
+  .opening-logo { width: 56px; height: 56px; }
+  .opening-terminal { max-width: 95vw; font-size: 14px; }
+  .opening-terminal-body { padding: 12px; max-height: 160px; }
+  .opening-line { font-size: 13px; }
+  .glitch-text { font-size: 12px; letter-spacing: 3px; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-thumb { border: 2px solid #fbe9f4; }
+}
+
+/* --- Very Small Mobile (400px and below) --- */
+@media (max-width: 400px) {
+  .icons--compact { grid-template-columns: repeat(3, 1fr); }
+  .icon .icon-img { width: 44px; height: 44px; }
+  .icon span { font-size: 6px; }
+  .dock-item { width: 32px; height: 32px; }
+  .events-carousel-item { width: 180px; }
+  .events-carousel-item img { height: 110px; }
+  .event-card-thumb { width: 44px; height: 26px; }
+  .chapter-highlight-thumb { width: 42px; height: 24px; }
+  .resume-pdf-container { height: 240px; }
+}
+
+/* --- Landscape Mobile --- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .sticky-note { top: 8px; right: 8px; width: 90px; }
+  .story-card { margin: 8px auto; }
+  .icons--compact { margin-bottom: 8px; }
+  #trash { margin: 8px auto 16px; }
+  .dock { bottom: 8px; }
+  .win--mobile .titlebar { height: 28px; }
+  .win--mobile .content { padding: 10px 12px; }
+}
+
+/* --- Print Styles --- */
+@media print {
+  .menubar, .cloud-layer, .tech-hardware-layer, .sticky-note,
+  .girl, .icons, #trash, .dock, .windows-layer, .selection-box,
+  .mobile-back-btn { display: none !important; }
+  #desktop {
+    background: white !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  .win { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+  .content { background: white !important; }
 }

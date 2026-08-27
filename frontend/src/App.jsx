@@ -132,8 +132,8 @@ export default function App() {
           }}
         />
 
-        {!isMobile && !isTablet && <Girl />}
-        {!isMobile && !isTablet && <Dock items={dockItems} />}
+        {!isMobile && <Girl />}
+        {!isMobile && <Dock items={dockItems} />}
 
         <div className="windows-layer">
           {windows.map((w, i) => (

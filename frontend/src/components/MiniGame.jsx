@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 // A tiny "catch the crumbs" game — move the basket to catch falling
 // pixel crumbs, miss 3 and it's game over. Arrow keys / A-D on
 // desktop, on-screen buttons or drag on mobile.
-const WIDTH = 320;
-const HEIGHT = 260;
+const BASE_WIDTH = 320;
+const BASE_HEIGHT = 260;
 const BASKET_WIDTH = 46;
 const BASKET_HEIGHT = 14;
 const MAX_MISSES = 3;
@@ -12,14 +12,30 @@ const MAX_MISSES = 3;
 export default function MiniGame() {
   const canvasRef = useRef(null);
   const stateRef = useRef(null);
+  const containerRef = useRef(null);
+  const [scale, setScale] = useState(1);
   const [score, setScore] = useState(0);
   const [misses, setMisses] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [running, setRunning] = useState(false);
 
+  // Calculate scale based on container width
+  useEffect(() => {
+    const updateScale = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.clientWidth;
+        const newScale = Math.min(1, containerWidth / BASE_WIDTH);
+        setScale(newScale);
+      }
+    };
+    updateScale();
+    window.addEventListener('resize', updateScale);
+    return () => window.removeEventListener('resize', updateScale);
+  }, []);
+
   const startGame = () => {
     stateRef.current = {
-      basketX: WIDTH / 2 - BASKET_WIDTH / 2,
+      basketX: BASE_WIDTH / 2 - BASKET_WIDTH / 2,
       crumbs: [],
       lastSpawn: 0,
       speed: 3.2,
@@ -55,10 +71,10 @@ export default function MiniGame() {
 
       if (s.keys.ArrowLeft || s.keys.a) s.basketX -= 7;
       if (s.keys.ArrowRight || s.keys.d) s.basketX += 7;
-      s.basketX = Math.max(0, Math.min(WIDTH - BASKET_WIDTH, s.basketX));
+      s.basketX = Math.max(0, Math.min(BASE_WIDTH - BASKET_WIDTH, s.basketX));
 
       if (frame - s.lastSpawn > Math.max(8, 20 - Math.floor(score / 2))) {
-        s.crumbs.push({ x: Math.random() * (WIDTH - 12), y: -12 });
+        s.crumbs.push({ x: Math.random() * (BASE_WIDTH - 12), y: -12 });
         s.lastSpawn = frame;
       }
 
@@ -67,15 +83,15 @@ export default function MiniGame() {
       s.crumbs = s.crumbs.filter((c) => {
         c.y += s.speed;
         const caught =
-          c.y + 10 >= HEIGHT - BASKET_HEIGHT - 8 &&
-          c.y <= HEIGHT - 8 &&
+          c.y + 10 >= BASE_HEIGHT - BASKET_HEIGHT - 8 &&
+          c.y <= BASE_HEIGHT - 8 &&
           c.x + 6 >= s.basketX &&
           c.x <= s.basketX + BASKET_WIDTH;
         if (caught) {
           newScore += 1;
           return false;
         }
-        if (c.y > HEIGHT) {
+        if (c.y > BASE_HEIGHT) {
           newMisses += 1;
           return false;
         }
@@ -84,17 +100,18 @@ export default function MiniGame() {
       if (newScore) setScore((v) => v + newScore);
       if (newMisses) setMisses((v) => v + newMisses);
 
-      ctx.clearRect(0, 0, WIDTH, HEIGHT);
+      // Clear with scaled dimensions
+      ctx.clearRect(0, 0, BASE_WIDTH, BASE_HEIGHT);
       ctx.fillStyle = '#fdeef7';
-      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+      ctx.fillRect(0, 0, BASE_WIDTH, BASE_HEIGHT);
 
       ctx.fillStyle = '#e46b6b';
       s.crumbs.forEach((c) => ctx.fillRect(c.x, c.y, 10, 10));
 
       ctx.fillStyle = '#4a2e4a';
-      ctx.fillRect(s.basketX, HEIGHT - BASKET_HEIGHT - 8, BASKET_WIDTH, BASKET_HEIGHT);
+      ctx.fillRect(s.basketX, BASE_HEIGHT - BASKET_HEIGHT - 8, BASKET_WIDTH, BASKET_HEIGHT);
       ctx.fillStyle = '#8fd6c9';
-      ctx.fillRect(s.basketX + 3, HEIGHT - BASKET_HEIGHT - 5, BASKET_WIDTH - 6, BASKET_HEIGHT - 6);
+      ctx.fillRect(s.basketX + 3, BASE_HEIGHT - BASKET_HEIGHT - 5, BASKET_WIDTH - 6, BASKET_HEIGHT - 6);
 
       raf = requestAnimationFrame(loop);
     };
@@ -118,12 +135,15 @@ export default function MiniGame() {
     if (!stateRef.current) return;
     stateRef.current.basketX = Math.max(
       0,
-      Math.min(WIDTH - BASKET_WIDTH, stateRef.current.basketX + dir * 24)
+      Math.min(BASE_WIDTH - BASKET_WIDTH, stateRef.current.basketX + dir * 24)
     );
   };
 
+  const displayedWidth = BASE_WIDTH * scale;
+  const displayedHeight = BASE_HEIGHT * scale;
+
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div ref={containerRef} style={{ textAlign: 'center', maxWidth: '100%' }}>
       <p style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 13, margin: '0 0 12px' }}>
         CRUMB QUEST
       </p>
@@ -131,12 +151,20 @@ export default function MiniGame() {
         Score: {score} &nbsp; Misses: {misses}/{MAX_MISSES}
       </p>
 
-      <canvas
-        ref={canvasRef}
-        width={WIDTH}
-        height={HEIGHT}
-        style={{ border: '2px solid #4a2e4a', background: '#fdeef7', maxWidth: '100%' }}
-      />
+      <div style={{ display: 'inline-block' }}>
+        <canvas
+          ref={canvasRef}
+          width={BASE_WIDTH}
+          height={BASE_HEIGHT}
+          style={{
+            border: '2px solid #4a2e4a',
+            background: '#fdeef7',
+            width: displayedWidth,
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
+      </div>
 
       {!running && (
         <div style={{ marginTop: 14 }}>
@@ -152,7 +180,7 @@ export default function MiniGame() {
       )}
 
       {running && (
-        <div style={{ marginTop: 12, display: 'flex', justifyContent: 'center', gap: 10 }}>
+        <div style={{ marginTop: 12, display: 'flex', justifyContent: 'center', gap: 10, flexWrap: 'wrap' }}>
           <button type="button" className="btn" onClick={() => nudge(-1)}>
             ← LEFT
           </button>
