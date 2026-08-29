@@ -29,12 +29,30 @@ export default function ResumeViewer() {
             className="resume-iframe"
             style={{ width: '100%', height: '100%', border: 'none', background: '#fff' }}
           />
+          <p style={{ 
+            position: 'absolute', 
+            top: '50%', 
+            left: '50%', 
+            transform: 'translate(-50%, -50%)',
+            textAlign: 'center',
+            color: '#6a4a6a',
+            fontSize: '14px',
+            padding: '20px',
+            fontFamily: 'VT323, monospace'
+          }}>
+            If the PDF doesn't load above, click <strong>DOWNLOAD</strong> or <strong>POP OUT</strong> buttons.
+          </p>
         </div>
         <div className="resume-details">
           <div className="resume-section">
             <h3 className="pixel-font" style={{ fontSize: '10px', color: '#4a2e4a', borderBottom: '2px solid #4a2e4a', paddingBottom: '4px', marginBottom: '12px' }}>
               EXPERIENCE
             </h3>
+            <div style={{ marginBottom: '16px' }}>
+              <p style={{ margin: '0 0 4px', fontWeight: 'bold' }}>Full Stack AI Engineer — Algowire Technologies</p>
+              <p style={{ margin: '0 0 4px', color: '#6a4a6a', fontSize: '15px' }}>Jun 2026 — Jul 2026</p>
+              <p style={{ margin: '0' }}>Developed 3+ responsive React.js interfaces for a production restaurant web application and integrated frontend views with existing Ruby on Rails REST APIs. Debugged and resolved frontend-backend integration issues across key user flows, performing manual testing to validate each fix before deployment.</p>
+            </div>
             <div style={{ marginBottom: '16px' }}>
               <p style={{ margin: '0 0 4px', fontWeight: 'bold' }}>Project Intern — IIT Delhi</p>
               <p style={{ margin: '0 0 4px', color: '#6a4a6a', fontSize: '15px' }}>Jun 2025 — Jul 2025</p>
@@ -57,6 +75,13 @@ export default function ResumeViewer() {
             <p style={{ margin: '0' }}>Expected Graduation: 2027</p>
           </div>
 
+          <div className="resume-section">
+            <h3 className="pixel-font" style={{ fontSize: '10px', color: '#4a2e4a', borderBottom: '2px solid #4a2e4a', paddingBottom: '4px', marginBottom: '12px' }}>
+              HOBBIES & INTERESTS
+            </h3>
+            <p style={{ margin: '0 0 8px' }}>Trained in Odissi classical dance form — love expressing stories through movement and rhythm.</p>
+            <p style={{ margin: '0' }}>Enjoy crafting handmade gifts — from personalized stationery to DIY decor — finding joy in the process of making things for others.</p>
+          </div>
 
         </div>
       </div>

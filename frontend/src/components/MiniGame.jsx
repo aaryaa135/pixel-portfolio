@@ -122,7 +122,7 @@ export default function MiniGame() {
       window.removeEventListener('keydown', onKeyDown);
       window.removeEventListener('keyup', onKeyUp);
     };
-  }, [running, score]);
+  }, [running]);
 
   useEffect(() => {
     if (misses >= MAX_MISSES) {

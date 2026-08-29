@@ -25,7 +25,10 @@ const projects = [
     <p>Building secure backend systems, AI-powered applications, and developer tools while exploring distributed systems, cloud infrastructure, and software architecture.</p>
     <p>Open to Software Engineering, Backend, and AI internship opportunities where I can build impactful products and continue learning from great engineers.</p>
     <h3>Off the clock</h3>
-    <p>Probably fixing a bug while <a href="https://open.spotify.com/playlist/6zqVg6wxGgk7fkASj44ao1?si=54ec13bfe6eb4280" target="_blank" rel="noopener noreferrer">this playlist</a> pretends to help.🎧</p>`,
+    <p>Probably fixing a bug while <a href="https://open.spotify.com/playlist/6zqVg6wxGgk7fkASj44ao1?si=54ec13bfe6eb4280" target="_blank" rel="noopener noreferrer">this playlist</a> pretends to help.🎧</p>
+    <h3>Hobbies & Interests</h3>
+    <p>Trained in Odissi classical dance form — love expressing stories through movement and rhythm.</p>
+    <p>Enjoy crafting handmade gifts — from personalized stationery to DIY decor — finding joy in the process of making things for others.</p>`,
   },
   {
     id: 'proj-stack',
@@ -118,13 +121,17 @@ const projects = [
     label: 'Resume',
     title: 'Resume.pdf',
     body: `<h2>EXPERIENCE</h2>
+    <p><strong>Full Stack AI Engineer - Algowire Technologies</strong>: Jun 2026 — Jul 2026<br>Developed 3+ responsive React.js interfaces for a production restaurant web application and integrated frontend views with existing Ruby on Rails REST APIs. Debugged and resolved frontend-backend integration issues across key user flows, performing manual testing to validate each fix before deployment.</p>
     <p><strong>Project Intern - IIT Delhi</strong>: Jun 2025 — Jul 2025<br>Automated Cisco DNA Center REST API workflows, built Linux-based infrastructure automation pipelines, and streamlined Git deployment workflows to improve operational efficiency.</p>
     <p><strong>Web Master - ACM JUIT</strong>: Aug 2025 — May 2026<br>Led the redevelopment of the ACM chapter website, established Git-based collaboration workflows, and improved user engagement through iterative UI/UX enhancements.</p>
     <h3>Education</h3>
     <p>Jaypee University of Information Technology</p>
     <p>B.Tech Computer Science</p>
     <p>CGPA : 8.07 / 10</p>
-    <p>Expected Graduation: 2027</p>`,
+    <p>Expected Graduation: 2027</p>
+    <h3>Hobbies & Interests</h3>
+    <p>Trained in Odissi classical dance form — love expressing stories through movement and rhythm.</p>
+    <p>Enjoy crafting handmade gifts — from personalized stationery to DIY decor — finding joy in the process of making things for others.</p>`,
   },
   {
     id: 'proj-certificates',
@@ -218,7 +225,7 @@ export const REJECTED = {
   id: 'rejected',
   icon: 'trash',
   title: 'Rejected Concepts.txt',
-  body: `<h2>🗑️ REJECTED CONCEPTS</h2>
+  body: `<h2>REJECTED CONCEPTS</h2>
   <p>You found the trash can. Here's what didn't make the cut:</p>
   <ul>
     <li>npm install hope</li>
