@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function ResumeViewer() {
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -5,6 +7,8 @@ export default function ResumeViewer() {
     link.download = 'Aarya_Gupta_Resume.pdf';
     link.click();
   };
+
+  const [pdfError, setPdfError] = React.useState(false);
 
   return (
     <div className="resume-viewer">
@@ -23,25 +27,40 @@ export default function ResumeViewer() {
       </div>
       <div className="resume-content-scroll">
         <div className="resume-pdf-container">
-          <iframe
-            src="/resume.pdf"
-            title="Aarya Gupta Resume"
-            className="resume-iframe"
-            style={{ width: '100%', height: '100%', border: 'none', background: '#fff' }}
-          />
-          <p style={{ 
-            position: 'absolute', 
-            top: '50%', 
-            left: '50%', 
-            transform: 'translate(-50%, -50%)',
-            textAlign: 'center',
-            color: '#6a4a6a',
-            fontSize: '14px',
-            padding: '20px',
-            fontFamily: 'VT323, monospace'
-          }}>
-            If the PDF doesn't load above, click <strong>DOWNLOAD</strong> or <strong>POP OUT</strong> buttons.
-          </p>
+          {!pdfError && (
+            <iframe
+              src="/resume.pdf"
+              title="Aarya Gupta Resume"
+              className="resume-iframe"
+              style={{ width: '100%', height: '100%', border: 'none', background: '#fff' }}
+              onError={() => setPdfError(true)}
+            />
+          )}
+          {pdfError && (
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%',
+              padding: '20px',
+              textAlign: 'center',
+              background: '#fff',
+              color: '#6a4a6a',
+              fontFamily: 'VT323, monospace'
+            }}>
+              <p style={{ fontSize: '14px', marginBottom: '12px' }}>Unable to display PDF in browser.</p>
+              <p style={{ fontSize: '12px', marginBottom: '16px' }}>This can happen due to browser security settings.</p>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+                <button className="btn btn-sm" onClick={handleDownload}>
+                  <span className="pixel-font" style={{ fontSize: '8px' }}>DOWNLOAD PDF</span>
+                </button>
+                <a className="btn btn-sm" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <span className="pixel-font" style={{ fontSize: '8px' }}>OPEN IN NEW TAB</span>
+                </a>
+              </div>
+            </div>
+          )}
         </div>
         <div className="resume-details">
           <div className="resume-section">
