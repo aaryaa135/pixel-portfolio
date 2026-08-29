@@ -35,16 +35,6 @@ export default function ResumeViewer() {
           background: '#fafafa',
           borderBottom: '2px solid var(--ink)'
         }}>
-          <p style={{ 
-            fontSize: '14px', 
-            color: '#6a4a6a', 
-            marginBottom: '20px',
-            fontFamily: 'VT323, monospace',
-            lineHeight: 1.6
-          }}>
-            PDF preview is not available in-browser.<br />
-            Use the buttons above to access your resume.
-          </p>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
             <button className="btn btn-sm" onClick={handleDownload} style={{ padding: '10px 16px' }}>
               <span className="pixel-font" style={{ fontSize: '8px' }}>DOWNLOAD PDF</span>
