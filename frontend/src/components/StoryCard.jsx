@@ -16,21 +16,13 @@ export default function StoryCard() {
         </p>
         <p>CS Student (2027) • Full-Stack Engineer • Backend, AI/ML & Dev Tools</p>
         <p>
-          <span className="story-card__prompt">$</span> cat core_expertise.txt
-        </p>
-        <p>FastAPI, Django, Express • PostgreSQL, MongoDB, Redis • PyTorch, YOLOv8, OpenCV</p>
-        <p style={{marginTop: '4px'}}>Docker, GitHub Actions, Linux, Pytest • Power BI, DAX, Data Modeling</p>
-        <p>
-          <span className="story-card__prompt">$</span> cat highlights.log
-        </p>
-        <p>✦ AuthForge — Prod auth (JWT, RBAC, Redis, 41 tests)</p>
-        <p style={{marginTop: '4px'}}>✦ CardioVision — 94.4% mAP@0.5, YOLOv8 + Grad-CAM</p>
-        <p style={{marginTop: '4px'}}>✦ SIH 2024-26 — Participant → Organizer → Panelist</p>
-        <p style={{marginTop: '4px'}}>✦ ACM Webmaster — Led web infra & team</p>
-        <p>
           <span className="story-card__prompt">$</span> status
         </p>
-        <p>Open to SWE/Backend/AI Internships • CGPA 8.07/10</p>
+        <p>Open to SWE/Backend/AI Internships • CGPA 8.07/10 • Shipping code, not excuses</p>
+        <p>
+          <span className="story-card__prompt">$</span> explore --help
+        </p>
+        <p>Click the desktop icons or dock to explore projects, stack, resume & more</p>
         <p>
           <span className="story-card__prompt">$</span> now playing —{' '}
           <a
