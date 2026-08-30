@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import EventCard from './EventCard';
 import { EVENT_CATEGORIES, getEventsByCategory } from '../data/events';
 
@@ -6,55 +6,54 @@ import { EVENT_CATEGORIES, getEventsByCategory } from '../data/events';
 export default function EventsSection() {
   const [activeCategory, setActiveCategory] = useState(EVENT_CATEGORIES[0].id);
   const categoryRefs = useRef({});
-  const [carouselImages, setCarouselImages] = useState([]);
 
-  // Collect all images from all events for the carousel
-  useEffect(() => {
-    const allImages = [];
-    EVENT_CATEGORIES.forEach((cat) => {
-      const events = getEventsByCategory(cat.id);
-      events.forEach((event) => {
-        if (event.images && event.images.length > 0) {
-          event.images.forEach((img) => {
-            allImages.push({
-              src: img.src,
-              alt: img.alt || event.name,
-              caption: img.caption || event.name,
-              category: cat.label,
-            });
-          });
-        }
-        // Also include chapter highlight images
-        if (event.chapterHighlights) {
-          event.chapterHighlights.forEach((ch) => {
-            if (ch.images) {
-              ch.images.forEach((img) => {
-                allImages.push({
-                  src: img.src,
-                  alt: img.alt || ch.name,
-                  caption: img.caption || ch.name,
-                  category: cat.label,
-                });
-              });
-            }
-          });
-        }
-      });
-    });
-    setCarouselImages(allImages);
-  }, []);
+  // Collect all images from all events for the carousel - COMMENTED OUT UNTIL IMAGES ARE ADDED
+  // useEffect(() => {
+  //   const allImages = [];
+  //   EVENT_CATEGORIES.forEach((cat) => {
+  //     const events = getEventsByCategory(cat.id);
+  //     events.forEach((event) => {
+  //       if (event.images && event.images.length > 0) {
+  //         event.images.forEach((img) => {
+  //           allImages.push({
+  //             src: img.src,
+  //             alt: img.alt || event.name,
+  //             caption: img.caption || event.name,
+  //             category: cat.label,
+  //           });
+  //         });
+  //       }
+  //       // Also include chapter highlight images
+  //       if (event.chapterHighlights) {
+  //         event.chapterHighlights.forEach((ch) => {
+  //           if (ch.images) {
+  //             ch.images.forEach((img) => {
+  //               allImages.push({
+  //                 src: img.src,
+  //                 alt: img.alt || ch.name,
+  //                 caption: img.caption || ch.name,
+  //                 category: cat.label,
+  //               });
+  //             });
+  //           }
+  //         });
+  //       }
+  //     });
+  //   });
+  //   setCarouselImages(allImages);
+  // }, []);
 
-  // Fallback placeholder images if no real images yet
-  const displayImages = carouselImages.length > 0
-    ? carouselImages
-    : [
-        { src: '/events/placeholder-1.jpg', alt: 'Smart India Hackathon 2024', caption: 'SIH 2024 Grand Finale', category: 'HACKATHONS' },
-        { src: '/events/placeholder-2.jpg', alt: 'ACM Student Chapter', caption: 'ACM Webmaster Role', category: 'LEADERSHIP' },
-        { src: '/events/placeholder-3.jpg', alt: 'Microsoft Azure Academy', caption: 'Microsoft Gurugram', category: 'CONFERENCES' },
-        { src: '/events/placeholder-4.jpg', alt: 'DevFest Chandigarh', caption: 'DevFest 2024', category: 'CONFERENCES' },
-        { src: '/events/placeholder-5.jpg', alt: 'Technex IIT BHU', caption: 'Technex with ACM', category: 'LEADERSHIP' },
-        { src: '/events/placeholder-6.jpg', alt: 'HackRx 2024', caption: 'HackRx Healthcare Track', category: 'HACKATHONS' },
-      ];
+  // Fallback placeholder images if no real images yet - COMMENTED OUT UNTIL IMAGES ARE ADDED
+  // const displayImages = carouselImages.length > 0
+  //   ? carouselImages
+  //   : [
+  //       { src: '/events/placeholder-1.jpg', alt: 'Smart India Hackathon 2024', caption: 'SIH 2024 Grand Finale', category: 'HACKATHONS' },
+  //       { src: '/events/placeholder-2.jpg', alt: 'ACM Student Chapter', caption: 'ACM Webmaster Role', category: 'LEADERSHIP' },
+  //       { src: '/events/placeholder-3.jpg', alt: 'Microsoft Azure Academy', caption: 'Microsoft Gurugram', category: 'CONFERENCES' },
+  //       { src: '/events/placeholder-4.jpg', alt: 'DevFest Chandigarh', caption: 'DevFest 2024', category: 'CONFERENCES' },
+  //       { src: '/events/placeholder-5.jpg', alt: 'Technex IIT BHU', caption: 'Technex with ACM', category: 'LEADERSHIP' },
+  //       { src: '/events/placeholder-6.jpg', alt: 'HackRx 2024', caption: 'HackRx Healthcare Track', category: 'HACKATHONS' },
+  //     ];
 
   const scrollToCategory = (categoryId) => {
     setActiveCategory(categoryId);
@@ -93,7 +92,7 @@ export default function EventsSection() {
         ))}
       </div>
 
-      {/* Image Carousel - Horizontal scrolling marquee */}
+      {/* Image Carousel - Horizontal scrolling marquee - COMMENTED OUT UNTIL IMAGES ARE ADDED
       <div className="events-carousel" aria-label="Event photos carousel">
         <div className="events-carousel-track">
           {displayImages.map((img, idx) => (
@@ -105,7 +104,7 @@ export default function EventsSection() {
               </div>
             </div>
           ))}
-          {/* Duplicate for seamless loop */}
+          Duplicate for seamless loop
           {displayImages.map((img, idx) => (
             <div key={`${idx}-dup`} className="events-carousel-item">
               <img src={img.src} alt={img.alt} loading="lazy" />
@@ -117,6 +116,7 @@ export default function EventsSection() {
           ))}
         </div>
       </div>
+      */}
 
       {/* Categories */}
       <div className="events-categories">
