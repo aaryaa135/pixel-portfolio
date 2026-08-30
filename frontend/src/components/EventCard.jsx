@@ -1,49 +1,47 @@
-import { useState, useRef, useEffect } from 'react';
-import PixelIcon from './PixelIcon';
-import { getChapterHighlights } from '../data/events';
+import { useRef } from 'react';
 import ChapterHighlight from './ChapterHighlight';
 
 // Reusable event card with optional image gallery, timeline, and featured styling
 export default function EventCard({ event, categoryConfig }) {
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [showLightbox, setShowLightbox] = useState(false);
+  // const [activeImageIndex, setActiveImageIndex] = useState(0);
+  // const [showLightbox, setShowLightbox] = useState(false);
   const cardRef = useRef(null);
 
-  const hasImages = event.images && event.images.length > 0;
+  // const hasImages = event.images && event.images.length > 0;
   const hasTimeline = event.timeline && event.timeline.length > 0;
   const hasChapterHighlights = event.chapterHighlights && event.chapterHighlights.length > 0;
   const isFeatured = event.featured && categoryConfig?.prominent;
 
-  const openLightbox = (index) => {
-    if (hasImages) {
-      setActiveImageIndex(index);
-      setShowLightbox(true);
-    }
-  };
+  // const openLightbox = (index) => {
+  //   if (hasImages) {
+  //     setActiveImageIndex(index);
+  //     setShowLightbox(true);
+  //   }
+  // };
 
-  const closeLightbox = () => setShowLightbox(false);
+  // const closeLightbox = () => setShowLightbox(false);
 
-  const nextImage = (e) => {
-    e.stopPropagation();
-    setActiveImageIndex((i) => (i + 1) % event.images.length);
-  };
+  // const nextImage = (e) => {
+  //   e.stopPropagation();
+  //   setActiveImageIndex((i) => (i + 1) % event.images.length);
+  // };
 
-  const prevImage = (e) => {
-    e.stopPropagation();
-    setActiveImageIndex((i) => (i - 1 + event.images.length) % event.images.length);
-  };
+  // const prevImage = (e) => {
+  //   e.stopPropagation();
+  //   setActiveImageIndex((i) => (i - 1 + event.images.length) % event.images.length);
+  // };
 
   // Keyboard navigation for lightbox
-  useEffect(() => {
-    if (!showLightbox) return;
-    const handleKey = (e) => {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextImage(e);
-      if (e.key === 'ArrowLeft') prevImage(e);
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [showLightbox, event.images?.length]);
+  // useEffect(() => {
+  //   if (!showLightbox) return;
+  //   const handleKey = (e) => {
+  //     if (e.key === 'Escape') closeLightbox();
+  //     if (e.key === 'ArrowRight') nextImage(e);
+  //     if (e.key === 'ArrowLeft') prevImage(e);
+  //   };
+  //   window.addEventListener('keydown', handleKey);
+  //   return () => window.removeEventListener('keydown', handleKey);
+  // }, [showLightbox, event.images?.length]);
 
   const cardBorder = isFeatured ? '3px solid var(--ink)' : '2px solid var(--ink)';
   const cardShadow = isFeatured ? '6px 6px 0 var(--ink)' : '3px 3px 0 var(--ink)';
@@ -100,7 +98,7 @@ export default function EventCard({ event, categoryConfig }) {
         </div>
       )}
 
-      {/* Image Gallery */}
+      {/* Image Gallery - COMMENTED OUT UNTIL IMAGES ARE ADDED
       {hasImages && (
         <div className="event-card-gallery">
           <div className="event-card-main-image" onClick={() => openLightbox(0)}>
@@ -158,6 +156,7 @@ export default function EventCard({ event, categoryConfig }) {
           )}
         </div>
       )}
+      */}
 
       {/* Timeline / Progression */}
       {hasTimeline && (
@@ -186,7 +185,7 @@ export default function EventCard({ event, categoryConfig }) {
         </div>
       )}
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal - COMMENTED OUT UNTIL IMAGES ARE ADDED
       {showLightbox && hasImages && (
         <div className="lightbox" onClick={closeLightbox} role="dialog" aria-modal="true">
           <button
@@ -224,6 +223,7 @@ export default function EventCard({ event, categoryConfig }) {
           </button>
         </div>
       )}
+      */}
     </div>
   );
 }
