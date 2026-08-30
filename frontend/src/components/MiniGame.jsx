@@ -9,6 +9,17 @@ const BASKET_WIDTH = 46;
 const BASKET_HEIGHT = 14;
 const MAX_MISSES = 3;
 
+// Color constants matching CSS variables
+const COLORS = {
+  ink: '#4a2e4a',      // var(--ink)
+  inkSoft: '#6a4a6a',  // var(--ink-soft)
+  mint: '#b8ecd6',     // var(--mint)
+  pink: '#ffd1e8',     // var(--pink)
+  accent: '#ff8fc0',   // var(--accent)
+  crumb: '#e46b6b',    // game-specific red for crumbs
+  bg: '#fffbfd',       // var(--window-bg)
+};
+
 export default function MiniGame() {
   const canvasRef = useRef(null);
   const stateRef = useRef(null);
@@ -102,15 +113,15 @@ export default function MiniGame() {
 
       // Clear with scaled dimensions
       ctx.clearRect(0, 0, BASE_WIDTH, BASE_HEIGHT);
-      ctx.fillStyle = '#fdeef7';
+      ctx.fillStyle = COLORS.bg;
       ctx.fillRect(0, 0, BASE_WIDTH, BASE_HEIGHT);
 
-      ctx.fillStyle = '#e46b6b';
+      ctx.fillStyle = COLORS.crumb;
       s.crumbs.forEach((c) => ctx.fillRect(c.x, c.y, 10, 10));
 
-      ctx.fillStyle = '#4a2e4a';
+      ctx.fillStyle = COLORS.ink;
       ctx.fillRect(s.basketX, BASE_HEIGHT - BASKET_HEIGHT - 8, BASKET_WIDTH, BASKET_HEIGHT);
-      ctx.fillStyle = '#8fd6c9';
+      ctx.fillStyle = COLORS.mint;
       ctx.fillRect(s.basketX + 3, BASE_HEIGHT - BASKET_HEIGHT - 5, BASKET_WIDTH - 6, BASKET_HEIGHT - 6);
 
       raf = requestAnimationFrame(loop);
@@ -144,10 +155,10 @@ export default function MiniGame() {
 
   return (
     <div ref={containerRef} style={{ textAlign: 'center', maxWidth: '100%' }}>
-      <p style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 13, margin: '0 0 12px' }}>
+      <p style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 13, margin: '0 0 12px', color: COLORS.ink }}>
         CRUMB QUEST
       </p>
-      <p style={{ margin: '0 0 12px' }}>
+      <p style={{ margin: '0 0 12px', color: COLORS.ink }}>
         Score: {score} &nbsp; Misses: {misses}/{MAX_MISSES}
       </p>
 
@@ -157,8 +168,8 @@ export default function MiniGame() {
           width={BASE_WIDTH}
           height={BASE_HEIGHT}
           style={{
-            border: '2px solid #4a2e4a',
-            background: '#fdeef7',
+            border: `2px solid ${COLORS.ink}`,
+            background: COLORS.bg,
             width: displayedWidth,
             maxWidth: '100%',
             height: 'auto',
@@ -169,7 +180,7 @@ export default function MiniGame() {
       {!running && (
         <div style={{ marginTop: 14 }}>
           {gameOver && (
-            <p style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 10, marginBottom: 10 }}>
+            <p style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 10, marginBottom: 10, color: COLORS.ink }}>
               GAME OVER — final score {score}
             </p>
           )}
@@ -190,7 +201,7 @@ export default function MiniGame() {
         </div>
       )}
 
-      <p style={{ marginTop: 12, fontSize: 15, color: '#6a4a6a' }}>
+      <p style={{ marginTop: 12, fontSize: 15, color: COLORS.inkSoft }}>
         Arrow keys / A-D to move, or use the buttons above on touch.
       </p>
     </div>
